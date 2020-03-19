@@ -161,7 +161,7 @@
         </form>
     </div>
 
-    <script>
+    <script defer>
         $(document).mousemove(function(event) {
             windowWidth = $(window).width();
             windowHeight = $(window).height();
