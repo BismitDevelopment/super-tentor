@@ -164,14 +164,14 @@
                     <strong>{{ $message }}</strong>
                 </span>
             @enderror
-            <input id="password" type="password" placeholder="Password" class="@error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-            <input type="text" name="username" placeholder="Username">
             <input id="email" placeholder="email" type="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
             @error('email')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
             @enderror
+            <input type="text" name="username" placeholder="Username">
+            <input id="password" type="password" placeholder="Password" class="@error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
             <button type="submit" class="">{{ __('Daftar') }}</button>
             <div class="d-flex flex-row align-items-center justify-content-center">
                 <span class="line"></span><h4>atau</h4><span class="line"></span>
@@ -180,7 +180,7 @@
         </form>
     </div>
 
-    <script>
+    <script defer>
         $(document).mousemove(function(event) {
             windowWidth = $(window).width();
             windowHeight = $(window).height();
