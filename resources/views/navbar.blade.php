@@ -16,8 +16,8 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Home</a>
+                        <li class="nav-item {{ Request::is('/*') ?  "active" : null }}">
+                            <a class="nav-link" href="{{ route('home') }}">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Keunggulan</a>
