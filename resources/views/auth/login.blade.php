@@ -48,7 +48,7 @@
             color: rgba(196, 196, 196, .9);
         }
 
-        input[type=text] {
+        input[type=email] {
             background-image: url(/img/profile-photo.svg);
             background-repeat:no-repeat;
             background-size: 1.3em;
@@ -140,15 +140,24 @@
 <body>
     <div class="login-body d-flex flex-column align-items-center">
         <h1>Login</h1>
-        <form class="d-flex flex-column align-items-center" action="/login" method="POST">
+        <form class="d-flex flex-column align-items-center" action="{{ route('login') }}" method="POST">
             @csrf
-            <input type="text" name="username" placeholder="Username">
+
+            <input id="email" type="email" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email" autofocus>
+            @error('email')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+
             <input id="password" type="password" placeholder="Password" class="@error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
             @if (Route::has('password.request'))
                 <a href="{{ route('password.request') }}">
                 {{ __('Lupa Kata Sandi?') }}
                 </a>
             @endif
+
+
             <button type="submit" class="">{{ __('Login') }}</button>
             <div class="d-flex flex-row align-items-center justify-content-center">
                 <span class="line"></span><h4>atau</h4><span class="line"></span>

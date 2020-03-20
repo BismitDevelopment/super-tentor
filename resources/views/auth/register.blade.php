@@ -158,21 +158,27 @@
         <h1>Daftar</h1>
         <form class="d-flex flex-column align-items-center" action="/register" method="POST">
             @csrf
+
             <input id="name" placeholder="Nama" type="text" class="@error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
             @error('name')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
             @enderror
+            
             <input id="email" placeholder="email" type="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
             @error('email')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
             @enderror
+            
             <input type="text" name="username" placeholder="Username">
+            
             <input id="password" type="password" placeholder="Password" class="@error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+            
             <button type="submit" class="">{{ __('Daftar') }}</button>
+            
             <div class="d-flex flex-row align-items-center justify-content-center">
                 <span class="line"></span><h4>atau</h4><span class="line"></span>
             </div>
