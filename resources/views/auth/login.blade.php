@@ -48,8 +48,8 @@
             color: rgba(196, 196, 196, .9);
         }
 
-        input[type=text] {
-            background-image: url(/img/profile-photo.svg);
+        input[name=email] {
+            background-image: url(/img/email.svg);
             background-repeat:no-repeat;
             background-size: 1.3em;
             background-position: 4% 50%;
@@ -140,9 +140,14 @@
 <body>
     <div class="login-body d-flex flex-column align-items-center">
         <h1>Login</h1>
-        <form class="d-flex flex-column align-items-center" action="/login" method="POST">
+        <form class="d-flex flex-column align-items-center" action="{{ route('login') }}" method="POST">
             @csrf
-            <input type="text" name="username" placeholder="Username">
+            <input id="email" placeholder="email" type="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+            @error('email')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
             <input id="password" type="password" placeholder="Password" class="@error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
             @if (Route::has('password.request'))
                 <a href="{{ route('password.request') }}">
