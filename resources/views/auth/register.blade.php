@@ -132,6 +132,14 @@
             margin: 0 .5em;
         }
 
+        .invalid-feedback {
+            display: none;
+            width: 100%;
+            margin-top: 0.25rem;
+            font-size: 80%;
+            color: #e3342f;
+        }
+
         @media (max-width: 576px) {
             form {
                 width: 60vw;
@@ -156,27 +164,22 @@
 <body>
     <div class="login-body d-flex flex-column align-items-center">
         <h1>Daftar</h1>
-        <form class="d-flex flex-column align-items-center" action="/register" method="POST">
+        <form class="d-flex flex-column align-items-center" action="{{ route('register') }}" method="POST">
             @csrf
-
-            <input id="name" placeholder="Nama" type="text" class="@error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-            @error('name')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-            
             <input id="email" placeholder="email" type="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
             @error('email')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
             @enderror
-            
-            <input type="text" name="username" placeholder="Username">
-            
+            <input type="text" name="name" placeholder="Username" required>
             <input id="password" type="password" placeholder="Password" class="@error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-            
+            @error('password')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+            <input placeholder ="Tulis Ulang Password" id="password-confirm" type="password" name="password_confirmation" required autocomplete="new-password">
             <button type="submit" class="">{{ __('Daftar') }}</button>
             
             <div class="d-flex flex-row align-items-center justify-content-center">
