@@ -1,11 +1,12 @@
 .nav-item {
+  font-family: "Montserrat", sans-serif !important;
   display: flex;
   align-items: center;
   margin-left: 1em;
 }
 
 .nav-item a {
-  font-weight: 700;
+  font-weight: 700 !important;
 }
 
 .rounded-pill {

@@ -1,9 +1,10 @@
 .nav-item {
+    font-family: 'Montserrat', sans-serif !important;
     display: flex;
     align-items: center;
     margin-left: 1em;
     a {
-        font-weight: 700;
+        font-weight: 700 !important;
     }
 }
 

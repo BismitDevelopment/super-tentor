@@ -1,4 +1,4 @@
-        <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/navbarLanding.css') }}">
         <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
             <div class="container-fluid">
                 <a class="navbar-brand py-1" href="{{ url('/') }}">
@@ -17,9 +17,9 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('home') }}">Home</a>
+                            <a class="nav-link" href="{{ route('welcome') }}">Home</a>
                         </li>
-                        @if (Request::is('home'))
+                        @if (Request::is('/'))
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Keunggulan</a>
                             </li>
@@ -41,7 +41,7 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown d-block">
+                            {{-- <li class="nav-item dropdown d-block">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
@@ -56,6 +56,9 @@
                                         @csrf
                                     </form>
                                 </div>
+                            </li> --}}
+                            <li class="nav-item mx-lg-5">
+                            <a class="nav-link" href="{{ route('home') }}">Dashbooard</a>
                             </li>
                         @endguest
                     </ul>
