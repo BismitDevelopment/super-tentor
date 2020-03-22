@@ -1,0 +1,24 @@
+.nav-item {
+    display: flex;
+    align-items: center;
+    margin-left: 1em;
+    a {
+        font-weight: 700;
+    }
+}
+
+.rounded-pill {
+    border: 4px solid #828282 !important;
+    &:hover {
+        border-color: rgba(0, 0, 0, 0.7) !important;
+    }
+}
+
+$breakpoint-lg: 992px;
+
+@media (max-width: $breakpoint-lg) {
+    .rounded-pill {
+        border: none !important;
+    }
+}
+
