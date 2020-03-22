@@ -1,7 +1,7 @@
         <link rel="stylesheet" href="{{ asset('css/navbarLanding.css') }}">
         <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
             <div class="container-fluid">
-                <a class="navbar-brand py-1" href="{{ url('/') }}">
+                <a class="navbar-brand py-1" href="{{ route('welcome') }}">
                     <img src="{{ asset('img/logo-nav.svg') }}" height="35" class="">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

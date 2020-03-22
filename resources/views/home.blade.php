@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('navbar')
+    @include('navbarDashboard')
+@endsection
 
 
 @section('content')
