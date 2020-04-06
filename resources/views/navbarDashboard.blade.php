@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="{{ asset('css/navbarDashboard.css') }}">
-<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow px-4">
     <div class="container-fluid">
         <a class="navbar-brand py-1 mx-0" onclick="openNav()">
             <img src="{{ asset('img/BurgerMenu.svg') }}" height="25" class="">
