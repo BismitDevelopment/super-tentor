@@ -10913,8 +10913,8 @@ body {
 }
 
 .sidenav .profile-picture {
-  height: 7em;
-  width: 7em;
+  height: 6em;
+  width: 6em;
   overflow: hidden;
 }
 
@@ -10937,12 +10937,18 @@ body {
   text-decoration: none !important;
 }
 
-main {
+.main {
+  transition: 0.4s ease-in-out;
   margin-left: 0;
 }
 
 .navShow {
   width: 20em !important;
+}
+
+.slideMain {
+  margin-left: 20em !important;
+  transition: 0.4s ease-in-out;
 }
 
 @media (max-width: 576px) {

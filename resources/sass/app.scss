@@ -37,8 +37,8 @@ body {
         font-size: 1.1em;
     }
     .profile-picture {
-        height: 7em;
-        width: 7em;
+        height: 6em;
+        width: 6em;
         overflow: hidden;
         
         img {
@@ -61,11 +61,17 @@ body {
     }
 
 }
-main {
+.main {
+    transition: .4s ease-in-out;
     margin-left: 0;
 }
 .navShow {
     width: 20em !important;
+}
+
+.slideMain {
+    margin-left: 20em !important;
+    transition: .4s ease-in-out;
 }
 
 $breakpoint-sm: 576px;

@@ -31,7 +31,7 @@
 </head>
 <body>
     @yield('navbar')
-    <div id="app">
+    <div id="app" class="main">
         <div id="mySidenav" class="sidenav d-flex flex-column align-items-center py-4">
             <div class="profile-picture">
                 <img src="{{ asset('img/Profile.jpg') }}" alt="" srcset="">
@@ -60,7 +60,7 @@
                 <img src="{{ asset('img/mdi_setting.svg') }}" alt="" srcset="" height="30" width="30">
                 <a class="ml-2" href="">Pengaturan</a>
             </div>
-            <div class="menu logout align-self-start pl-5 w-100 mt-5 d-flex align-items-center">
+            <div class="menu logout align-self-start pl-5 w-100 mt-3 d-flex align-items-center">
                 <img src="{{ asset('img/mdi_logout.svg') }}" alt="" srcset="" height="30" width="30">
                 <a class="ml-2" href="">Logout</a>
             </div>
