@@ -29,7 +29,7 @@
 <body>
     @yield('navbar')
     <div id="app">
-        <div id="mySidenav" class="sidenav d-flex flex-column align-items-center py-4 justify-content-between">
+        <div id="mySidenav" class="sidenav d-flex flex-column align-items-center py-4">
             <div class="profile-picture">
                 <img src="{{ asset('img/Profile.jpg') }}" alt="" srcset="">
             </div>

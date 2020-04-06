@@ -5,3 +5,47 @@
   height: 60px !important;
 }
 
+.navbar .navbar-brand:hover {
+  cursor: pointer;
+}
+
+.navbar .logo {
+  position: relative;
+  left: 3em;
+}
+
+.navbar .username {
+  font-weight: 600 !important;
+  color: #828282;
+}
+
+.navbar .username:hover {
+  color: #828282;
+  cursor: pointer;
+}
+
+.navbar .profile-picture {
+  height: 2.7em !important;
+  width: 2.7em !important;
+  overflow: hidden;
+}
+
+.navbar .profile-picture img {
+  height: 100% !important;
+  width: 100% !important;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+}
+
+@media (max-width: 576px) {
+  .navbar .username,
+  .navbar .profile-picture {
+    display: none;
+  }
+
+  .navbar .logo {
+    left: 0;
+  }
+}
+
