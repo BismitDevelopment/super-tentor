@@ -10909,7 +10909,7 @@ body {
 
 .sidenav .username {
   font-weight: 600 !important;
-  font-size: 1em;
+  font-size: 1.1em;
 }
 
 .sidenav .profile-picture {
@@ -10930,7 +10930,7 @@ body {
   color: #828282 !important;
   font-size: 1.4em;
   font-weight: 600 !important;
-  font-size: 1.1em;
+  font-size: 1.1em !important;
 }
 
 .sidenav .menu a:hover {

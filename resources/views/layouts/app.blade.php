@@ -53,7 +53,7 @@
                 <img src="{{ asset('img/mdi_lock.svg') }}" alt="" srcset="" height="30" width="30">
                 <a class="ml-2" href="">Tryout Nasional</a>
             </div>
-            <div class="menu align-self-start pl-5 w-100 mt-3 d-flex align-items-center">
+            <div class="menu align-self-start pl-5 w-100 mt-3 mb-5 d-flex align-items-center">
                 <img src="{{ asset('img/mdi_setting.svg') }}" alt="" srcset="" height="30" width="30">
                 <a class="ml-2" href="">Pengaturan</a>
             </div>

@@ -34,7 +34,7 @@ body {
     white-space: nowrap;
     .username {
         font-weight: 600 !important;
-        font-size: 1em;
+        font-size: 1.1em;
     }
     .profile-picture {
         height: 7em;
@@ -53,7 +53,7 @@ body {
             color: #828282 !important;
             font-size: 1.4em;
             font-weight: 600 !important;
-            font-size: 1.1em;
+            font-size: 1.1em !important;
             &:hover {
                 text-decoration: none !important;
             }
