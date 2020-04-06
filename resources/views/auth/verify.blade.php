@@ -3,7 +3,7 @@
 @extends('layouts.app')
 
 @section('navbar')
-@include('navbar')
+@include('navbarDashboard')
 @endsection
 
 <style>
