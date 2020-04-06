@@ -25,4 +25,9 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    //route for free tryout
+    public function tryout_free() {
+        return view('dashboard.tryoutFree');
+    }
 }
