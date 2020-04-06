@@ -1,5 +1,5 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700&display=swap');
 
 // Variables
 @import 'variables';
@@ -11,12 +11,17 @@
 
 * {
     font-family: 'Montserrat', sans-serif !important;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh !important;
 }
 
 // Navbar Menu
 
 .sidenav {
-    height: 100%;
+    height: calc(100vh - 60px);
     width: 0;
     position: fixed;
     z-index: 1;
@@ -24,12 +29,16 @@
     color: #828282 !important;
     background-color: #fff;
     overflow-x: hidden;
-    transition: 0.5s;
+    transition: 0.4s ease-in-out;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     white-space: nowrap;
+    .username {
+        font-weight: 600 !important;
+        font-size: 1em;
+    }
     .profile-picture {
-        height: 8em;
-        width: 8em;
+        height: 7em;
+        width: 7em;
         overflow: hidden;
         
         img {
@@ -43,21 +52,25 @@
         a {
             color: #828282 !important;
             font-size: 1.4em;
-            font-weight: 500 !important;
+            font-weight: 600 !important;
+            font-size: 1.1em;
             &:hover {
                 text-decoration: none !important;
             }
         }
     }
+
 }
 main {
     margin-left: 0;
 }
 .navShow {
-    width: 22em !important;
-}
-.slideMain {
-    margin-left: 22em !important;
-    transition: .5s;
+    width: 20em !important;
 }
 
+$breakpoint-sm: 576px;
+@media (max-width: $breakpoint-sm) {
+    .navShow {
+        width: 100vw !important;
+    }
+}
