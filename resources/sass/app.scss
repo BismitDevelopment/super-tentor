@@ -6,3 +6,58 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+// override font family
+
+* {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+// Navbar Menu
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    color: #828282 !important;
+    background-color: #fff;
+    overflow-x: hidden;
+    transition: 0.5s;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+    .profile-picture {
+        height: 8em;
+        width: 8em;
+        overflow: hidden;
+        
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+    }
+    .menu {
+        a {
+            color: #828282 !important;
+            font-size: 1.4em;
+            font-weight: 500 !important;
+            &:hover {
+                text-decoration: none !important;
+            }
+        }
+    }
+}
+main {
+    margin-left: 0;
+}
+.navShow {
+    width: 22em !important;
+}
+.slideMain {
+    margin-left: 22em !important;
+    transition: .5s;
+}
+

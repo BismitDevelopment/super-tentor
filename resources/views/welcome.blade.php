@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Super Tentor</title>
 
         <!-- Script -->
         <script src="{{ asset('js/app.js') }}" defer></script>
@@ -65,7 +65,7 @@
         </style>
     </head>
     <body>
-        @include('navbar')
+        @include('navbarLanding')
         <div class="flex-center position-ref full-height">
             <div class="content">
                 <div class="title m-b-md">
