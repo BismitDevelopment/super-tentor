@@ -154,6 +154,8 @@
                 {{ __('Lupa Kata Sandi?') }}
                 </a>
             @endif
+
+
             <button type="submit" class="">{{ __('Login') }}</button>
             <div class="d-flex flex-row align-items-center justify-content-center">
                 <span class="line"></span><h4>atau</h4><span class="line"></span>

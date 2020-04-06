@@ -30,4 +30,9 @@ class HomeController extends Controller
     public function tryout_free() {
         return view('dashboard.tryoutFree');
     }
+
+    public function tryouthome()
+    {
+        return view('dashboard.tryouthome');
+    }
 }

@@ -10886,10 +10886,15 @@ a.text-dark:focus {
 
 * {
   font-family: "Montserrat", sans-serif !important;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh !important;
 }
 
 .sidenav {
-  height: 100%;
+  height: calc(100vh - 60px);
   width: 0;
   position: fixed;
   z-index: 1;
@@ -10897,14 +10902,19 @@ a.text-dark:focus {
   color: #828282 !important;
   background-color: #fff;
   overflow-x: hidden;
-  transition: 0.5s;
+  transition: 0.4s ease-in-out;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   white-space: nowrap;
 }
 
+.sidenav .username {
+  font-weight: 600 !important;
+  font-size: 1.1em;
+}
+
 .sidenav .profile-picture {
-  height: 8em;
-  width: 8em;
+  height: 6em;
+  width: 6em;
   overflow: hidden;
 }
 
@@ -10919,24 +10929,32 @@ a.text-dark:focus {
 .sidenav .menu a {
   color: #828282 !important;
   font-size: 1.4em;
-  font-weight: 500 !important;
+  font-weight: 600 !important;
+  font-size: 1.1em !important;
 }
 
 .sidenav .menu a:hover {
   text-decoration: none !important;
 }
 
-main {
+.main {
+  transition: 0.4s ease-in-out;
   margin-left: 0;
   background: rgba(229, 229, 229, .3);
 }
 
 .navShow {
-  width: 22em !important;
+  width: 20em !important;
 }
 
 .slideMain {
-  margin-left: 22em !important;
-  transition: 0.5s;
+  margin-left: 20em !important;
+  transition: 0.4s ease-in-out;
+}
+
+@media (max-width: 576px) {
+  .navShow {
+    width: 100vw !important;
+  }
 }
 
