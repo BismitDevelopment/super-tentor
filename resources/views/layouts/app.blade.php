@@ -24,6 +24,9 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
+        body {
+            background-color: #f5f5f5 !important;
+        }
     </style>
 </head>
 <body>
@@ -43,7 +46,7 @@
             </div>
             <div class="menu align-self-start pl-5 w-100 mt-3 d-flex align-items-center">
                 <img src="{{ asset('img/mdi_assignment.svg') }}" alt="" srcset="" height="30" width="30">
-                <a class="ml-2" href="">Tryout Free</a>
+                <a class="ml-2" href="{{ route('tryouthome') }}">Tryout Free</a>
             </div>
             <div class="menu align-self-start pl-5 w-100 mt-3 d-flex align-items-center">
                 <img src="{{ asset('img/mdi_lock.svg') }}" alt="" srcset="" height="30" width="30">

@@ -49676,17 +49676,29 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/sass/tryouthome.scss":
+/*!****************************************!*\
+  !*** ./resources/sass/tryouthome.scss ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
-/*!***************************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/navbarLanding.scss ./resources/sass/navbarDashboard.scss ***!
-  \***************************************************************************************************************************************/
+/*!************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/navbarLanding.scss ./resources/sass/navbarDashboard.scss ./resources/sass/tryouthome.scss ***!
+  \************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! D:\bismit\Project\super-tentor\resources\js\app.js */"./resources/js/app.js");
 __webpack_require__(/*! D:\bismit\Project\super-tentor\resources\sass\app.scss */"./resources/sass/app.scss");
 __webpack_require__(/*! D:\bismit\Project\super-tentor\resources\sass\navbarLanding.scss */"./resources/sass/navbarLanding.scss");
-module.exports = __webpack_require__(/*! D:\bismit\Project\super-tentor\resources\sass\navbarDashboard.scss */"./resources/sass/navbarDashboard.scss");
+__webpack_require__(/*! D:\bismit\Project\super-tentor\resources\sass\navbarDashboard.scss */"./resources/sass/navbarDashboard.scss");
+module.exports = __webpack_require__(/*! D:\bismit\Project\super-tentor\resources\sass\tryouthome.scss */"./resources/sass/tryouthome.scss");
 
 
 /***/ })
