@@ -1,0 +1,20 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,600,700&display=swap);.card {
+  border-radius: 1em !important;
+}
+
+.card .card-body {
+  border: none !important;
+  font-family: "Montserrat", sans-serif !important;
+}
+
+.card .card-body h3,
+.card .card-body h5 {
+  font-weight: 600 !important;
+}
+
+.card .card-body .card-inside {
+  background-color: #e0e0e0;
+  border-radius: 2em;
+  border: 1px solid #c4c4c4 !important;
+}
+
