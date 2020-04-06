@@ -181,6 +181,7 @@
             @enderror
             <input placeholder ="Tulis Ulang Password" id="password-confirm" type="password" name="password_confirmation" required autocomplete="new-password">
             <button type="submit" class="">{{ __('Daftar') }}</button>
+            
             <div class="d-flex flex-row align-items-center justify-content-center">
                 <span class="line"></span><h4>atau</h4><span class="line"></span>
             </div>

@@ -58,7 +58,7 @@
                                 </div>
                             </li> --}}
                             <li class="nav-item mx-lg-5">
-                            <a class="nav-link" href="{{ route('home') }}">Dashbooard</a>
+                            <a class="nav-link" href="{{ route('home') }}">Dashboard</a>
                             </li>
                         @endguest
                     </ul>
