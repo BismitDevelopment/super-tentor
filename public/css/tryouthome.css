@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Montserrat:400,600,700&display=swap);.card {
+@import url(https://fonts.googleapis.com/css?family=Montserrat:500,600&display=swap);.card {
   border-radius: 1em !important;
 }
 
@@ -16,5 +16,31 @@
   background-color: #e0e0e0;
   border-radius: 2em;
   border: 1px solid #c4c4c4 !important;
+}
+
+.buttons .btn-yellow {
+  background-color: #E9D038;
+  color: white;
+  font-weight: 500 !important;
+  opacity: 0.8;
+  width: 8em;
+  border-radius: 0.7em;
+}
+
+.buttons .btn-yellow:hover {
+  opacity: 1;
+}
+
+.buttons .btn-green {
+  background-color: #67A69D;
+  color: white;
+  width: 8em;
+  font-weight: 500 !important;
+  opacity: 0.8;
+  border-radius: 0.7em;
+}
+
+.buttons .btn-green:hover {
+  opacity: 1;
 }
 
