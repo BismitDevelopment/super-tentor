@@ -10,7 +10,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card border-0">
-                <div class="card-body p-5 d-flex flex-column justify-content-center align-items-center">
+                <div class="card-body p-3 d-flex flex-column justify-content-center align-items-center">
                     <h3>Try Out Serentak 01 - SKD</h3>
                     <p class="text-center mt-3">Harap perhatikan! Saat ujian telah dimulai kamu dilarang keluar dari laman ujian atau kamu akan dinyatakan tidak lulus. Layaknya saat ujian CPNS oleh BKN kamu dilarang membuka buku atau mencari jawaban di Internet. Pengerjaan pertama yang akan dimasukan ke dalam peringkat nasional maka harap kerjakan semaksimal mungkin!
                     </p>
@@ -27,6 +27,12 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <div class="d-flex justify-content-center mt-3 buttons">
+                <a class="mx-2" href=""><button type="button" class="btn btn-yellow px-3">Kembali</button></a>
+                <a class="mx-2" href=""><button type="button" class="btn btn-green px-3">Mulai Quiz</button></a>
             </div>
         </div>
     </div>
