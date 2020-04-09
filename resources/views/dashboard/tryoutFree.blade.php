@@ -26,7 +26,7 @@
     border-radius: 10px;
     width: 100%;
     padding: 1.5em 3em;
-    margin: 1.5em 0;
+    margin: 1em 0;
   }
 
   .tryout-box img {
@@ -125,13 +125,12 @@
       <div class="header-underline"></div>
     </div>
 
-    {{-- Start for loop --}}
+    @foreach($tests as $test)
     <div id="custom-container">
       <div class="tryout-box d-flex align-items-center justify-content-between">
         <img src="/img/paper.svg" alt="">
-        {{-- Tryout Title --}}
         <div class="left d-flex align-items-center justify-content-between">
-          <h2 class="tryout-name">Try Out Serentak 01 - SKD</h2>
+          <h2 class="tryout-name">{{$test}}</h2>
           <div class="buttons">
             <a class="button" href="">Rangking</a>
             <a class="button" href="">Uji Tryout</a>
@@ -139,7 +138,7 @@
         </div>
       </div>
     </div>
-    {{-- End for loop --}}
+    @endforeach
   </div>
 @endsection
 @section('scripts')
