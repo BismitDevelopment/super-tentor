@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @include('navbarDashboard')
 <style>
-  .main {
+  .parent {
     margin: 0;
     padding: 0 4.5em;
     height: 100%;
@@ -77,13 +77,25 @@
     align-items: center;
   }
 
+  iframe.width-changed {
+    width: 100%;
+    display: block;
+    border: 0;
+    height: 0;
+    margin: 0;
+  }
+
+  #custom-container {
+    width: 100%;
+  }
+
   @media (max-width: 992px) {
     .buttons a {
       margin: 0 .5em;
     }
   }
 
-  @media (max-width: 920px) {
+  @media (max-width: 930px) {
     .left {
       flex-direction: column;
     }
@@ -100,31 +112,135 @@
   }
 
   @media (max-width: 420px) {
-    .main {
+    .parent {
       font-size: .5em;
     }
   }
 </style>
 
 @section('content')
-  <div class="main d-flex flex-column align-items-start">
+  <div class="parent d-flex flex-column align-items-start">
     <div class="d-flex flex-column align-items-center">
       <h1 class="page-header">Tryout Free</h1>
       <div class="header-underline"></div>
     </div>
 
     {{-- Start for loop --}}
-    <div class="tryout-box d-flex align-items-center justify-content-between">
-      <img src="/img/paper.svg" alt="">
-      {{-- Tryout Title --}}
-      <div class="left d-flex align-items-center justify-content-between">
-        <h2 class="tryout-name">Try Out Serentak 01 - SKD</h2>
-        <div class="buttons">
-          <a href="">Rangking</a>
-          <a href="">Uji Tryout</a>
+    <div id="custom-container">
+      <div class="tryout-box d-flex align-items-center justify-content-between">
+        <img src="/img/paper.svg" alt="">
+        {{-- Tryout Title --}}
+        <div class="left d-flex align-items-center justify-content-between">
+          <h2 class="tryout-name">Try Out Serentak 01 - SKD</h2>
+          <div class="buttons">
+            <a class="button" href="">Rangking</a>
+            <a class="button" href="">Uji Tryout</a>
+          </div>
         </div>
       </div>
     </div>
     {{-- End for loop --}}
   </div>
+@endsection
+@section('scripts')
+<script>
+  console.log("connected!")
+  $.event.special.widthChanged = {
+        remove: function() {
+            $(this).children('iframe.width-changed').remove();
+        },
+        add: function () {
+            var elm = $(this);
+            var iframe = elm.children('iframe.width-changed');
+            if (!iframe.length) {
+                iframe = $('<iframe/>').addClass('width-changed').prependTo(this);
+            }
+            var oldWidth = elm.width();
+            function elmResized() {
+                var width = elm.width();
+                if (oldWidth != width) {
+                    elm.trigger('widthChanged', [width, oldWidth]);
+                    oldWidth = width;
+                }
+            }
+
+            var timer = 0;
+            var ielm = iframe[0];
+            (ielm.contentWindow || ielm).onresize = function() {
+                clearTimeout(timer);
+                timer = setTimeout(elmResized, 20);
+            };
+        }
+    }
+
+    $('#custom-container').on('widthChanged',function(){
+        const width = $(this).width();
+        if (width <= 420) {
+          $(".parent").css({
+            "font-size": ".5em"
+          })
+
+          $(".left").css({
+            "flex-direction": "column"
+          })
+        }
+
+        else if (width <= 930) {
+          $(".parent").css({
+            "font-size": "1em",
+          })
+
+          $(".left").css({
+            "flex-direction": "column"
+          })
+          $(".button").css({
+            "font-size" : "1.2em",
+            "padding": ".5em 1em",
+            "margin" : "0 .2em"
+          })
+          $(".buttons").css({
+            "margin-top": "1em"
+          })
+        } 
+
+        else if (width <= 992) {
+          $(".button").css({
+            "margin": "0 .5em",
+          })
+
+          $(".left").css({
+            "flex-direction": "row",
+          })
+
+        } else {
+          $(".button").css({
+            "color": "white",
+            "font-weight": "600",
+            "font-size": "1.2em",
+            "padding": ".5em 1.5em",
+            "border-radius": ".6em",
+            "margin": "0 .8em"
+          }) 
+
+          $(".buttons").css({
+            "margin-top": "0"
+          })
+
+          $(".parent").css({
+            "margin": "0",
+            "padding": "0 4.5em",
+            "height": "100%",
+            "font-size": "1em",
+          }) 
+
+          $(".left").css({
+            "width": "100%",
+            "display": "flex",
+            "justify-content": "space-between",
+            "align-items": "center",
+            "flex-direction": "row",
+          }) 
+        }
+    });
+</script>
 @endsection

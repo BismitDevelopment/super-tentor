@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
     <script
     src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
@@ -62,12 +62,18 @@
             </div>
             <div class="menu logout align-self-start pl-5 w-100 mt-3 d-flex align-items-center">
                 <img src="{{ asset('img/mdi_logout.svg') }}" alt="" srcset="" height="30" width="30">
-                <a class="ml-2" href="">Logout</a>
+                {{-- <a class="ml-2" href="">Logout</a> --}}
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit">Logout</button>
+                </form>
             </div>
         </div>  
         <main class="py-4">
             @yield('content')
         </main>
     </div>
+
+    @yield('scripts')
 </body>
 </html>
