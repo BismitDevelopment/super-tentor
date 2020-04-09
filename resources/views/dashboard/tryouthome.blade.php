@@ -31,7 +31,7 @@
         </div>
         <div class="col-md-10">
             <div class="d-flex justify-content-center mt-3 buttons">
-                <a class="mx-2" href=""><button type="button" class="btn btn-yellow px-3">Kembali</button></a>
+                <a class="mx-2" href="{{ route('tryout-free') }}"><button type="button" class="btn btn-yellow px-3">Kembali</button></a>
                 <a class="mx-2" href=""><button type="button" class="btn btn-green px-3">Mulai Quiz</button></a>
             </div>
         </div>
