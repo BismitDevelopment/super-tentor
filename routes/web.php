@@ -18,7 +18,8 @@ Route::get('/', function () {
 Auth::routes(['verify'=>true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/home/tryouthome', 'HomeController@tryouthome')->name('tryouthome');
+Route::get('/tryout-free', 'HomeController@tryout_free')->name('tryout-free');
+Route::get('/tryouthome', 'HomeController@tryouthome')->name('tryouthome');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

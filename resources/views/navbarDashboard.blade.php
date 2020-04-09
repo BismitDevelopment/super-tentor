@@ -17,6 +17,7 @@
     function openNav() {
         document.getElementById("mySidenav").classList.toggle('navShow');
         document.getElementById("app").classList.toggle('slideMain');
+        document.querySelector("main").classList.toggle('hideMain');
     }
 </script>
 
