@@ -31,8 +31,8 @@
 </head>
 <body>
     @yield('navbar')
-    <div id="app" class="main">
-        <div id="mySidenav" class="sidenav d-flex flex-column align-items-center py-4">
+    <div id="app" class="main slideMain">
+        <div id="mySidenav" class="navShow sidenav d-flex flex-column align-items-center py-4">
             <div class="profile-picture">
                 <img src="{{ asset('img/Profile.jpg') }}" alt="" srcset="">
             </div>
@@ -69,7 +69,7 @@
                 </form>
             </div>
         </div>  
-        <main class="py-4">
+        <main class="py-4 hideMain">
             @yield('content')
         </main>
     </div>
