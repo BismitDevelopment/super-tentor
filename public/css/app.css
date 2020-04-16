@@ -10973,5 +10973,9 @@ button.logout:hover {
   .navShow {
     width: 100vw !important;
   }
+
+  .hideMain {
+    display: none !important;
+  }
 }
 

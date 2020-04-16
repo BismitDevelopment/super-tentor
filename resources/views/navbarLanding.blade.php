@@ -1,12 +1,12 @@
         <link rel="stylesheet" href="{{ asset('css/navbarLanding.css') }}">
         <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
-            <a class="navbar-brand py-1" href="{{ route('welcome') }}">
+            <a class="navbar-brand py-1 col-md-2 col-8" href="{{ route('welcome') }}">
                 <img src="{{ asset('img/logo-nav.svg') }}">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse col-md-9" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse col-md-10" id="navbarSupportedContent">
                 <div class="col-9">
                     <ul class="navbar-nav d-flex justify-content-center">
                         <li class="nav-item px-3">

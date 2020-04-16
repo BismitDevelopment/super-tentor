@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500,600&display=swap');
+
+body {
+    font-family: "Montserrat", sans-serif;
+}
+
+.wrapper {
+    padding: 1rem 3rem 0 3rem !important;
+}
+
+.title {    
+    h3, h5 {
+        font-weight: 600 !important;
+    }
+}
+
+.menus {
+    position: relative;
+    z-index: 2;
+   .menu {
+       padding: .6rem 3rem !important;
+       margin-right: .1rem !important;
+       background-color: white;
+       h4 {
+           margin: 0 !important;
+           font-weight: 500 !important;
+       }
+   }
+}
+
+.soal {
+    .box {
+        padding: 2rem;
+        border-top: none !important;
+        border-left: none !important;
+        h4 {
+            margin: 0 !important;
+        }
+        .tandai {
+            color: #EB5757 !important;
+        }
+    }
+}
+
+.nomor {
+    h5 {
+        font-weight: 600 !important;
+    }
+    .angka {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr !important;
+        gap: 5px !important;
+        div {
+            border-radius: .3rem !important;
+            font-size: 1.2rem !important;
+            background-color: #f2f2f2 !important;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 600 !important;
+            &::before {
+                content: "" !important;
+                padding-bottom: 100% !important;
+                display: inline-block !important;
+                vertical-align: top !important;
+            }
+        }
+    }
+    .button-tipe {
+        border-radius: .5rem !important;
+        background-color: #67A69D;
+        color: #fff !important;
+        font-weight: 600 !important;
+    }
+}
+
+.button-kembali, .button-selanjutnya {
+    color: white !important;
+    border-radius: .5rem !important;
+    font-weight: 600 !important;
+}
+
+.button-kembali {
+    background-color: #E9D038;
+}
+
+.button-selanjutnya {
+    background-color: #67A69D;
+}
