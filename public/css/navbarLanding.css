@@ -1,8 +1,16 @@
+.navbar {
+  padding-left: 5rem !important;
+  padding-right: 5rem !important;
+}
+
+.navbar img {
+  height: 2.4rem;
+}
+
 .nav-item {
   font-family: "Montserrat", sans-serif !important;
   display: flex;
   align-items: center;
-  margin-left: 1em;
 }
 
 .nav-item a {
@@ -17,9 +25,42 @@
   border-color: rgba(0, 0, 0, 0.7) !important;
 }
 
-@media (max-width: 992px) {
-  .rounded-pill {
-    border: none !important;
+a.nav-link {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+a.nav-link:hover {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.register a {
+  color: #FFC839;
+  border-color: #FFC839 !important;
+}
+
+.register a:hover {
+  color: #dfa000 !important;
+  border-color: #dfa000 !important;
+}
+
+@media (max-width: 768px) {
+  .navbar-center {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+
+  .navbar img {
+    height: 1.5rem;
+  }
+
+  .navbar .register a {
+    font-size: 0.7rem !important;
   }
 }
 
