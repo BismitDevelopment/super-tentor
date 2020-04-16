@@ -44,23 +44,37 @@ a.nav-link:hover {
 }
 
 @media (max-width: 768px) {
-  .navbar-center {
-    display: none;
+  .navbar-collapse {
+    padding-top: 1rem !important;
+  }
+
+  .nav-item {
+    padding-left: 0 !important;
+  }
+
+  .nav-link {
+    padding-left: 0 !important;
+  }
+
+  .nav-auth {
+    justify-content: flex-start !important;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav-auth .daftar {
+    border: none !important;
   }
 }
 
 @media (max-width: 576px) {
   .navbar {
-    padding-left: 0.5rem !important;
-    padding-right: 0.5rem !important;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
   }
 
   .navbar img {
-    height: 1.5rem;
-  }
-
-  .navbar .register a {
-    font-size: 0.7rem !important;
+    height: 2rem;
   }
 }
 
