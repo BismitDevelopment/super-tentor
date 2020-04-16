@@ -1,15 +1,13 @@
         <link rel="stylesheet" href="{{ asset('css/navbarLanding.css') }}">
-        <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white shadow-sm">
-            <div class="col-7 col-md-3">
-                <a class="navbar-brand py-1" href="{{ route('welcome') }}">
-                    <img src="{{ asset('img/logo-nav.svg') }}">
-                </a>
-            </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+            <a class="navbar-brand py-1" href="{{ route('welcome') }}">
+                <img src="{{ asset('img/logo-nav.svg') }}">
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse col-md-9" id="navbarSupportedContent">
-                <div class="col-8">
+                <div class="col-9">
                     <ul class="navbar-nav d-flex justify-content-center">
                         <li class="nav-item px-3">
                             <a class="nav-link" href="{{ route('welcome') }}">Home</a>
@@ -27,7 +25,7 @@
                         @endif
                     </ul>
                 </div>
-                <div class="col-md-4 d-flex justify-content-end nav-auth">
+                <div class="col-md-3 d-flex justify-content-end nav-auth">
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item">

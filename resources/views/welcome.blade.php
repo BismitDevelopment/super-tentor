@@ -11,72 +11,246 @@
 
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Montserrat', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+        <link rel="stylesheet" href="css/landing.css">
 
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
     </head>
     <body>
         @include('navbarLanding')
-        <div class="flex-center position-ref full-height">
-            <div class="content">
-                <div class="title m-b-md">
-                    Super Tentor
+        <div class="main-landing container-fluid">
+            <!-- Page 1 -->
+            <div class="page-1 row">
+                <div class="left col-12 col-lg-6 d-flex justify-content-center justify-content-lg-end">
+                    <img id="blogging" src="/img/svg-landing/blogging.svg" alt="">
                 </div>
-
-                <div>
-                    <p>Tempat Pendaftaran CPNS terbaik</p>
+                <div class="right col-12 col-lg-6 d-flex justify-content-center">
+                    <div>
+                        <h1 class="title">Media Tentor Online Terbaik di Indonesia!</h1>
+                        <h2 class="title-desc">Ingin Masuk & Lulus Tes CPNS, SBMPTN atau PKN STAN 2020?</h2>
+                        <div class="button-container">
+                            <a href="{{ route('register') }}" class="rounded-btn">Daftar Sekarang</a>
+                        </div>
+                    </div>
                 </div>
+            </div>
 
+            <!-- Page 2 -->
+            <div class="page-2 d-flex flex-column align-items-center">
+                <div class="header">
+                    <small>KEUNGGULAN</small>
+                    <h1 class="title">Kenapa SuperTentor</h1>
+                </div>
+                <div class="card-container">
+                    @foreach($keunggulan_data as $data)
+                        <div class="card">
+                            <img src={{$data['img']}} alt="">
+                            <h3>{{$data['title']}}</h3>
+                            <p>{{$data['content']}}</p>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+
+            <!-- Page 3 -->
+            <div class="page-3">
+                <div class="svg d-flex justify-content-between">
+                    <img id="page-3-svg-1" src="/img/svg-landing/page-3-svg-1.svg" alt="">
+                    <img id="page-3-svg-2" src="/img/svg-landing/page-3-svg-2.svg" alt="">
+                </div>
+                <div class="header">
+                    <small>PROGRAM</small>
+                    <h1 class="title">Pembelajaran sesuai pilihan</h1>
+                </div>
+                <div class="card-container">
+                    <div class="program-card">
+                        <div class="card-header">TENTOR SKD CPNS</div>
+                        <div class="card-body">
+                            <ul>
+                                @foreach($program_data[0] as $data)
+                                    <li><img src="/img/svg-landing/dot.svg" alt=""><span>{{$data}}</span></li>
+                                @endforeach
+                            </ul>
+                            <div class="card-bottom">
+                                <a href="" class="rounded-btn">Daftar Sekarang</a>
+                                <small>atau <a href="">Coba gratis</a></small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="program-card">
+                        <div class="card-header">TENTOR SBMPTN/UTBK</div>
+                        <div class="card-body">
+                            <ul>
+                                @foreach($program_data[1] as $data)
+                                    <li><img src="/img/svg-landing/dot.svg" alt="">{{$data}}</li>
+                                @endforeach
+                            </ul>
+                            <div class="card-bottom">
+                                <a class="rounded-btn disabled" disabled>Coming Soon</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="program-card">
+                        <div class="card-header">TENTOR SPMB STAN</div>
+                        <div class="card-body">
+                            <ul>
+                                @foreach($program_data[2] as $data)
+                                    <li><img src="/img/svg-landing/dot.svg" alt="">{{$data}}</li>
+                                @endforeach
+                            </ul>
+                            <div class="card-bottom">
+                                <a class="rounded-btn disabled">Coming Soon</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page 4 -->
+            <div class="page-4">
+                <div class="svg d-flex justify-content-between">
+                    <img id="page-4-left" src="/img/svg-landing/page-4-left.svg" alt="">
+                    <img id="page-4-right" src="/img/svg-landing/page-4-right.svg" alt="">
+                </div>
+                <div class="header">
+                    <small>TESTIMONIAL</small>
+                    <h1 class="title">Apa yang mereka katakan tentang kita</h1>
+                </div>
+                <div class="carousel-container">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="carousel-card">
+                                    <div class="profile-pic">
+                                        <img class="" src={{$carousel_data[0]['img_link']}} alt="">
+                                    </div>
+                                    <p>{{$carousel_data[0]['message']}}</p>
+                                    <h4 class="name">{{$carousel_data[0]['name'] .', '. $carousel_data[0]['age']}}</h4>
+                                    <h5>{{$carousel_data[0]['kantor']}}</h5>
+                                </div>
+                            </div>
+                            @foreach(array_slice($carousel_data, 1) as $data)
+                                <div class="carousel-item">
+                                    <div class="carousel-card">
+                                        <div class="profile-pic">
+                                            <img class="" src="{{$data['img_link']}}" alt="">
+                                        </div>
+                                        <p>{{$data['message']}}</p>
+                                        <h4 class="name">{{$data['name'] .', '. $data['age']}}</h4>
+                                        <h5>{{$carousel_data[0]['kantor']}}</h5>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                            <img src="/img/svg-landing/left-arrow.svg" alt="">
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                            <img src="/img/svg-landing/right-arrow.svg" alt="">
+                          <span class="sr-only">Next</span>
+                        </a>
+                      </div>
+                </div>
+            </div>
+
+            <!-- Page 5 -->
+            <div class="page-5">
+                <div class="header">
+                    <small>FAQ</small>
+                    <h1 class="title">kami siapkan beberapa hal untuk memulai</h1>
+                </div>
+                <div class="info-container container-fluid">
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            @foreach(array_slice($faq_data, 0, count($faq_data)/2 + 1) as $data)
+                                <div class="info-card">
+                                    <button class="accordion"><img src="/img/svg-landing/arrow-down.svg" alt=""></button>
+                                    <div class="info-card-body">
+                                        <h1>{{$data['title']}}</h1>
+                                        <p class="panel">{{$data['description']}}</p>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                        <div class="col-12 col-md-6">
+                            @foreach(array_slice($faq_data, count($faq_data)/2 + 1) as $data)
+                                <div class="info-card">
+                                    <button class="accordion"><img src="/img/svg-landing/arrow-down.svg" alt=""></button>
+                                    <div class="info-card-body">
+                                        <h1>{{$data['title']}}</h1>
+                                        <p class="panel">{{$data['description']}}</p>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page 6 -->
+            <div class="page-6 d-flex flex-column align-items-center">
+                <div class="footer-container">
+                    <div class="register-bar">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h3>Belajar sekarang juga!</h3>
+                            <a href="/register">Daftar Sekarang</a>
+                        </div>
+                    </div>
+                    <div class="bottom-footer container-fluid">
+                        <div class="row">
+                            <div class="col-12 col-lg-2 d-none d-lg-flex justify-content-center">
+                                <img class="logo" src="/img/svg-landing/logo-white.svg" alt="">
+                            </div>
+                            <div class="col-12 col-lg-5 d-flex contact-info justify-content-center">
+                                <div class="contact-list">
+                                    <h4>Contact</h4>
+                                    <div><img src="/img/svg-landing/whatsapp.svg" alt="">0851-5633-2836</div>
+                                    <div><img src="/img/svg-landing/instagram.svg" alt="">@supertentor_</div>
+                                    <div><img src="/img/svg-landing/line.svg" alt="">@supertentor</div>
+                                </div>
+                                <div>
+                                    <h4>Navigasi</h4>
+                                    <h5>Home</h5>
+                                    <h5>Produk</h5>
+                                    <h5>Program</h5>
+                                    <h5>Event</h5>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-5 d-flex flex-column align-items-center form-container">
+                                <h4>Silahkan Isi form di bawah Ini, admin kami akan segera menghubungi anda.</h4>
+                                <form action="" class="d-flex flex-column align-items-center">
+                                    @csrf
+                                    <input type="text" placeholder="Nama Lengkap">
+                                    <input type="text" placeholder="Email / No WA">
+                                    <button>Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </body>
+    <script defer>
+        let acc = document.getElementsByClassName("accordion");
+        let panelList = document.getElementsByClassName("panel");
+        for (let i = 0; i < acc.length; i++) {
+            let panel = panelList[i];
+            panel.style.display = "none";
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active-btn");
+                if (panel.style.display === "block") {
+                panel.style.display = "none";
+                } else {
+                panel.style.display = "block";
+                }
+            });
+        }
+    </script>
 </html>
