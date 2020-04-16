@@ -12,7 +12,53 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', [
+        'carousel_data' => [
+            [
+                'name' => 'Huda',
+                'age' => 20,
+                'message' => '“SuperTentor adalah program bimbingan untuk CPNS. Gue sekarang suka makan indomie rebus bungkus”',
+                'kantor' => 'KEMENKES',
+                'img_link' => '/img/profile.jpg'
+            ],
+            [
+                'name' => 'Huda',
+                'age' => 20,
+                'message' => '“SuperTentor adalah program bimbingan untuk CPNS. Gue sekarang suka makan indomie rebus bungkus”',
+                'kantor' => 'KEMENKES',
+                'img_link' => '/img/profile.jpg'
+            ],
+            [
+                'name' => 'Huda',
+                'age' => 20,
+                'message' => '“SuperTentor adalah program bimbingan untuk CPNS. Gue sekarang suka makan indomie rebus bungkus”',
+                'kantor' => 'KEMENKES',
+                'img_link' => '/img/profile.jpg'
+            ],
+        ],
+        'info_data' => [
+            [
+                'title' => 'Siapa yang cocok Ikut Bimbingan SuperTentor?',
+                'description' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+            ],
+            [
+                'title' => 'Siapa yang cocok Ikut Bimbingan SuperTentor?',
+                'description' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+            ],
+            [
+                'title' => 'Siapa yang cocok Ikut Bimbingan SuperTentor?',
+                'description' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+            ],
+            [
+                'title' => 'Siapa yang cocok Ikut Bimbingan SuperTentor?',
+                'description' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+            ],
+            [
+                'title' => 'Siapa yang cocok Ikut Bimbingan SuperTentor?',
+                'description' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+            ],
+        ]
+    ]);
 })->name('welcome');
 
 Auth::routes(['verify'=>true]);

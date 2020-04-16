@@ -10,7 +10,8 @@
 }
 
 .rounded-pill {
-  border: 4px solid #828282 !important;
+  border: 4px solid #E9D038 !important;
+  color: #FFC839 !important;
 }
 
 .rounded-pill:hover {

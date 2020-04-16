@@ -1,5 +1,5 @@
         <link rel="stylesheet" href="{{ asset('css/navbarLanding.css') }}">
-        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
             <div class="container-fluid">
                 <a class="navbar-brand py-1" href="{{ route('welcome') }}">
                     <img src="{{ asset('img/logo-nav.svg') }}" height="35" class="">
