@@ -15,10 +15,8 @@ body {
 }
 
 .menus {
-    position: relative;
     z-index: 2;
    .menu {
-       padding: .6rem 3rem !important;
        margin-right: .1rem !important;
        background-color: white;
        h4 {
@@ -30,7 +28,7 @@ body {
 
 .soal {
     .box {
-        padding: 2rem;
+        padding: 3em;
         border-top: none !important;
         border-left: none !important;
         h4 {
@@ -40,17 +38,22 @@ body {
             color: #EB5757 !important;
         }
     }
+    .box-kiri {
+        min-width: 50vw !important;
+    }
 }
 
 .nomor {
+    align-self: flex-start;
     h5 {
         font-weight: 600 !important;
     }
     .angka {
         display: grid !important;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr !important;
-        gap: 5px !important;
+        grid-template-columns: repeat(5, 1fr);
+        gap: .5em;
         div {
+            padding: .3em;
             border-radius: .3rem !important;
             font-size: 1.2rem !important;
             background-color: #f2f2f2 !important;
@@ -86,4 +89,31 @@ body {
 
 .button-selanjutnya {
     background-color: #67A69D;
+}
+
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+
+@media (max-width: $breakpoint-md) {
+    .menu {
+        h4 {
+            font-size: 1rem !important;
+        }
+    }
+    .soal {
+        .box-kiri {
+            margin-right: 0 !important;
+            margin-bottom: .5rem !important;
+        }
+    }
+}
+
+@media (max-width: $breakpoint-md) {
+}
+
+@media (max-width: $breakpoint-sm) {
+    .wrapper {
+        padding: 1rem 1rem 0 1rem !important;
+    }    
 }

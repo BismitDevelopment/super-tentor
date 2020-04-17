@@ -25,7 +25,7 @@ a:hover {
 }
 
 .sidenav {
-    height: calc(100vh - 60px);
+    min-height: calc(100vh - 60px);
     width: 0;
     position: fixed;
     z-index: 1;
@@ -41,8 +41,8 @@ a:hover {
         font-size: 1.1em;
     }
     .profile-picture {
-        height: 6em;
-        width: 6em;
+        height: 6em !important;
+        width: 6em !important;
         overflow: hidden;
         
         img {
@@ -93,10 +93,18 @@ button.logout {
 
 $breakpoint-sm: 576px;
 @media (max-width: $breakpoint-sm) {
+    body {
+        font-size: 12px !important;
+    }
     .navShow {
         width: 100vw !important;
     }
     .hideMain {
         display: none !important;
+    }
+    .menu {
+        img {
+            height: 20px !important;
+        }
     }
 }

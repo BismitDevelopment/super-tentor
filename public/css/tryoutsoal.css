@@ -12,12 +12,10 @@
 }
 
 .menus {
-  position: relative;
   z-index: 2;
 }
 
 .menus .menu {
-  padding: 0.6rem 3rem !important;
   margin-right: 0.1rem !important;
   background-color: white;
 }
@@ -28,7 +26,7 @@
 }
 
 .soal .box {
-  padding: 2rem;
+  padding: 3em;
   border-top: none !important;
   border-left: none !important;
 }
@@ -41,17 +39,26 @@
   color: #EB5757 !important;
 }
 
+.soal .box-kiri {
+  min-width: 50vw !important;
+}
+
+.nomor {
+  align-self: flex-start;
+}
+
 .nomor h5 {
   font-weight: 600 !important;
 }
 
 .nomor .angka {
   display: grid !important;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr !important;
-  gap: 5px !important;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5em;
 }
 
 .nomor .angka div {
+  padding: 0.3em;
   border-radius: 0.3rem !important;
   font-size: 1.2rem !important;
   background-color: #f2f2f2 !important;
@@ -88,5 +95,22 @@
 
 .button-selanjutnya {
   background-color: #67A69D;
+}
+
+@media (max-width: 768px) {
+  .menu h4 {
+    font-size: 1rem !important;
+  }
+
+  .soal .box-kiri {
+    margin-right: 0 !important;
+    margin-bottom: 0.5rem !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .wrapper {
+    padding: 1rem 1rem 0 1rem !important;
+  }
 }
 
