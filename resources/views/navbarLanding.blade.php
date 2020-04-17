@@ -37,7 +37,7 @@
                             </li>
                         @endif
                     @else
-                        <li class="nav-item d-flex justify-content-end">
+                        <li class="nav-item d-flex justify-content-start justify-content-lg-end">
                             <a class="nav-link" href="{{ route('home') }}">Dashboard</a>
                         </li>
                     @endguest

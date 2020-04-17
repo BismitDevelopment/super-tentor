@@ -75,5 +75,20 @@
     </div>
 
     @yield('scripts')
+    <script>
+        if (screen.width <= 576) {
+            $(document).ready(function() {
+                $("#mySidenav").removeClass('navShow');
+                $("#app").removeClass('slideMain');
+                $("main").removeClass('hideMain');
+                $("#app").removeClass('hideContent');
+            })
+        }
+        function openNav() {
+            document.getElementById("mySidenav").classList.toggle('navShow');
+            document.getElementById("app").classList.toggle('slideMain');
+            document.querySelector("main").classList.toggle('hideMain');
+        }
+    </script>    
 </body>
 </html>

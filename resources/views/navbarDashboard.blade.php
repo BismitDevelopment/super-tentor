@@ -16,24 +16,4 @@
         </a>
     </div>
 </nav>
-<script
-src="https://code.jquery.com/jquery-3.4.1.min.js"
-integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-crossorigin="anonymous">
-</link>
-<script>
-    if (screen.width <= 576) {
-        $(document).ready(function() {
-            $("#mySidenav").removeClass('navShow');
-            $("#app").removeClass('slideMain');
-            $("main").removeClass('hideMain');
-            $("#app").removeClass('hideContent');
-        })
-    }
-    function openNav() {
-        document.getElementById("mySidenav").classList.toggle('navShow');
-        document.getElementById("app").classList.toggle('slideMain');
-        document.querySelector("main").classList.toggle('hideMain');
-    }
-</script>
 
