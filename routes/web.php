@@ -17,8 +17,20 @@ Route::get('/', function () {
 
 Auth::routes(['verify'=>true]);
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/home/tryouthome', 'HomeController@tryouthome')->name('tryouthome');
+
+Route::prefix('home')->group(function(){
+    
+    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('tryouthome', 'HomeController@tryouthome')->name('tryouthome');
+
+    Route::prefix('tryouts')->group( function(){
+        Route::get('free', 'TryoutController@indexFree')->name('home.tryouts.free');
+        Route::get('premium', 'TryoutController@indexPremium')->name('home.tryouts.premium');
+        Route::get('nasional', 'TryoutController@indexNasional')->name('home.tryouts.nasional');
+    });
+});
+
+
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

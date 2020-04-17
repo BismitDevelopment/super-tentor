@@ -69,9 +69,9 @@
                 </form>
             </div>
         </div>  
-        <main class="py-4">
+        <div class="py-4">
             @yield('content')
-        </main>
+        </div>
     </div>
 </body>
 </html>
