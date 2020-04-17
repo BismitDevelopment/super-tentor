@@ -65,7 +65,7 @@
                 {{-- <a class="ml-2" href="">Logout</a> --}}
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
-                    <button type="submit">Logout</button>
+                    <button class="ml-2 logout" type="submit">Logout</>
                 </form>
             </div>
         </div>  
