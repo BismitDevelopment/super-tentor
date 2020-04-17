@@ -66,10 +66,12 @@ a:hover {
     }
 
 }
+
 .main {
     transition: .4s ease-in-out;
     margin-left: 0;
 }
+
 .navShow {
     width: 20em !important;
 }
@@ -103,8 +105,11 @@ $breakpoint-sm: 576px;
         display: none !important;
     }
     .menu {
-        img {
+        img {   
             height: 20px !important;
         }
+    }
+    .hideContent {
+        display: none !important;
     }
 }

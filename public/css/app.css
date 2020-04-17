@@ -10985,5 +10985,9 @@ button.logout:hover {
   .menu img {
     height: 20px !important;
   }
+
+  .hideContent {
+    display: none !important;
+  }
 }
 
