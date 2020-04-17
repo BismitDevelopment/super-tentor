@@ -50,6 +50,11 @@ $welcome_page_data = [
           'GRUP EKSKLUSIF TENTORING', 
           'SIMULASI UPDATE SOAL HOTS!'
       ],
+      'title' => [
+          'TENTOR SKD CPNS',
+          'TENTOR SBMPTN/UTBK',
+          'TENTOR SPMB STAN',
+      ]
       
   ],
   'carousel_data' => [

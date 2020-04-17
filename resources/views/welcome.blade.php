@@ -63,46 +63,28 @@
                     <h1 class="title">Pembelajaran sesuai pilihan</h1>
                 </div>
                 <div class="card-container">
-                    <div class="program-card">
-                        <div class="card-header">TENTOR SKD CPNS</div>
-                        <div class="card-body">
-                            <ul>
-                                @foreach($program_data[0] as $data)
-                                    <li><img src="/img/svg-landing/dot.svg" alt=""><span>{{$data}}</span></li>
-                                @endforeach
-                            </ul>
-                            <div class="card-bottom">
-                                <a href="" class="rounded-btn">Daftar Sekarang</a>
-                                <small>atau <a href="">Coba gratis</a></small>
+                    @for ($i = 0; $i < 3; $i++)
+                        <div class="program-card">
+                            <div class="card-header">{{$program_data['title'][$i]}}</div>
+                            <div class="card-body">
+                                <ul>
+                                    @foreach($program_data[$i] as $data)
+                                        <li><img src="/img/svg-landing/dot.svg" alt=""><span>{{$data}}</span></li>
+                                    @endforeach
+                                </ul>
+                                @if ($i == 0)
+                                    <div class="card-bottom">
+                                        <a href="" class="rounded-btn">Daftar Sekarang</a>
+                                        <small>atau <a href="">Coba gratis</a></small>
+                                    </div>
+                                @else
+                                    <div class="card-bottom">
+                                        <a class="rounded-btn disabled" disabled>Coming Soon</a>
+                                    </div>
+                                @endif
                             </div>
                         </div>
-                    </div>
-                    <div class="program-card">
-                        <div class="card-header">TENTOR SBMPTN/UTBK</div>
-                        <div class="card-body">
-                            <ul>
-                                @foreach($program_data[1] as $data)
-                                    <li><img src="/img/svg-landing/dot.svg" alt="">{{$data}}</li>
-                                @endforeach
-                            </ul>
-                            <div class="card-bottom">
-                                <a class="rounded-btn disabled" disabled>Coming Soon</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="program-card">
-                        <div class="card-header">TENTOR SPMB STAN</div>
-                        <div class="card-body">
-                            <ul>
-                                @foreach($program_data[2] as $data)
-                                    <li><img src="/img/svg-landing/dot.svg" alt="">{{$data}}</li>
-                                @endforeach
-                            </ul>
-                            <div class="card-bottom">
-                                <a class="rounded-btn disabled">Coming Soon</a>
-                            </div>
-                        </div>
-                    </div>
+                    @endfor
                 </div>
             </div>
 
