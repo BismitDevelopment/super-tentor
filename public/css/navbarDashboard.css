@@ -40,7 +40,8 @@
 
 @media (max-width: 576px) {
   .navbar .username,
-  .navbar .profile-picture {
+  .navbar .profile-picture,
+  .navbar .notif {
     display: none;
   }
 

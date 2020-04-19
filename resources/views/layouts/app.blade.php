@@ -31,7 +31,7 @@
 </head>
 <body>
     @yield('navbar')
-    <div id="app" class="main slideMain">
+    <div id="app" class="main slideMain hideContent">
         <div id="mySidenav" class="navShow sidenav d-flex flex-column align-items-center py-4">
             <div class="profile-picture">
                 <img src="{{ asset('img/Profile.jpg') }}" alt="" srcset="">
@@ -56,7 +56,7 @@
                 <img src="{{ asset('img/mdi_lock.svg') }}" alt="" srcset="" height="30" width="30">
                 <a class="ml-2" href="">Tryout Nasional</a>
             </div>
-            <div class="menu align-self-start pl-5 w-100 mt-3 mb-5 d-flex align-items-center">
+            <div class="menu align-self-start pl-5 w-100 mt-3 mb-md-5 mb-2 d-flex align-items-center">
                 <img src="{{ asset('img/mdi_setting.svg') }}" alt="" srcset="" height="30" width="30">
                 <a class="ml-2" href="">Pengaturan</a>
             </div>
@@ -75,5 +75,20 @@
     </div>
 
     @yield('scripts')
+    <script>
+        if (screen.width <= 576) {
+            $(document).ready(function() {
+                $("#mySidenav").removeClass('navShow');
+                $("#app").removeClass('slideMain');
+                $("main").removeClass('hideMain');
+                $("#app").removeClass('hideContent');
+            })
+        }
+        function openNav() {
+            document.getElementById("mySidenav").classList.toggle('navShow');
+            document.getElementById("app").classList.toggle('slideMain');
+            document.querySelector("main").classList.toggle('hideMain');
+        }
+    </script>    
 </body>
 </html>
