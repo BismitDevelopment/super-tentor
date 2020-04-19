@@ -37,25 +37,36 @@
                     <p class="mb-0 soal-isi">{{ $soal["soal"] }}
                     </p>
                     <form action="" class="d-flex flex-column ml-4">
-                        <p class="m-0">
-                            <input type="radio" id="choiceA" name="">
-                            <label for="choiceA">{{ $soal["choiceA"] }}</label>
-                        </p>
-                        <p class="m-0">
-                            <input type="radio" id="choiceB" name="">
-                            <label for="choiceB">{{ $soal["choiceB"] }}</label>
-                        </p>
-                        <p class="m-0">
-                            <input type="radio" id="choiceC" name="">
-                            <label for="choiceC">{{ $soal["choiceC"] }}</label>
-                        </p> 
-                        <p class="m-0">
-                            <input type="radio" id="choiceD" name="">
-                            <label for="choiceD">{{ $soal["choiceD"] }}</label>
-                        </p> <p class="m-0">
-                            <input type="radio" id="choiceD" name="">
-                            <label for="choiceD">{{ $soal["choiceE"] }}</label>
-                        </p>              
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="choice" id="1" value="a">
+                            <label class="form-check-label" for="1">
+                                {{ $soal["choiceA"] }}
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="choice" id="2" value="b">
+                            <label class="form-check-label" for="2">
+                                {{ $soal["choiceB"] }}
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="choice" id="3" value="c">
+                            <label class="form-check-label" for="3">
+                                {{ $soal["choiceC"] }}
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="choice" id="4" value="d">
+                            <label class="form-check-label" for="4">
+                                {{ $soal["choiceD"] }}
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="choice" id="5" value="e">
+                            <label class="form-check-label" for="5">
+                                {{ $soal["choiceE"] }}
+                            </label>
+                        </div>                    
                     </form>
                 </div>
             </div>    
@@ -108,10 +119,6 @@
             $(this).addClass("d-none")
         })
         $("#soal-"+$(this).data("soal")).removeClass("d-none")
-        $(".box-soal").each(function () {  
-            $(this).addClass("d-none")
-        })
-        $("#soal-"+$(this).data("soal")).removeClass("d-none")
         $(".button-bawah").children().each(function () {  
             $(this).addClass("d-none")
         })
@@ -127,32 +134,44 @@
             }
         })
     })
-    // $(".btn-kembali").click(function () {
-    //     let noSoal = $(this).data("soal")
-    //     let box;  
-    //     $(".box-angka").each(function() {
-    //         $(this).removeClass("angka-active")
-    //         if ($(this).data("soal") == noSoal-1) {
-    //             box = $(this)
-    //         }
-    //     }) 
-    //     box.addClass("angka-active")
-    //     $(".box-soal").each(function () {  
-    //         $(this).addClass("d-none")
-    //     })
-    //     $("#soal-"+$(this).data("soal")).removeClass("d-none")
-    //     $(".box-soal").each(function () {  
-    //         $(this).addClass("d-none")
-    //     })
-    //     $("#soal-"+$(this).data("soal")).removeClass("d-none")
-    //     $(".button-bawah").children().each(function () {  
-    //         $(this).addClass("d-none")
-    //     })
-    //     $("#soal-"+$(this).data("soal")).next().children().each(function () { 
-    //         $(this).removeClass("d-none")
-    //     }) 
-
-    // });
+    $(".btn-kembali").click(function () {
+        let noSoal = $(this).data("soal")
+        if (parseInt(noSoal) > 1) {
+            $(".box-angka").each(function() {
+            $(this).removeClass("angka-active")
+            }) 
+            $(`.box-angka[data-soal=${noSoal-1}]`).addClass("angka-active")
+        }
+        $(".box-soal").each(function () {  
+            $(this).addClass("d-none")
+        })
+        $("#soal-"+ parseInt($(this).data("soal")-1)).removeClass("d-none")
+        $(".button-bawah").children().each(function () {  
+            $(this).addClass("d-none")
+        })
+        $("#soal-"+parseInt($(this).data("soal")-1)).next().children().each(function () { 
+            $(this).removeClass("d-none")
+        }) 
+    });
+    $(".btn-selanjutnya").click(function () {
+        let noSoal = $(this).data("soal")
+        if (parseInt(noSoal) < 30) {
+            $(".box-angka").each(function() {
+            $(this).removeClass("angka-active")
+            }) 
+            $(`.box-angka[data-soal=${noSoal+1}]`).addClass("angka-active")
+        }
+        $(".box-soal").each(function () {  
+            $(this).addClass("d-none")
+        })
+        $("#soal-"+ parseInt($(this).data("soal")+1)).removeClass("d-none")
+        $(".button-bawah").children().each(function () {  
+            $(this).addClass("d-none")
+        })
+        $("#soal-"+parseInt($(this).data("soal")+1)).next().children().each(function () { 
+            $(this).removeClass("d-none")
+        }) 
+    });
 </script>
 @endsection
 
