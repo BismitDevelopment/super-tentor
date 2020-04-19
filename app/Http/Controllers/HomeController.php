@@ -42,4 +42,9 @@ class HomeController extends Controller
     {
         return view('dashboard.tryouthome');
     }
+
+    public function tryoutsoal()
+    {
+        return view('dashboard.tryoutsoal');
+    }
 }
