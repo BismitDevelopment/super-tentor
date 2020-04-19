@@ -50,7 +50,7 @@ body {
         }
     }
     .box-kiri {
-        min-width: 30vw !important;
+        min-width: 50vw !important;
     }
 }
 
@@ -113,7 +113,7 @@ body {
 .btn-green {
     background-color: #67A69D;
     color: white;
-    width: 8em;
+    min-width: 8em;
     font-weight: 500 !important;
     opacity: .8;
     border-radius: .7em;
