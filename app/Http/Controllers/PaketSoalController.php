@@ -37,7 +37,7 @@ class PaketSoalController extends Controller
             }
         } else {
             
-            return view('dashboard.tryouthome', compact('paket'));
+            return view('dashboard.tryoutsoal', compact('paket'));
         }
     }
 

@@ -104,8 +104,8 @@ Route::prefix('home')->name('home.')->group(function(){
 
 Route::get('/home', 'HomeController@index')->name('home');
 // Route::get('/tryout-free', 'HomeController@tryout_free')->name('tryout-free');
-Route::get('/tryouthome', 'HomeController@tryouthome')->name('tryouthome');
-Route::get('/tryoutsoal', 'HomeController@tryoutsoal')->name('tryoutsoal');
+// Route::get('/tryouthome', 'HomeController@tryouthome')->name('tryouthome');
+// Route::get('/tryoutsoal', 'HomeController@tryoutsoal')->name('tryoutsoal');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

@@ -1,4 +1,13 @@
 @extends('layouts.app')
+
+@section('meta')
+    <meta name="paket_id" content="{{ $paket->id }}">
+@endsection
+
+@section('scripts')
+    <script src="{{ asset('js/soalTryout.js') }}"></script>
+@endsection
+
 @section('navbar')
     @include('navbarDashboard')
 @endsection

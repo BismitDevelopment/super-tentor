@@ -1,17 +1,8 @@
 @extends('layouts.app')
 
-@section('meta')
-    <meta name="paket_id" content="{{ $paket->id }}">
-@endsection
-
-@section('scripts')
-    <script src="{{ asset('js/soalTryout.js') }}"></script>
-@endsection
-
 @section('navbar')
     @include('navbarDashboard')
 @endsection
-
 
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/tryouthome.css') }}">
@@ -42,13 +33,15 @@
             <div class="d-flex justify-content-center mt-3 buttons">
                 @if ($paket->jenis_tryout === 0)
                     <a class="mx-2" href="{{ route('home.tryouts.free.index') }}"><button type="button" class="btn btn-yellow px-3">Kembali</button></a>
+                    <a class="mx-2" href="{{ route('home.tryouts.free.ujian', ['paket'=>$paket->id])}}"><button type="button" class="btn btn-green px-3">Mulai Quiz</button></a>
                 @elseif ($paket->jenis_tryout === 1)
                     <a class="mx-2" href="{{ route('home.tryouts.premium.index') }}"><button type="button" class="btn btn-yellow px-3">Kembali</button></a>
+                    <a class="mx-2" href="{{ route('home.tryouts.premium.ujian', ['paket'=>$paket->id])}}"><button type="button" class="btn btn-green px-3">Mulai Quiz</button></a>
                 @elseif ($paket->jenis_tryout === 2)
                     <a class="mx-2" href="{{ route('home.tryouts.nasional.index') }}"><button type="button" class="btn btn-yellow px-3">Kembali</button></a>
+                    <a class="mx-2" href="{{ route('home.tryouts.nasional.ujian', ['paket'=>$paket->id])}}"><button type="button" class="btn btn-green px-3">Mulai Quiz</button></a>
                 @endif
-                
-                <a class="mx-2" href=""><button type="button" class="btn btn-green px-3">Mulai Quiz</button></a>
+
             </div>
         </div>
     </div>
