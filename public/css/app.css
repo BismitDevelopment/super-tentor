@@ -10933,6 +10933,16 @@ body {
   font-size: 1.1em !important;
 }
 
+.sidenav .logout button {
+  color: #828282 !important;
+  font-size: 1.4em;
+  font-weight: 600 !important;
+  font-size: 1.1em !important;
+  outline: none;
+  border: none;
+  background: none;
+}
+
 .sidenav .menu a:hover {
   text-decoration: none !important;
 }
@@ -10940,10 +10950,21 @@ body {
 .main {
   transition: 0.4s ease-in-out;
   margin-left: 0;
+  background: rgba(229, 229, 229, .3);
 }
 
 .navShow {
   width: 20em !important;
+}
+
+.hideMain {
+  display: block;
+}
+
+@media (max-width: 420px) {
+  .hideMain {
+    display:none;
+  }
 }
 
 .slideMain {

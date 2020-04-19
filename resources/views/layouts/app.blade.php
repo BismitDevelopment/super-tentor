@@ -6,17 +6,19 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    @yield('meta')
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
     <script
     src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
     crossorigin="anonymous">
     </script>
 
+    @yield('scripts')
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -31,8 +33,8 @@
 </head>
 <body>
     @yield('navbar')
-    <div id="app" class="main">
-        <div id="mySidenav" class="sidenav d-flex flex-column align-items-center py-4">
+    <div id="app" class="main slideMain">
+        <div id="mySidenav" class="navShow sidenav d-flex flex-column align-items-center py-4">
             <div class="profile-picture">
                 <img src="{{ asset('img/Profile.jpg') }}" alt="" srcset="">
             </div>
@@ -46,15 +48,15 @@
             </div>
             <div class="menu align-self-start pl-5 w-100 mt-3 d-flex align-items-center">
                 <img src="{{ asset('img/mdi_assignment.svg') }}" alt="" srcset="" height="30" width="30">
-                <a class="ml-2" href="{{ route('tryouthome') }}">Tryout Free</a>
+                <a class="ml-2" href="{{ route('home.tryouts.free.index') }}">Tryout Free</a>
             </div>
             <div class="menu align-self-start pl-5 w-100 mt-3 d-flex align-items-center">
                 <img src="{{ asset('img/mdi_lock.svg') }}" alt="" srcset="" height="30" width="30">
-                <a class="ml-2" href="">Tryout Premium</a>
+                <a class="ml-2" href="{{ route('home.tryouts.premium.index') }}">Tryout Premium</a>
             </div>
             <div class="menu align-self-start pl-5 w-100 pb-3 border-bottom mt-3 d-flex align-items-center">
                 <img src="{{ asset('img/mdi_lock.svg') }}" alt="" srcset="" height="30" width="30">
-                <a class="ml-2" href="">Tryout Nasional</a>
+                <a class="ml-2" href="{{ route('home.tryouts.nasional.index') }}">Tryout Nasional</a>
             </div>
             <div class="menu align-self-start pl-5 w-100 mt-3 mb-5 d-flex align-items-center">
                 <img src="{{ asset('img/mdi_setting.svg') }}" alt="" srcset="" height="30" width="30">
@@ -62,16 +64,17 @@
             </div>
             <div class="menu logout align-self-start pl-5 w-100 mt-3 d-flex align-items-center">
                 <img src="{{ asset('img/mdi_logout.svg') }}" alt="" srcset="" height="30" width="30">
-                <a class="ml-2" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
-
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                {{-- <a class="ml-2" href="">Logout</a> --}}
+                <form action="{{ route('logout') }}" method="POST">
                     @csrf
+                    <button type="submit">Logout</button>
                 </form>
             </div>
         </div>  
-        <div class="py-4">
+        <main class="py-4 hideMain">
             @yield('content')
-        </div>
+        </main>
     </div>
+
 </body>
 </html>

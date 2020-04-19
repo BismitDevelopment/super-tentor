@@ -173,8 +173,8 @@
             windowWidth = $(window).width();
             windowHeight = $(window).height();
             
-            mouseXpercentage = Math.round(event.pageX / windowWidth * 100);
-            mouseYpercentage = Math.round(event.pageY / windowHeight * 100);
+            mouseXpercentage = Math.round(event.pageX / windowWidth * 100)/20 + 20;
+            mouseYpercentage = Math.round(event.pageY / windowHeight * 100)/20 + 30;
         
             $('body').css(
                 'background', 

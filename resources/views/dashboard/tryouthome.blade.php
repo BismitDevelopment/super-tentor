@@ -1,4 +1,13 @@
 @extends('layouts.app')
+
+@section('meta')
+    <meta name="paket_id" content="{{ $paket->id }}">
+@endsection
+
+@section('scripts')
+    <script src="{{ asset('js/soalTryout.js') }}"></script>
+@endsection
+
 @section('navbar')
     @include('navbarDashboard')
 @endsection
@@ -31,7 +40,14 @@
         </div>
         <div class="col-md-10">
             <div class="d-flex justify-content-center mt-3 buttons">
-                <a class="mx-2" href=""><button type="button" class="btn btn-yellow px-3">Kembali</button></a>
+                @if ($paket->jenis_tryout === 0)
+                    <a class="mx-2" href="{{ route('home.tryouts.free.index') }}"><button type="button" class="btn btn-yellow px-3">Kembali</button></a>
+                @elseif ($paket->jenis_tryout === 1)
+                    <a class="mx-2" href="{{ route('home.tryouts.premium.index') }}"><button type="button" class="btn btn-yellow px-3">Kembali</button></a>
+                @elseif ($paket->jenis_tryout === 2)
+                    <a class="mx-2" href="{{ route('home.tryouts.nasional.index') }}"><button type="button" class="btn btn-yellow px-3">Kembali</button></a>
+                @endif
+                
                 <a class="mx-2" href=""><button type="button" class="btn btn-green px-3">Mulai Quiz</button></a>
             </div>
         </div>

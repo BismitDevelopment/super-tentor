@@ -25,9 +25,21 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    //route for free tryout
+    // public function tryout_free() {
+    //     $temp_data = [
+    //         "Try Out Serentak 01 - SKD",
+    //         "Try Out Serentak 02 - SKD",
+    //         "Try Out Serentak 03 - SKD",
+    //         "Try Out Serentak 04 - SKD",
+    //         "Try Out Serentak 05 - SKD"
+    //     ];
+    //     return view('dashboard.tryoutFree',['tests'=>$temp_data]);
+    // }
+
     public function tryouthome()
     {
-
-        return view('tryouthome');
+        return view('dashboard.tryouthome');
     }
 }

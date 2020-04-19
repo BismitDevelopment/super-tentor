@@ -10,7 +10,22 @@ class TryoutController extends Controller
     //
     public function indexFree(){
         $pakets = PaketSoal::where('jenis_tryout', 0)->get();
+        $jenis_tryout = 0;
 
-        return view('tryout.free', compact('pakets'));
+        return view('dashboard.tryoutList', compact('pakets', 'jenis_tryout'));
+    }
+    
+    public function indexPremium(){
+        $pakets = PaketSoal::where('jenis_tryout', 1)->get();
+        $jenis_tryout = 1;
+
+        return view('dashboard.tryoutList', compact('pakets', 'jenis_tryout'));
+    }
+
+    public function indexNasional(){
+        $pakets = PaketSoal::where('jenis_tryout', 2)->get();
+        $jenis_tryout = 2;
+
+        return view('dashboard.tryoutList', compact('pakets', 'jenis_tryout'));
     }
 }
