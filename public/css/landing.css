@@ -79,7 +79,7 @@ a:hover {
 /* End of General Styles */
 /* Page 1 */
 .page-1 {
-  margin: 4.5em 0;
+  margin: 3em 0;
   font-size: 1em;
 }
 
@@ -128,6 +128,8 @@ a:hover {
   padding: 4em 0;
   padding-bottom: 10em;
   background-position: center;
+  position: static;
+  z-index: 4;
 }
 
 .card-container {
@@ -171,12 +173,28 @@ a:hover {
 /* Page 3 */
 .page-3 {
   padding: 4em 0;
+  position: static;
+  z-index: 3;
+  background: none;
+}
+
+#page-3-svg-1 {
+  position: absolute;
+  top: 3em;
+}
+
+#page-3-svg-2 {
+  position: absolute;
+  left: 95vw;
+  top: 30em;
 }
 
 .program-card {
   background: white;
   margin: .8em;
-  width: 26em;
+  width: 27em;
+  position: static;
+  z-index: 3;
 }
 
 .card-header {
@@ -199,7 +217,7 @@ a:hover {
   border-top: none;
   border-radius: 0 0 .5em .5em;
   padding: 1.5em .6em;
-  font-size: 1.2em;
+  font-size: 1.1em;
 }
 
 .card-body ul {
@@ -332,7 +350,7 @@ a:hover {
   margin-right: -7em;
 }
 
-.page-4 .svg {
+.svg {
   position: relative;
   z-index: 0;
 }
@@ -436,8 +454,11 @@ a:hover {
   padding: .5em 1.5em;
   color: white;
   font-weight: 700;
-  margin-left: 5em;
   font-size: 1.1em;
+}
+
+.register-bar div {
+  padding: 0 3em;
 }
 
 form, form * {
@@ -526,6 +547,15 @@ form input {
   border: 1em;
 }
 /* End Page 6 */
+@media (max-width: 1790px) {
+  html, body {
+    font-size: 1.1em;
+  }
+
+  .page-2 {
+    padding-bottom: 12em;
+  }
+}
 @media (max-width: 1700px) {
   html, body {
     font-size: 1em;
@@ -538,6 +568,10 @@ form input {
   .title-desc {
     width: 20em;
   }
+
+  .page-2 {
+    padding-bottom: 16em;
+  }
 }
 @media (max-width: 1366px) {
   .title {
@@ -546,6 +580,10 @@ form input {
 
   .title-desc {
     width: 30em;
+  }
+
+  .page-1 {
+    margin-bottom: 0;
   }
 }
 @media (max-width: 1200px) {
@@ -582,6 +620,14 @@ form input {
   .contact-info div {
     margin: 0 3em;
   }
+  
+  .page-1 .right {
+    margin-top: 0;
+  }
+
+  .page-1 {
+    margin-bottom: 4em;
+  }
 }
 @media (max-width: 768px) {
   .page-1 .right {
@@ -616,5 +662,13 @@ form input {
 
   .carousel-container a {
     display: none;
+  }
+
+  .card {
+    font-size: 1.5em;
+  }
+
+  .program-card img {
+    width: .9em;
   }
 }

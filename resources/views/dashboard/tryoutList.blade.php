@@ -139,7 +139,13 @@
           <h2 class="tryout-name">{{$paket->nama}}</h2>
           <div class="buttons">
             <a class="button" href="">Rangking</a>
-            <a class="button" href="{{ route('tryouthome') }}">Uji Tryout</a>
+            @if ($paket->jenis_tryout === 0)
+              <a class="button" href="{{ route('home.tryouts.free.show', ['paket'=>$paket->id]) }}">Uji Tryout</a>
+            @elseif ($paket->jenis_tryout === 1)
+              <a class="button" href="{{ route('home.tryouts.premium.show', ['paket'=>$paket->id]) }}">Uji Tryout</a>
+            @else
+              <a class="button" href="{{ route('home.tryouts.nasional.show', ['paket'=>$paket->id]) }}">Uji Tryout</a>
+            @endif
           </div>
         </div>
       </div>

@@ -42,32 +42,22 @@
                     <h1 class="title">Kenapa SuperTentor</h1>
                 </div>
                 <div class="card-container">
-                    <div class="card">
-                        <img src="/img/svg-landing/papan.svg" alt="">
-                        <h3>Soal Hots dan ter-update</h3>
-                        <p>Soal dan Pembahasan yang telah dipersiapkan oleh SUPERTENTOR khusus untuk seluruh peserta Bimbingan untuk lebih mudah menyelesaikan soal ujian. Soal selalu di-update setiap tahun termasuk Model Soal HOTS dan TIDAK DIJUAL di pasaran.</p>
-                    </div>
-                    <div class="card">
-                        <img src="/img/svg-landing/laptop.svg" alt="">
-                        <h3>Simulasi Berbasis CAT</h3>
-                        <p>Simulasi yang dibuat 100% SAMA dengan Ujian sesungguhnya. Terdiri dari 20 paket simulasi lengkap dengan statistik pengerjaannya yang dapat dikerjakan dimanapun dan kapanpun serta diperingkat secara nasional.</p>
-                    </div>
-                    <div class="card">
-                        <img src="/img/svg-landing/badge.svg" alt="">
-                        <h3>Tentor Terbaik</h3>
-                        <p>Tentor terbaik yang secara khusus dipilih oleh Tim SUPERTENTOR dari akademisi dan profesional pendidikan yang berpengalaman di bidang yang diajarnya.</p>
-                    </div>
-                    <div class="card">
-                        <img src="/img/svg-landing/pencil.svg" alt="">
-                        <h3>Bimbingan Sampai Lulus</h3>
-                        <p>Tim SUPERTENTOR memberikan komitmen untuk memandu siswa dalam belajar sampai dengan H-1 ujian. Tidak hanya itu, kami memberikan layanan tanya-jawab 24 Jam baik itu terkait akademik melalui wali kelas.</p>
-                    </div>
+                    @foreach($keunggulan_data as $data)
+                        <div class="card">
+                            <img src={{$data['img']}} alt="">
+                            <h3>{{$data['title']}}</h3>
+                            <p>{{$data['content']}}</p>
+                        </div>
+                    @endforeach
                 </div>
             </div>
 
             <!-- Page 3 -->
             <div class="page-3">
-                <img src="/img/svg-landing" alt="">
+                <div class="svg d-flex justify-content-between">
+                    <img id="page-3-svg-1" src="/img/svg-landing/page-3-svg-1.svg" alt="">
+                    <img id="page-3-svg-2" src="/img/svg-landing/page-3-svg-2.svg" alt="">
+                </div>
                 <div class="header">
                     <small>PROGRAM</small>
                     <h1 class="title">Pembelajaran sesuai pilihan</h1>
@@ -77,13 +67,9 @@
                         <div class="card-header">TENTOR SKD CPNS</div>
                         <div class="card-body">
                             <ul>
-                                <li><img src="/img/svg-landing/dot.svg" alt="">20+ SIMULASI SKD SISTEM CAT</li>
-                                <li><img src="/img/svg-landing/dot.svg" alt="">PEMBAHASAN SIMULASI LENGKAP</li>
-                                <li><img src="/img/svg-landing/dot.svg" alt="">KISI-KISI + TIPS LULUS SKD</li>
-                                <li><img src="/img/svg-landing/dot.svg" alt="">MODUL TWK, TIU, DAN TKP</li>
-                                <li><img src="/img/svg-landing/dot.svg" alt="">PERANGKINGAN NASIONAL</li>
-                                <li><img src="/img/svg-landing/dot.svg" alt="">GRUP EKSKLUSIF TENTORING </li>
-                                <li><img src="/img/svg-landing/dot.svg" alt="">SIMULASI UPDATE SOAL HOTS!</li>
+                                @foreach($program_data[0] as $data)
+                                    <li><img src="/img/svg-landing/dot.svg" alt=""><span>{{$data}}</span></li>
+                                @endforeach
                             </ul>
                             <div class="card-bottom">
                                 <a href="" class="rounded-btn">Daftar Sekarang</a>
@@ -95,13 +81,9 @@
                         <div class="card-header">TENTOR SBMPTN/UTBK</div>
                         <div class="card-body">
                             <ul>
-                                <li><img src="/img/svg-landing/dot.svg" alt="">20+ SIMULASI SKD SISTEM CAT</li>
-                                <li><img src="/img/svg-landing/dot.svg" alt="">PEMBAHASAN SIMULASI LENGKAP</li>
-                                <li><img src="/img/svg-landing/dot.svg" alt="">KISI-KISI + TIPS LULUS SKD</li>
-                                <li><img src="/img/svg-landing/dot.svg" alt="">MODUL TWK, TIU, DAN TKP</li>
-                                <li><img src="/img/svg-landing/dot.svg" alt="">PERANGKINGAN NASIONAL</li>
-                                <li><img src="/img/svg-landing/dot.svg" alt="">GRUP EKSKLUSIF TENTORING </li>
-                                <li><img src="/img/svg-landing/dot.svg" alt="">SIMULASI UPDATE SOAL HOTS!</li>
+                                @foreach($program_data[1] as $data)
+                                    <li><img src="/img/svg-landing/dot.svg" alt="">{{$data}}</li>
+                                @endforeach
                             </ul>
                             <div class="card-bottom">
                                 <a class="rounded-btn disabled" disabled>Coming Soon</a>
@@ -112,13 +94,9 @@
                         <div class="card-header">TENTOR SPMB STAN</div>
                         <div class="card-body">
                             <ul>
-                                <li><img src="/img/svg-landing/dot.svg" alt="">20+ SIMULASI SKD SISTEM CAT</li>
-                                <li><img src="/img/svg-landing/dot.svg" alt="">PEMBAHASAN SIMULASI LENGKAP</li>
-                                <li><img src="/img/svg-landing/dot.svg" alt="">KISI-KISI + TIPS LULUS SKD</li>
-                                <li><img src="/img/svg-landing/dot.svg" alt="">MODUL TWK, TIU, DAN TKP</li>
-                                <li><img src="/img/svg-landing/dot.svg" alt="">PERANGKINGAN NASIONAL</li>
-                                <li><img src="/img/svg-landing/dot.svg" alt="">GRUP EKSKLUSIF TENTORING </li>
-                                <li><img src="/img/svg-landing/dot.svg" alt="">SIMULASI UPDATE SOAL HOTS!</li>
+                                @foreach($program_data[2] as $data)
+                                    <li><img src="/img/svg-landing/dot.svg" alt="">{{$data}}</li>
+                                @endforeach
                             </ul>
                             <div class="card-bottom">
                                 <a class="rounded-btn disabled">Coming Soon</a>
@@ -190,7 +168,7 @@
                 <div class="info-container container-fluid">
                     <div class="row">
                         <div class="col-12 col-md-6">
-                            @foreach(array_slice($info_data, 0, count($info_data)/2 + 1) as $data)
+                            @foreach(array_slice($faq_data, 0, count($faq_data)/2 + 1) as $data)
                                 <div class="info-card">
                                     <button class="accordion"><img src="/img/svg-landing/arrow-down.svg" alt=""></button>
                                     <div class="info-card-body">
@@ -201,7 +179,7 @@
                             @endforeach
                         </div>
                         <div class="col-12 col-md-6">
-                            @foreach(array_slice($info_data, count($info_data)/2 + 1) as $data)
+                            @foreach(array_slice($faq_data, count($faq_data)/2 + 1) as $data)
                                 <div class="info-card">
                                     <button class="accordion"><img src="/img/svg-landing/arrow-down.svg" alt=""></button>
                                     <div class="info-card-body">
@@ -218,9 +196,11 @@
             <!-- Page 6 -->
             <div class="page-6 d-flex flex-column align-items-center">
                 <div class="footer-container">
-                    <div class="register-bar d-flex justify-content-center align-items-center">
-                        <h3>Belajar sekarang juga!</h3>
-                        <a href="/register">Daftar Sekarang</a>
+                    <div class="register-bar">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h3>Belajar sekarang juga!</h3>
+                            <a href="/register">Daftar Sekarang</a>
+                        </div>
                     </div>
                     <div class="bottom-footer container-fluid">
                         <div class="row">

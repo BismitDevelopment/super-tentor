@@ -8,6 +8,9 @@ use App\PaketSoal;
 class TryoutController extends Controller
 {
     //
+    private function index(PaketSoal $pakets, int $jenis_tryout){
+        
+    }
     public function indexFree(){
         $pakets = PaketSoal::where('jenis_tryout', 0)->get();
         $jenis_tryout = 0;

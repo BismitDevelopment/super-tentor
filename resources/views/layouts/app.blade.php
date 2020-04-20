@@ -17,15 +17,15 @@
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
     crossorigin="anonymous">
     </script>
-
     @yield('scripts')
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <style>
+<!-- Fonts -->
+<link rel="dns-prefetch" href="//fonts.gstatic.com">
+
+<!-- Styles -->
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+<style>
         body {
             background-color: #f5f5f5 !important;
         }
@@ -33,7 +33,7 @@
 </head>
 <body>
     @yield('navbar')
-    <div id="app" class="main slideMain">
+    <div id="app" class="main slideMain hideContent">
         <div id="mySidenav" class="navShow sidenav d-flex flex-column align-items-center py-4">
             <div class="profile-picture">
                 <img src="{{ asset('img/Profile.jpg') }}" alt="" srcset="">
@@ -58,7 +58,7 @@
                 <img src="{{ asset('img/mdi_lock.svg') }}" alt="" srcset="" height="30" width="30">
                 <a class="ml-2" href="{{ route('home.tryouts.nasional.index') }}">Tryout Nasional</a>
             </div>
-            <div class="menu align-self-start pl-5 w-100 mt-3 mb-5 d-flex align-items-center">
+            <div class="menu align-self-start pl-5 w-100 mt-3 mb-md-5 mb-2 d-flex align-items-center">
                 <img src="{{ asset('img/mdi_setting.svg') }}" alt="" srcset="" height="30" width="30">
                 <a class="ml-2" href="">Pengaturan</a>
             </div>
@@ -68,13 +68,28 @@
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
                     <button class="ml-2 logout" type="submit">Logout</>
-                </form>
-            </div>
-        </div>  
-        <main class="py-4 hideMain">
-            @yield('content')
-        </main>
-    </div>
-
+                    </form>
+                </div>
+            </div>  
+            <main class="py-4 hideMain">
+                @yield('content')
+            </main>
+        </div>
+        
+        <script>
+            if (screen.width <= 576) {
+                $(document).ready(function() {
+                    $("#mySidenav").removeClass('navShow');
+                $("#app").removeClass('slideMain');
+                $("main").removeClass('hideMain');
+                $("#app").removeClass('hideContent');
+            })
+        }
+        function openNav() {
+            document.getElementById("mySidenav").classList.toggle('navShow');
+            document.getElementById("app").classList.toggle('slideMain');
+            document.querySelector("main").classList.toggle('hideMain');
+        }
+    </script>    
 </body>
 </html>
