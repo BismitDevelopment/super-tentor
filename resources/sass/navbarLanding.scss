@@ -46,20 +46,32 @@ $breakpoint-lg: 992px;
 }
 
 @media (max-width: $breakpoint-md) {
-    .navbar-center {
-        display: none;
+
+    .navbar-collapse {
+        padding-top: 1rem !important;
+    }
+    .nav-item {
+        padding-left: 0 !important;
+    }
+    .nav-link {
+        padding-left: 0 !important;
+    }
+    .nav-auth {
+        justify-content: flex-start !important;
+        display: flex;
+        flex-direction: column;
+        .daftar {
+            border: none !important;
+        }
     }
 }
 
 @media (max-width: $breakpoint-sm) {
     .navbar {
-        padding-left: .5rem !important;
-        padding-right: .5rem !important;
+        padding-left: 2rem !important;
+        padding-right: 2.5rem !important;
         img {
-            height: 1.5rem;
-        }
-        .register a{
-            font-size: .7rem !important;
+            height: 3rem;
         }
     }
     

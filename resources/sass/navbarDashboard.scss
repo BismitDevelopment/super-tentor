@@ -32,7 +32,7 @@
     }
     $breakpoint-sm: 576px;
     @media (max-width: $breakpoint-sm) {
-        .username, .profile-picture {
+        .username, .profile-picture, .notif {
             display: none;
         }
         .logo {
