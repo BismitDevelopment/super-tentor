@@ -178,7 +178,6 @@ $(document).ready(function () {
     while(true){
         if (obj != 0){
             action(jenis_soal, noSoal, [])
-            console.log('a')
             break
         }
     }
@@ -191,6 +190,7 @@ $(document).ready(function () {
         // reset noSoal (masih dipikirkan)
         $(".nomor-soal").html("Soal " + noSoal)
         action(jenis, noSoal, state[`${jenis}`].arrMarked)
+        $(".form-check-input").prop('checked', false);
     })
     
     // Navigation Click
