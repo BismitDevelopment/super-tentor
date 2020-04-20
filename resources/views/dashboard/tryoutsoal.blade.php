@@ -1,4 +1,10 @@
 @extends('layouts.app')
+
+@section('meta')
+    <meta name="paket_id" content="{{ $paket->id }}">
+@endsection
+
+
 @section('navbar')
     @include('navbarDashboard')
 @endsection
