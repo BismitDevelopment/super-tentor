@@ -22,7 +22,7 @@ class CreateSoalTkpsTable extends Migration
             $table->text('pilihan_4');
             $table->text('jawaban');
             $table->text('pembahasan');
-            $table->int('paket_id');
+            $table->integer('paket_id');
             $table->timestamps();
         });
     }
