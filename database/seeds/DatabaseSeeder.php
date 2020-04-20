@@ -15,7 +15,15 @@ class DatabaseSeeder extends Seeder
 
         DB::table('paket_soals')->insert([
             'nama' => 'Paket 1',
+            'jenis_tryout' => 0,
+        ]);
+        DB::table('paket_soals')->insert([
+            'nama' => 'Paket 2',
             'jenis_tryout' => 1,
+        ]);
+        DB::table('paket_soals')->insert([
+            'nama' => 'Paket 3',
+            'jenis_tryout' => 2,
         ]);
         
         DB::table('soal_tius')->insert([
