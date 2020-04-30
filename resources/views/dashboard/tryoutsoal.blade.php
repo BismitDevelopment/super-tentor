@@ -88,9 +88,9 @@
                     <div class="box-angka" data-nomor="{{ $i }}">{{ $i }}</div>
                     @endfor
                 </div>
-                <div class="d-flex justify-content-center mt-4">
-                    <a href=""><div class="button-tipe btn btn-green mt-2 py-2 px-4">
-                        Tipe Soal Berikut
+                <div class="d-flex justify-content-end mt-4">
+                    <a href="" class="finish-attempt"><div class="mt-2">
+                        Finish Attempt
                     </div></a>
                 </div>
             </div>    
