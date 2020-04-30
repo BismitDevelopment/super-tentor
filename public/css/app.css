@@ -10945,6 +10945,7 @@ a:hover {
 .main {
   transition: 0.4s ease-in-out;
   margin-left: 0;
+  background: #FAF7E9;
 }
 
 .navShow {
