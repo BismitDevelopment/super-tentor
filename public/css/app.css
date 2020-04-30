@@ -10893,8 +10893,12 @@ body {
   min-height: 100vh !important;
 }
 
+a:hover {
+  cursor: pointer !important;
+}
+
 .sidenav {
-  height: calc(100vh - 60px);
+  min-height: calc(100vh - 60px);
   width: 0;
   position: fixed;
   z-index: 1;
@@ -10913,8 +10917,8 @@ body {
 }
 
 .sidenav .profile-picture {
-  height: 6em;
-  width: 6em;
+  height: 6em !important;
+  width: 6em !important;
   overflow: hidden;
 }
 
@@ -10933,38 +10937,18 @@ body {
   font-size: 1.1em !important;
 }
 
-.sidenav .logout button {
-  color: #828282 !important;
-  font-size: 1.4em;
-  font-weight: 600 !important;
-  font-size: 1.1em !important;
-  outline: none;
-  border: none;
-  background: none;
-}
-
 .sidenav .menu a:hover {
   text-decoration: none !important;
+  color: #4d4d4d !important;
 }
 
 .main {
   transition: 0.4s ease-in-out;
   margin-left: 0;
-  background: rgba(229, 229, 229, .3);
 }
 
 .navShow {
   width: 20em !important;
-}
-
-.hideMain {
-  display: block;
-}
-
-@media (max-width: 420px) {
-  .hideMain {
-    display:none;
-  }
 }
 
 .slideMain {
@@ -10972,9 +10956,38 @@ body {
   transition: 0.4s ease-in-out;
 }
 
+button.logout {
+  background-color: transparent !important;
+  border: none !important;
+  color: #828282 !important;
+  font-size: 1.4em;
+  font-weight: 600 !important;
+  font-size: 1.1em !important;
+}
+
+button.logout:hover {
+  color: #4d4d4d !important;
+}
+
 @media (max-width: 576px) {
+  body {
+    font-size: 12px !important;
+  }
+
   .navShow {
     width: 100vw !important;
+  }
+
+  .hideMain {
+    display: none !important;
+  }
+
+  .menu img {
+    height: 20px !important;
+  }
+
+  .hideContent {
+    display: none !important;
   }
 }
 

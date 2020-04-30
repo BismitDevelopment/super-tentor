@@ -1,8 +1,16 @@
+.navbar {
+  padding-left: 5rem !important;
+  padding-right: 5rem !important;
+}
+
+.navbar img {
+  height: 2.4rem;
+}
+
 .nav-item {
   font-family: "Montserrat", sans-serif !important;
   display: flex;
   align-items: center;
-  margin-left: 1em;
 }
 
 .nav-item a {
@@ -10,17 +18,63 @@
 }
 
 .rounded-pill {
-  border: 4px solid #E9D038 !important;
-  color: #FFC839 !important;
+  border: 4px solid #828282 !important;
 }
 
 .rounded-pill:hover {
   border-color: rgba(0, 0, 0, 0.7) !important;
 }
 
-@media (max-width: 992px) {
-  .rounded-pill {
+a.nav-link {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+a.nav-link:hover {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.register a {
+  color: #FFC839;
+  border-color: #FFC839 !important;
+}
+
+.register a:hover {
+  color: #dfa000 !important;
+  border-color: #dfa000 !important;
+}
+
+@media (max-width: 768px) {
+  .navbar-collapse {
+    padding-top: 1rem !important;
+  }
+
+  .nav-item {
+    padding-left: 0 !important;
+  }
+
+  .nav-link {
+    padding-left: 0 !important;
+  }
+
+  .nav-auth {
+    justify-content: flex-start !important;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav-auth .daftar {
     border: none !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar {
+    padding-left: 2rem !important;
+    padding-right: 2.5rem !important;
+  }
+
+  .navbar img {
+    height: 3rem;
   }
 }
 

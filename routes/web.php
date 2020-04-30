@@ -19,9 +19,49 @@ Route::get('/', function () {
 
 Auth::routes(['verify'=>true]);
 
+
+Route::prefix('home')->name('home.')->group(function(){
+    
+    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('tryouthome', 'HomeController@tryouthome')->name('tryouthome');
+
+    Route::prefix('tryouts')->name('tryouts.')->group( function(){
+        
+        Route::prefix('free')->name('free.')->group(function() {
+
+            Route::get('/', 'TryoutController@indexFree')->name('index');
+            Route::get('/{paket}', 'PaketSoalController@showFree')->name('show');
+            
+            Route::get('/{paket}/ujian', 'PaketSoalController@ujianFree')->name('ujian');
+            Route::post('/{paket}/ujian', 'PaketSoalController@ujianFree')->name('ujianData');
+
+        });
+
+        Route::prefix('premium')->name('premium.')->group(function() {
+
+            Route::get('/', 'TryoutController@indexPremium')->name('index');
+            Route::get('/{paket}', 'PaketSoalController@showPremium')->name('show');
+
+            Route::get('/{paket}/ujian', 'PaketSoalController@ujianPremium')->name('ujian');
+            Route::post('/{paket}/ujian', 'PaketSoalController@ujianPremium')->name('ujianData');
+        });
+
+        Route::prefix('nasional')->name('nasional.')->group(function() {
+
+            Route::get('/', 'TryoutController@indexNasional')->name('index');
+            Route::post('/{paket}', 'PaketSoalController@showNasional')->name('show');
+
+            Route::get('/{paket}/ujian', 'PaketSoalController@ujianPremium')->name('ujian');
+            Route::post('/{paket}/ujian', 'PaketSoalController@ujianPremium')->name('ujianData');
+        });
+    });
+});
+
+
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/tryout-free', 'HomeController@tryout_free')->name('tryout-free');
-Route::get('/tryouthome', 'HomeController@tryouthome')->name('tryouthome');
+// Route::get('/tryout-free', 'HomeController@tryout_free')->name('tryout-free');
+// Route::get('/tryouthome', 'HomeController@tryouthome')->name('tryouthome');
+// Route::get('/tryoutsoal', 'HomeController@tryoutsoal')->name('tryoutsoal');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
