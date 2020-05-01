@@ -30,16 +30,16 @@
     </div>
     <div class="d-flex soal flex-column flex-lg-row" data-jenis="soal_twk">
         <div class="d-flex flex-column">
-            <div class="border rounded-bottom bg-white box mr-2 box-kiri box-soal mb-3" data-nomor="1">
+            <div class="border rounded-bottom bg-white box mr-2 box-kiri box-soal mb-3">
                 <div class="d-flex justify-content-between soal-atas">
-                    <h4 class="nomor-soal" data-nomor="1">Soal 1</h4>
+                    <h4 class="nomor-soal">Soal 1</h4>
                     <div class="tandai d-flex">
                         <img src="{{ asset('img/mdi_flag.svg') }}" alt="">
                         <h4>Tandai</h4>
                     </div>
                 </div>
                 <div class="d-flex flex-column mt-3 text-justify">
-                    <p class="mb-0 soal-isi" data-nomor="1">ISI SOAL
+                    <p class="mb-0 soal-isi">ISI SOAL
                     </p>
                     <form action="" class="d-flex flex-column ml-4 mt-2">
                         <div class="form-check">
