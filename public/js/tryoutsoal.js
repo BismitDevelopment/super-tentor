@@ -230,7 +230,6 @@ $(document).ready(function () {
 
       // Finish Attempt
       $(".finish-attempt").click(function() {
-        //   window.location = "https://www.google.com/"
         finish()
       })
 });
@@ -281,8 +280,31 @@ function finish() {
             arrJawabanTKP.push("")
         }
     }
-    console.log(arrJawabanTWK);
-    console.log(arrJawabanTIU);
-    console.log(arrJawabanTKP);
-    console.log(obj.paket.id);
+    let objJawaban = {
+        "id_paket" : obj.paket.id,
+        "jawaban_tiu" : arrJawabanTIU,
+        "jawaban_tkp" : arrJawabanTKP,
+        "jawaban_twk" : arrJawabanTWK,
+    }
+
+    // Ini ajax postnya bang
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    
+    $.ajax({
+        type: 'POST',
+        url: '',  // URL POST FINISH
+        data: objJawaban,
+        dataType: 'json',
+        success: function(data) {
+            window.location = "https://www.google.com/"  // Nunggu URL buat score
+        },
+        error: function(data) {
+            console.log(data)
+        }
+    });
 }
