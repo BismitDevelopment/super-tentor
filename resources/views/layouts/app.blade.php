@@ -71,7 +71,7 @@
                     </form>
                 </div>
             </div>  
-            <main class="py-4 hideMain">
+            <main class="pt-4 hideMain">
                 @yield('content')
             </main>
         </div>

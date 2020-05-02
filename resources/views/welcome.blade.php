@@ -63,46 +63,28 @@
                     <h1 class="title">Pembelajaran sesuai pilihan</h1>
                 </div>
                 <div class="card-container">
-                    <div class="program-card">
-                        <div class="card-header">TENTOR SKD CPNS</div>
-                        <div class="card-body">
-                            <ul>
-                                @foreach($program_data[0] as $data)
-                                    <li><img src="/img/svg-landing/dot.svg" alt=""><span>{{$data}}</span></li>
-                                @endforeach
-                            </ul>
-                            <div class="card-bottom">
-                                <a href="" class="rounded-btn">Daftar Sekarang</a>
-                                <small>atau <a href="">Coba gratis</a></small>
+                    @for ($i = 0; $i < 3; $i++)
+                        <div class="program-card">
+                            <div class="card-header">{{$program_data['title'][$i]}}</div>
+                            <div class="card-body">
+                                <ul>
+                                    @foreach($program_data[$i] as $data)
+                                        <li><img src="/img/svg-landing/dot.svg" alt=""><span>{{$data}}</span></li>
+                                    @endforeach
+                                </ul>
+                                @if ($i == 0)
+                                    <div class="card-bottom">
+                                        <a href="" class="rounded-btn">Daftar Sekarang</a>
+                                        <small>atau <a href="">Coba gratis</a></small>
+                                    </div>
+                                @else
+                                    <div class="card-bottom">
+                                        <a class="rounded-btn disabled" disabled>Coming Soon</a>
+                                    </div>
+                                @endif
                             </div>
                         </div>
-                    </div>
-                    <div class="program-card">
-                        <div class="card-header">TENTOR SBMPTN/UTBK</div>
-                        <div class="card-body">
-                            <ul>
-                                @foreach($program_data[1] as $data)
-                                    <li><img src="/img/svg-landing/dot.svg" alt="">{{$data}}</li>
-                                @endforeach
-                            </ul>
-                            <div class="card-bottom">
-                                <a class="rounded-btn disabled" disabled>Coming Soon</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="program-card">
-                        <div class="card-header">TENTOR SPMB STAN</div>
-                        <div class="card-body">
-                            <ul>
-                                @foreach($program_data[2] as $data)
-                                    <li><img src="/img/svg-landing/dot.svg" alt="">{{$data}}</li>
-                                @endforeach
-                            </ul>
-                            <div class="card-bottom">
-                                <a class="rounded-btn disabled">Coming Soon</a>
-                            </div>
-                        </div>
-                    </div>
+                    @endfor
                 </div>
             </div>
 
@@ -193,48 +175,8 @@
                 </div>
             </div>
 
-            <!-- Page 6 -->
-            <div class="page-6 d-flex flex-column align-items-center">
-                <div class="footer-container">
-                    <div class="register-bar">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h3>Belajar sekarang juga!</h3>
-                            <a href="/register">Daftar Sekarang</a>
-                        </div>
-                    </div>
-                    <div class="bottom-footer container-fluid">
-                        <div class="row">
-                            <div class="col-12 col-lg-2 d-none d-lg-flex justify-content-center">
-                                <img class="logo" src="/img/svg-landing/logo-white.svg" alt="">
-                            </div>
-                            <div class="col-12 col-lg-5 d-flex contact-info justify-content-center">
-                                <div class="contact-list">
-                                    <h4>Contact</h4>
-                                    <div><img src="/img/svg-landing/whatsapp.svg" alt="">0851-5633-2836</div>
-                                    <div><img src="/img/svg-landing/instagram.svg" alt="">@supertentor_</div>
-                                    <div><img src="/img/svg-landing/line.svg" alt="">@supertentor</div>
-                                </div>
-                                <div>
-                                    <h4>Navigasi</h4>
-                                    <h5>Home</h5>
-                                    <h5>Produk</h5>
-                                    <h5>Program</h5>
-                                    <h5>Event</h5>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-5 d-flex flex-column align-items-center form-container">
-                                <h4>Silahkan Isi form di bawah Ini, admin kami akan segera menghubungi anda.</h4>
-                                <form action="" class="d-flex flex-column align-items-center">
-                                    @csrf
-                                    <input type="text" placeholder="Nama Lengkap">
-                                    <input type="text" placeholder="Email / No WA">
-                                    <button>Submit</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!-- Footer -->
+            @include('inc.footer')
         </div>
     </body>
     <script defer>

@@ -7,7 +7,7 @@
         <a class="logo navbar-brand py-1 mx-auto" href="{{ route('welcome') }}">
             <img src="{{ asset('img/logo-nav.svg') }}" height="35" class="">
         </a>
-        <a href="" class="notif">
+        <a href="" class="notif_">
             <img src="{{ asset('img/mdi_notifications.svg') }}" alt="">
         </a>
         <a class="my-auto mx-3 username">Pengguna 008</a>
