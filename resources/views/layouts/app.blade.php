@@ -58,11 +58,11 @@
                 <img src="{{ asset('img/mdi_lock.svg') }}" alt="" srcset="" height="30" width="30">
                 <a class="ml-2" href="{{ route('home.tryouts.nasional.index') }}">Tryout Nasional</a>
             </div>
-            <div class="menu align-self-start pl-5 w-100 mt-3 mb-md-5 mb-2 d-flex align-items-center">
+            <div class="menu align-self-start pl-5 w-100 mt-3 mb-md-3 mb-2 d-flex align-items-center">
                 <img src="{{ asset('img/mdi_setting.svg') }}" alt="" srcset="" height="30" width="30">
                 <a class="ml-2" href="">Pengaturan</a>
             </div>
-            <div class="menu logout align-self-start pl-5 w-100 mt-3 d-flex align-items-center">
+            <div class="menu logout align-self-start pl-5 w-100 mt-1 d-flex align-items-center">
                 <img src="{{ asset('img/mdi_logout.svg') }}" alt="" srcset="" height="30" width="30">
                 {{-- <a class="ml-2" href="">Logout</a> --}}
                 <form action="{{ route('logout') }}" method="POST">

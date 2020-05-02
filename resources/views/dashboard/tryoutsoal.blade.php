@@ -30,16 +30,16 @@
     </div>
     <div class="d-flex soal flex-column flex-lg-row" data-jenis="soal_twk">
         <div class="d-flex flex-column">
-            <div class="border rounded-bottom bg-white box mr-2 box-kiri box-soal mb-3" data-nomor="1">
+            <div class="border rounded-bottom bg-white box mr-2 box-kiri box-soal mb-3">
                 <div class="d-flex justify-content-between soal-atas">
-                    <h4 class="nomor-soal" data-nomor="1">Soal 1</h4>
+                    <h4 class="nomor-soal">Soal 1</h4>
                     <div class="tandai d-flex">
                         <img src="{{ asset('img/mdi_flag.svg') }}" alt="">
                         <h4>Tandai</h4>
                     </div>
                 </div>
                 <div class="d-flex flex-column mt-3 text-justify">
-                    <p class="mb-0 soal-isi" data-nomor="1">ISI SOAL
+                    <p class="mb-0 soal-isi">ISI SOAL
                     </p>
                     <form action="" class="d-flex flex-column ml-4 mt-2">
                         <div class="form-check">
@@ -88,9 +88,9 @@
                     <div class="box-angka" data-nomor="{{ $i }}">{{ $i }}</div>
                     @endfor
                 </div>
-                <div class="d-flex justify-content-center mt-4">
-                    <a href=""><div class="button-tipe btn btn-green mt-2 py-2 px-4">
-                        Tipe Soal Berikut
+                <div class="d-flex justify-content-end mt-4">
+                    <a href="" class="finish-attempt"><div class="mt-2">
+                        Finish Attempt
                     </div></a>
                 </div>
             </div>    
