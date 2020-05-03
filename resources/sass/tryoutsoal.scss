@@ -52,6 +52,7 @@ body {
     .box-kiri {
         min-width: 50vw !important;
     }
+    
 }
 
 .nomor {
@@ -123,6 +124,20 @@ body {
     }
 }
 
+.finish-attempt {
+    div {
+        font-weight: 600 !important;
+        color: #EB5757;
+        opacity: .8 !important;
+    }
+    &:hover {
+        div {
+            opacity: 1 !important;
+        }
+        text-decoration: none !important;
+    }
+}
+
 $breakpoint-sm: 576px;
 $breakpoint-md: 768px;
 $breakpoint-lg: 992px;
@@ -151,4 +166,7 @@ $breakpoint-lg: 992px;
     .wrapper {
         padding: 1rem 1rem 0 1rem !important;
     }    
+    .text-larger {
+        font-size: 1.3em !important;
+    }
 }

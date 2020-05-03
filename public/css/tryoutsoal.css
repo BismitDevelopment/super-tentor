@@ -135,6 +135,20 @@
   color: white;
 }
 
+.finish-attempt div {
+  font-weight: 600 !important;
+  color: #EB5757;
+  opacity: 0.8 !important;
+}
+
+.finish-attempt:hover {
+  text-decoration: none !important;
+}
+
+.finish-attempt:hover div {
+  opacity: 1 !important;
+}
+
 @media (max-width: 768px) {
   .angka {
     grid-template-columns: repeat(8, 1fr) !important;
@@ -153,6 +167,10 @@
 @media (max-width: 576px) {
   .wrapper {
     padding: 1rem 1rem 0 1rem !important;
+  }
+
+  .text-larger {
+    font-size: 1.3em !important;
   }
 }
 
