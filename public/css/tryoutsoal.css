@@ -168,5 +168,9 @@
   .wrapper {
     padding: 1rem 1rem 0 1rem !important;
   }
+
+  .text-larger {
+    font-size: 1.3em !important;
+  }
 }
 
