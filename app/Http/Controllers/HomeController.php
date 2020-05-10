@@ -78,4 +78,8 @@ class HomeController extends Controller
         ];
         return view('home', ['data' => $dashboardHomeData]);
     }
+
+    public function ranking() {
+        return view('dashboard.ranking');
+    }
 }
