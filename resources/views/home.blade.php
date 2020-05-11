@@ -129,11 +129,15 @@
                 <tr class="table-footer">
                     <td colspan="100%">
                         <div class="d-flex justify-content-center">
-                            <img src="img/svg-dash-home/left.svg" alt="">
+                            <a href="">
+                                <img src="img/svg-dash-home/left.svg" alt="">
+                            </a>
                             <div class="pagination-bar">
                                 1-5
                             </div>
-                            <img src="img/svg-dash-home/right.svg" alt="">
+                            <a href="">
+                                <img src="img/svg-dash-home/right.svg" alt="">
+                            </a>
                         </div>
                     </td>
                 </tr>
