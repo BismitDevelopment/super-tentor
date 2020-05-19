@@ -15,6 +15,7 @@ class CreateSoalTwksTable extends Migration
     {
         Schema::create('soal_twks', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('paket_id');
             $table->text('soal');
             $table->text('pilihan_1');
             $table->text('pilihan_2');
@@ -22,8 +23,8 @@ class CreateSoalTwksTable extends Migration
             $table->text('pilihan_4');
             $table->text('jawaban');
             $table->text('pembahasan');
-            $table->integer('paket_id');
-            $table->timestamps();
+            $table->integer('skor');
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 

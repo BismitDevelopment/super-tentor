@@ -124,6 +124,20 @@ function action(jenis_soal, noSoal, arrMarked, choiceVal) {
 
 }
 
+function resolveAfter2Seconds() {
+  return new Promise(resolve => {
+    while(true){
+        if(obj != 0){
+            data = obj;
+            break
+        }
+    };
+    setTimeout(() => {
+      resolve(obj);
+    }, 2000);
+  });
+}
+
 
 // First load
 $(document).ready(function () {  

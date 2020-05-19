@@ -25,6 +25,15 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        //Gates
+        Gate::before(function ($user, $ability){
+            if($user->role_id === 1){
+                return true;
+            }
+        });
+        
+        Gate::define('isPremium', function ($user){
+            return $user->role_id === 3 || $user->role_id === 1;
+        });
     }
 }
