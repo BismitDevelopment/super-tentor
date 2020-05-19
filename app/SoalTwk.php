@@ -8,17 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class SoalTwk extends Model
 {
     protected $hidden = [
-        'pilihan_1','pilihan_2','pilihan_3','pilihan_4', 'updated_at', 'created_at'
+        'paket_id','pilihan_1','pilihan_2','pilihan_3','pilihan_4','jawaban','skor','updated_at', 'created_at'
     ];
 
     protected $appends = ['pilihan'];
 
     public function getPilihanAttribute(){
         $pilihan = array(
-            $this->attributes['pilihan_1'],$this->attributes['pilihan_2'],
-            $this->attributes['pilihan_3'],$this->attributes['pilihan_4'],
-            $this->attributes['jawaban']
+            array($this->pilihan_1, 0),
+            array($this->pilihan_2, 0),
+            array($this->pilihan_3, 0),
+            array($this->pilihan_4, 0),
+            array($this->jawaban, $this->skor)
         );
+        shuffle($pilihan);
         return $pilihan;
     }
     

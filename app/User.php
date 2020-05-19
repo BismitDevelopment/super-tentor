@@ -37,5 +37,14 @@ class User extends \TCG\Voyager\Models\User implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-    
+    public function simulations(){
+
+        return $this->belongsToMany('App\PaketSoal', 'simulations', 'user_id', 'paket_id')
+                    ->withPivot([
+                        'total_skor',
+                        'durasi_ujian'
+                        ])
+                    ->withTimestamps();
+    }
+
 }

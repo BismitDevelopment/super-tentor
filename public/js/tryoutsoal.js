@@ -169,18 +169,31 @@ let state = {
     },
 }
 
+function resolveAfter2Seconds() {
+  return new Promise(resolve => {
+    while(true){
+        if(obj != 0){
+            data = obj;
+            break
+        }
+    };
+    setTimeout(() => {
+      resolve(obj);
+    }, 2000);
+  });
+}
+
 
 // First load
 $(document).ready(function () {  
     let noSoal = $(".nomor-soal").data("nomor")
     let jenis_soal = $(".soal").data("jenis")
 
-    while(true){
-        if (obj != 0){
-            action(jenis_soal, noSoal, [])
-            break
-        }
-    }
+    resolveAfter2Seconds().then(v => {
+        console.log(v)
+        action(jenis_soal, noSoal, [])
+    })
+    
     
     
     // Tab Menu Click

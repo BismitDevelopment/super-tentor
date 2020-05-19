@@ -94,4 +94,11 @@ class PaketSoalController extends Controller
             return view('dashboard.tryoutsoal', compact('paket'));
         }
     }
+
+    public function finishAttempt(Request $request){
+        //TO-DO calculate score redirect to
+        $jawaban_tius = $request->input('soal_tius');
+        $jawaban_tkps = $request->input('soal_tkps');
+        $jawaban_twks = $request->input('soal_twks');
+    }
 }

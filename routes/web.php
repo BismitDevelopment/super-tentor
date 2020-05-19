@@ -133,7 +133,7 @@ Route::prefix('home')->name('home.')->group(function(){
 
         });
 
-        Route::prefix('premium')->name('premium.')->group(function() {
+        Route::middleware(['can:isPremium'])->prefix('premium')->name('premium.')->group(function() {
 
             Route::get('/', 'TryoutController@indexPremium')->name('index');
             Route::get('/{paket}', 'PaketSoalController@showPremium')->name('show');
@@ -145,10 +145,10 @@ Route::prefix('home')->name('home.')->group(function(){
         Route::prefix('nasional')->name('nasional.')->group(function() {
 
             Route::get('/', 'TryoutController@indexNasional')->name('index');
-            Route::post('/{paket}', 'PaketSoalController@showNasional')->name('show');
+            Route::get('/{paket}', 'PaketSoalController@showNasional')->name('show');
 
-            Route::get('/{paket}/ujian', 'PaketSoalController@ujianPremium')->name('ujian');
-            Route::post('/{paket}/ujian', 'PaketSoalController@ujianPremium')->name('ujianData');
+            Route::get('/{paket}/ujian', 'PaketSoalController@ujianNasional')->name('ujian');
+            Route::post('/{paket}/ujian', 'PaketSoalController@ujianNasional')->name('ujianData');
         });
     });
 });

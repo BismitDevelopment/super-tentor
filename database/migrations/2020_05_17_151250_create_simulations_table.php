@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePaketSoalsTable extends Migration
+class CreateSimulationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreatePaketSoalsTable extends Migration
      */
     public function up()
     {
-        Schema::create('paket_soals', function (Blueprint $table) {
+        Schema::create('simulations', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nama', 255);
-            $table->integer('jenis_tryout');
-            $table->timestamp('created_at')->useCurrent();
+            $table->bigInteger('user_id');
+            $table->bigInteger('paket_id');
+            $table->integer('total_skor');
+            $table->time('durasi_ujian',0);
+            $table->timestamps();
         });
     }
 
@@ -28,6 +30,6 @@ class CreatePaketSoalsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('paket_soals');
+        Schema::dropIfExists('simulations');
     }
 }
