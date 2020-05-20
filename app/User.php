@@ -46,8 +46,10 @@ class User extends \TCG\Voyager\Models\User implements MustVerifyEmail
                         'skor_tkp',
                         'total_skor',
                         'status',
-                        'durasi_ujian'
+                        'durasi_ujian',
+                        'created_at'
                         ])
+                    ->as('simulation')
                     ->withTimestamps();
     }
 

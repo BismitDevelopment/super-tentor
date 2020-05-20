@@ -20,7 +20,7 @@ Route::get('/', function () {
 Auth::routes(['verify'=>true]);
 
 Route::prefix('home')->name('home.')->group(function(){
-    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/{page?}', 'HomeController@index')->name('index');
     Route::get('tryouthome', 'HomeController@tryouthome')->name('tryouthome');
 
     Route::prefix('tryouts')->name('tryouts.')->group( function(){
@@ -32,6 +32,7 @@ Route::prefix('home')->name('home.')->group(function(){
             
             Route::get('/{paket}/ujian', 'PaketSoalController@ujianFree')->name('ujian');
             Route::post('/{paket}/ujian', 'PaketSoalController@ujianFree')->name('ujianData');
+            Route::get('/{paket}/ranking/{page?}', 'PaketSoalController@rankingFree')->name('ranking');
 
         });
 
@@ -42,6 +43,7 @@ Route::prefix('home')->name('home.')->group(function(){
 
             Route::get('/{paket}/ujian', 'PaketSoalController@ujianPremium')->name('ujian');
             Route::post('/{paket}/ujian', 'PaketSoalController@ujianPremium')->name('ujianData');
+            Route::get('/{paket}/ranking/{page?}', 'PaketSoalController@rankingPremium')->name('ranking');
         });
 
         Route::prefix('nasional')->name('nasional.')->group(function() {
@@ -51,13 +53,12 @@ Route::prefix('home')->name('home.')->group(function(){
 
             Route::get('/{paket}/ujian', 'PaketSoalController@ujianNasional')->name('ujian');
             Route::post('/{paket}/ujian', 'PaketSoalController@ujianNasional')->name('ujianData');
+            Route::get('/{paket}/ranking/{page?}', 'PaketSoalController@rankingNasional')->name('ranking');
         });
     });
 });
 
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/ranking', 'HomeController@ranking')->name('rangking');
 // Route::get('/tryout-free', 'HomeController@tryout_free')->name('tryout-free');
 // Route::get('/tryouthome', 'HomeController@tryouthome')->name('tryouthome');
 // Route::get('/tryoutsoal', 'HomeController@tryoutsoal')->name('tryoutsoal');

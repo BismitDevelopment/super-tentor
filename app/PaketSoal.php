@@ -28,13 +28,19 @@ class PaketSoal extends Model
         return $this->hasMany('App\SoalTkp', 'paket_id');
     }
 
-    public function usersSimulations(){
+    public function usersSimulation(){
 
         return $this->belongsToMany('App\User', 'simulations', 'paket_id', 'user_id')
                     ->withPivot([
+                        'skor_tiu',
+                        'skor_twk',
+                        'skor_tkp',
                         'total_skor',
-                        'durasi_ujian'
+                        'status',
+                        'durasi_ujian',
+                        'created_at'
                         ])
+                    ->as('user_simulation')
                     ->withTimestamps();
     }
 

@@ -20,7 +20,7 @@ class SoalTkp extends Model
             array($this->pilihan_2, $this->skor_2),
             array($this->pilihan_3, $this->skor_3),
             array($this->pilihan_4, $this->skor_4),
-            array($this->jawaban, $this->skor_5)
+            array($this->pilihan_5, $this->skor_5)
         );
         shuffle($pilihan);
         return $pilihan;

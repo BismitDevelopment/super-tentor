@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\PaketSoal;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Auth;
 
 class PaketSoalController extends Controller
 {
@@ -24,6 +27,27 @@ class PaketSoalController extends Controller
         }
     }
 
+    private function getUsersRankSorted(PaketSoal $paket){
+        
+            $usersRank = $paket->usersSimulation->unique('id')->values();
+            $usersRankSorted = $usersRank->sortByDesc(function ($item, $key){
+                return $item['user_simulation']->total_skor;
+            })->values();           
+            
+            return $usersRankSorted;
+    }
+
+    private function getCurrentUserRank(User $user, Collection $sortedRankList){
+        
+        foreach ($sortedRankList as $key => $value) {
+                # code...
+                if($value->id === $user->id){
+                    return $key+1;
+                }
+        }
+        return 0;    
+    }
+
     public function showFree(PaketSoal $paket){
 
         if ($paket->jenis_tryout === 0) {
@@ -38,14 +62,39 @@ class PaketSoalController extends Controller
         //
         $paket = PaketSoal::find($request->paket);
         
-        if ($request->isMethod('post')) {
-            return $this->getSoalJSON($paket, 0);
-
+        if($paket->jenis_tryout === 0){
+            if ($request->isMethod('post')) {
+                return $this->getSoalJSON($paket, 0);
+    
+            } else {
+                
+                return view('dashboard.tryoutsoal', compact('paket'));
+            }
         } else {
-            
-            return view('dashboard.tryoutsoal', compact('paket'));
+
+            return redirect('home.tryouts.free');
         }
     }
+
+    public function rankingFree(PaketSoal $paket, int $page=1){
+
+        if($paket->jenis_tryout === 0){
+            $user = Auth::user();
+            $usersRankSorted = $this->getUsersRankSorted($paket);
+            $currentUserRank = $this->getCurrentUserRank($user, $usersRankSorted);
+
+            $userRankList = $usersRankSorted->forPage($page, 10);
+            $pages = ceil(count($usersRankSorted) / 10);
+
+            if(($page > $pages || $page < 1)&& $pages !== 0.0){
+                return redirect(route('home.tryouts.free.ranking', ['paket' => $paket->id]));
+            } else {
+                return view('dashboard.ranking', compact('paket','userRankList', 'page', 'pages', 'currentUserRank'));
+            }
+        } else {
+            return redirect('home.tryout.nasional');
+        }
+    }   
 
     public function showPremium(PaketSoal $paket){
 
@@ -61,15 +110,40 @@ class PaketSoalController extends Controller
         //
         $paket = PaketSoal::find($request->paket);
         
-        if ($request->isMethod('post')) {
-            # code...
-            return $this->getSoalJSON($paket, 1);
+        if($paket->jenis_tryout === 1){
+            if ($request->isMethod('post')) {
+                # code...
+                return $this->getSoalJSON($paket, 1);
 
+            } else {
+                
+                return view('dashboard.tryoutsoal', compact('paket'));
+            }
         } else {
-            
-            return view('dashboard.tryoutsoal', compact('paket'));
+
+            return redirect('home.tryouts.free');
         }
     }
+
+    public function rankingPremium(PaketSoal $paket, int $page=1){
+
+        if($paket->jenis_tryout === 1){
+            $user = Auth::user();
+            $usersRankSorted = $this->getUsersRankSorted($paket);
+            $currentUserRank = $this->getCurrentUserRank($user, $usersRankSorted);
+
+            $userRankList = $usersRankSorted->forPage($page, 10);
+            $pages = ceil(count($usersRankSorted) / 10);
+
+            if(($page > $pages || $page < 1) && $pages !== 0.0){
+                return redirect(route('home.tryouts.premium.ranking', ['paket' => $paket->id]));
+            } else {
+                return view('dashboard.ranking', compact('paket','userRankList', 'page', 'pages', 'currentUserRank'));
+            }
+        } else {
+            return redirect('home.tryout.nasional');
+        }
+    }   
 
     public function showNasional(PaketSoal $paket){
 
@@ -85,15 +159,41 @@ class PaketSoalController extends Controller
         //
         $paket = PaketSoal::find($request->paket);
         
-        if ($request->isMethod('post')) {
-            # code...
-            return $this->getSoalJSON($paket, 2);
+        if($paket->jenis_tryout === 2){
+            if ($request->isMethod('post')) {
+                # code...
+                return $this->getSoalJSON($paket, 2);
 
+            } else {
+                
+                return view('dashboard.tryoutsoal', compact('paket'));
+            }
         } else {
-            
-            return view('dashboard.tryoutsoal', compact('paket'));
+
+            return redirect('home.tryouts.nasional');
         }
     }
+
+    public function rankingNasional(PaketSoal $paket, int $page=1){
+
+        if($paket->jenis_tryout === 2){
+            $user = Auth::user();
+            $usersRankSorted = $this->getUsersRankSorted($paket);
+            $currentUserRank = $this->getCurrentUserRank($user, $usersRankSorted);
+
+            $userRankList = $usersRankSorted->forPage($page, 10);
+            $pages = ceil(count($usersRankSorted) / 10);
+
+            if(($page > $pages || $page < 1) && $pages !== 0.0){
+                return redirect(route('home.tryouts.nasional.ranking', ['paket' => $paket->id]));
+            } else {
+                return view('dashboard.ranking', compact('paket','userRankList', 'page', 'pages', 'currentUserRank'));
+            }
+
+        } else {
+            return redirect('home.tryout.nasional');
+        }
+    }   
 
     public function finishAttempt(Request $request){
         //TO-DO calculate score redirect to

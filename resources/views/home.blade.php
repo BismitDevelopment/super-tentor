@@ -2,9 +2,13 @@
 @section('navbar')
     @include('navbarDashboard')
 @endsection
+
+@section('css')
+    <link rel="stylesheet" href="{{ asset('css/dashboardHome.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+@endsection
+
 @section('content')
-<link rel="stylesheet" href="css/dashboardHome.css">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
 <div class="dash-main d-flex flex-column align-items-center">
     <div class="main-container">
         {{-- Page 1 --}}
@@ -44,11 +48,11 @@
                         <div class="progress-body">
                             <div class="progress-header d-flex justify-content-between">
                                 <h1>{{ $data['title'] }}</h1>
-                                @if (!empty($data['progress']))
+                                @if (array_key_exists('progress',$data))
                                     <div class="progress-data">{{$data['progress']}}/{{$data['total']}}</div>
                                 @endif
                             </div>
-                            @if (!empty($data['progress']))
+                            @if (array_key_exists('progress',$data))
                                 <div class="d-flex justify-content-center">
                                     <div class="progress-bar">
                                         <div class="progress" style="width: {{$data['bar-width']}}%"></div>
@@ -66,7 +70,6 @@
         {{-- Page 3 --}}
         <div class="page-3">
             <div class="header">
-                {{-- <h1>{{var_dump($data['simulasi']['header'])}}</h1> --}}
                 <h1>Hasil Simulasi</h1>
                 <div class="underline"></div>
             </div>
@@ -84,7 +87,7 @@
                 </thead>
                 <tbody>
                     {{-- Iterasi content tabel --}}
-                    @for($i = 0; $i < 5; $i++)
+                    @foreach($user->simulations as $user_sim)
                         <tr class="table-border">
                             <td colspan="100%" class="py-2">
                                 <div class="d-flex justify-content-center">
@@ -93,28 +96,36 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><h4>4/15/2020</h4></td>
                             <td>
-                                <h4>Try Out Serentak 01 - SKD</h4>
-                                <h4>FREE</h4>
+                                <h4>{{ date('d/m/Y', strtotime($user_sim->simulation->created_at)) }}</h4>
                             </td>
-                            <td><h4>1:00:00</h4></td>
+                            <td>
+                                <h4>{{ $user_sim->nama }}</h4>
+                                @if ($user_sim->jenis_tryout === 0)
+                                    <h4>FREE</h4>
+                                @elseif($user_sim->jenis_tryout ===1)
+                                    <h4>PREMIUM</h4>
+                                @else
+                                    <h4>NASIONAL</h4>
+                                @endif
+                            </td>
+                            <td><h4>{{ $user_sim->simulation->durasi_ujian }}</h4></td>
                             <td>
                                 <div >
-                                    <h4>TWK: 0</h4>
-                                    <h4>TIU: 0</h4>
-                                    <h4>TKP: 0</h4>
-                                    <h4>Total: 0</h4>
+                                    <h4>TWK: {{ $user_sim->simulation->skor_twk }}</h4>
+                                    <h4>TIU: {{ $user_sim->simulation->skor_tiu }}</h4>
+                                    <h4>TKP: {{ $user_sim->simulation->skor_tkp }}</h4>
+                                    <h4>Total: {{ $user_sim->simulation->total_skor }}</h4>
                                 </div>
                             </td>
-                            <td><h4>Tidak Lulus</h4></td>
+                            <td><h4>{{ $user_sim->simulation->status }}</h4></td>
                             <td>
                                 <button class="table-button">
                                     Pembahasan
                                 </button>
                             </td>
                         </tr>
-                    @endfor
+                    @endforeach
                 </tbody>
                 <tr class="table-border">
                     <td colspan="100%">
@@ -129,15 +140,23 @@
                 <tr class="table-footer">
                     <td colspan="100%">
                         <div class="d-flex justify-content-center">
-                            <a href="">
-                                <img src="img/svg-dash-home/left.svg" alt="">
-                            </a>
+                            @if ($page!==1)
+                                <a href="{{ route('home', ['page'=> $page-1]) }}">
+                                    <img src="{{ asset('img/svg-dash-home/left.svg') }}" alt="">
+                                </a>
+                            @endif
+
                             <div class="pagination-bar">
-                                1-5
+                                @if ($pages !== 0.0)
+                                    1-{{ $pages }}
+                                @endif
                             </div>
-                            <a href="">
-                                <img src="img/svg-dash-home/right.svg" alt="">
-                            </a>
+
+                            @if ($page < $pages)
+                                <a href="{{ route('home', ['page'=>$page+1]) }}">
+                                    <img src="{{ asset('img/svg-dash-home/right.svg') }}" alt="">
+                                </a>
+                            @endif
                         </div>
                     </td>
                 </tr>
