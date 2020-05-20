@@ -7,22 +7,25 @@ if (localStorage.getItem("state") == null) {
         "soal_tkp" : {
             "lastNumber" : "1",
             "arrMarked" : [],
-            "answer" : {}
+            "answer" : {},
+            "scoreAnswer" : {}
         },
         "soal_tiu" : {
             "lastNumber" : "1",
             "arrMarked" : [],
-            "answer" : {}
+            "answer" : {},
+            "scoreAnswer" : {}
         },
         "soal_twk" : {
             "lastNumber" : "1",
             "arrMarked" : [],
-            "answer" : {}
+            "answer" : {},
+            "scoreAnswer" : {}
         },
         "time_end" : parseInt(Date.now() + (90*60000))
     }
 } else {
-    state = JSON.parse(localStorage.getItem("state"))
+    state = JSON.parse(localStorage.getItem("state"))    
 }
 
 
@@ -40,19 +43,10 @@ let dataSoal = $.ajax({
     },
     dataType: 'json',
     success: function(data) {
-        // Shuffle Pilihan
         obj = data
-        console.log(obj)
 
         let arrJenis = ["soal_tkp", "soal_tiu", "soal_twk"]
         
-        // arrJenis.forEach(element1 => {
-        //     let arrSoal = obj.paket[`${element1}`]
-        //     arrSoal.forEach((value, i) => {
-        //         arrSoal[i].pilihan = shuffle(value.pilihan)
-        //     })
-        // })
-
         // Judul paket
         const namaPaket = obj.paket.nama
         $(".judul-paket").html(namaPaket)
@@ -66,6 +60,17 @@ let dataSoal = $.ajax({
 
 
 function action(jenis_soal, noSoal, arrMarked, choiceVal) {  
+
+    if (jenis_soal == "soal_twk") {
+        for (let i = 30; i < 35 ; i++) {
+            $(".box-angka").eq(i).hide()
+        }
+    } else {
+        for (let i = 30; i < 35 ; i++) {
+            $(".box-angka").eq(i).show()
+        }
+    }
+    
 
     // 1. Menu tab
 
@@ -86,7 +91,7 @@ function action(jenis_soal, noSoal, arrMarked, choiceVal) {
     let arrPilihan = obj.paket[`${jenis_soal}`][parseInt(noSoal-1)].pilihan
     for (let i = 1; i <= 5; i++) {
         $("input#pilihan-"+i).next().html(`${arrPilihan[i-1][0]}`)
-        $("input#pilihan-"+i).val(`${arrPilihan[i-1][0]}`)
+        $("input#pilihan-"+i).val(`${arrPilihan[i-1][0]}`)        
     }
 
     // 5. Setup data kembali dan selanjutnya
@@ -217,9 +222,16 @@ $(document).ready(function () {
 
     // Saving answer
     $("input").click(function() {
+        let valuePilihan = $(this).val()
         let jenis = $(".menu-active").data("jenis")
         let noSoal = $(".angka-active").data("nomor")
-        state[`${jenis}`]["answer"][`${noSoal}`] = $(this).val()
+        state[`${jenis}`]["answer"][`${noSoal}`] = valuePilihan
+        let pilihan = obj["paket"][`${jenis}`][`${noSoal-1}`]["pilihan"]     
+        pilihan.forEach((e) => {
+            if (e[0] == valuePilihan) {
+                state[`${jenis}`]["scoreAnswer"][`${noSoal}`] = e[1]
+            }
+        })   
         localStorage.setItem("state", JSON.stringify(state))
     })
 
@@ -277,56 +289,73 @@ function shuffle(array) {
   }
 
 // Finish Attempt
-function finish() {
-    localStorage.clear()
+function finish() {    
     let arrJawabanTWK = []
+    let arrScoreJawabanTWK = []
     let arrJawabanTIU = []
+    let arrScoreJawabanTIU = []
     let arrJawabanTKP = []
+    let arrScoreJawabanTKP = []
     for(let i = 1; i <= 30 ; i++) {
         let jawabanTWK = state["soal_twk"]["answer"][`${i}`]
+        let scoreJawabanTWK = state["soal_twk"]["scoreAnswer"][`${i}`]
         let jawabanTIU = state["soal_tiu"]["answer"][`${i}`]
+        let scoreJawabanTIU = state["soal_tiu"]["scoreAnswer"][`${i}`]
         let jawabanTKP = state["soal_tkp"]["answer"][`${i}`]
+        let scoreJawabanTKP = state["soal_tkp"]["scoreAnswer"][`${i}`]
         if ( jawabanTWK != null) {
             arrJawabanTWK.push(jawabanTWK)
+            arrScoreJawabanTWK.push(parseInt(scoreJawabanTWK)) 
         } else {
             arrJawabanTWK.push("")
+            arrScoreJawabanTWK.push(0)
         }
         if ( jawabanTIU != null) {
             arrJawabanTIU.push(jawabanTIU)
+            arrScoreJawabanTIU.push(parseInt(scoreJawabanTIU)) 
         } else {
             arrJawabanTIU.push("")
+            arrScoreJawabanTIU.push(0)
         }
         if ( jawabanTKP != null) {
             arrJawabanTKP.push(jawabanTKP)
+            arrScoreJawabanTKP.push(parseInt(scoreJawabanTKP)) 
         } else {
             arrJawabanTKP.push("")
+            arrScoreJawabanTKP.push(0)
         }
     }
     let objJawaban = {
         "id_paket" : obj.paket.id,
         "jawaban_tiu" : arrJawabanTIU,
+        "score_jawaban_tiu" : arrScoreJawabanTIU,
         "jawaban_tkp" : arrJawabanTKP,
+        "score_jawaban_tkp" : arrScoreJawabanTKP,
         "jawaban_twk" : arrJawabanTWK,
+        "score_jawaban_twk" : arrScoreJawabanTWK,
+        "waktu_dihabiskan" : parseInt((Date.now() - (state["time_end"] - (90*60000)))/1000)
     }
-
+    localStorage.clear()
+    console.log(JSON.stringify(objJawaban));
+    
     // Ini ajax postnya bang
 
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
+    // $.ajaxSetup({
+    //     headers: {
+    //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    //     }
+    // });
     
-    $.ajax({
-        type: 'POST',
-        url: '',  // URL POST FINISH
-        data: objJawaban,
-        dataType: 'json',
-        success: function(data) {
-            window.location = "https://www.google.com/"  // Nunggu URL buat score
-        },
-        error: function(data) {
-            console.log(data)
-        }
-    });
+    // $.ajax({
+    //     type: 'POST',
+    //     url: '',  // URL POST FINISH
+    //     data: objJawaban,
+    //     dataType: 'json',
+    //     success: function(data) {
+    //         window.location = "https://www.google.com/"  // Nanti ini ke url score page
+    //     },
+    //     error: function(data) {
+    //         console.log(data)
+    //     }
+    // });
 }
