@@ -17,10 +17,17 @@ class RolesTableSeeder extends Seeder
                 ])->save();
         }
 
-        $role = Role::firstOrNew(['name' => 'user']);
+        $role = Role::firstOrNew(['name' => 'free']);
         if (!$role->exists) {
             $role->fill([
-                    'display_name' => __('voyager::seeders.roles.user'),
+                    'display_name' => __('Free User'),
+                ])->save();
+        }
+
+        $role = Role::firstOrNew(['name' => 'premium']);
+        if (!$role->exists) {
+            $role->fill([
+                    'display_name' => __('Premium User'),
                 ])->save();
         }
     }

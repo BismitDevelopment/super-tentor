@@ -14,10 +14,10 @@ class CreatePaketSoalsTable extends Migration
     public function up()
     {
         Schema::create('paket_soals', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->string('nama', 255);
             $table->integer('jenis_tryout');
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 
