@@ -85,7 +85,12 @@ function action(jenis_soal, noSoal, arrMarked, choiceVal) {
 
     // 3. Isi soal  
     $(".box-soal").data("nomor", noSoal)
-    $(".soal-isi").html(obj.paket[`${jenis_soal}`][parseInt(noSoal-1)].soal)
+    let soal = obj.paket[`${jenis_soal}`][parseInt(noSoal-1)].soal
+    if (soal.includes(".jpg") || soal.includes(".png")) {
+        $(".soal-gambar").attr("src", soal)
+    } else {
+        $(".soal-isi").html(soal)
+    }
 
     // 4. Pilihan
     let arrPilihan = obj.paket[`${jenis_soal}`][parseInt(noSoal-1)].pilihan
