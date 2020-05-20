@@ -15,7 +15,8 @@ class CreateSoalTwksTable extends Migration
     {
         Schema::create('soal_twks', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('paket_id');
+            $table->unsignedBigInteger('paket_id');
+            $table->foreign('paket_id')->references('id')->on('paket_soals')->onDelete('cascade');
             $table->text('soal');
             $table->text('pilihan_1');
             $table->text('pilihan_2');

@@ -32,24 +32,26 @@ $.ajaxSetup({
     }
 });
 
-$.ajax({
+let dataSoal = $.ajax({
     type: 'POST',
-    url: '/home/tryouts/free/' + $('meta[name="paket_id"]').attr('content') +'/ujian',
+    url: window.location.href,
     data: {
-        paket: $('meta[name="paket_id"]').attr('content'),
+        // paket: $('meta[name="paket_id"]').attr('content'),
     },
     dataType: 'json',
     success: function(data) {
         // Shuffle Pilihan
         obj = data
-        
+        console.log(obj)
+
         let arrJenis = ["soal_tkp", "soal_tiu", "soal_twk"]
-        arrJenis.forEach(element1 => {
-            let arrSoal = obj.paket[`${element1}`]
-            arrSoal.forEach((value, i) => {
-                arrSoal[i].pilihan = shuffle(value.pilihan)
-            })
-        })
+        
+        // arrJenis.forEach(element1 => {
+        //     let arrSoal = obj.paket[`${element1}`]
+        //     arrSoal.forEach((value, i) => {
+        //         arrSoal[i].pilihan = shuffle(value.pilihan)
+        //     })
+        // })
 
         // Judul paket
         const namaPaket = obj.paket.nama
@@ -61,11 +63,6 @@ $.ajax({
         console.log(data)
     }
 });
-
-//---------
-
-// let obj = JSON.parse('{"error":false,"paket":{"id":2,"nama":"Paket 1","jenis_tryout":0,"soal_tkp":[{"id":1,"soal":"APA ITU GAJAH?","jawaban":"AMFIBI","pembahasan":"Gajah adalah amfibi","paket_id":2,"pilihan":["MAMALIA","UNGGAS","REPTIL","IKAN","AMFIBI"]},{"id":2,"soal":"Apa itu apa?","jawaban":"Jawss","pembahasan":"Apa itu pertanyaan","paket_id":2,"pilihan":["Pil 1","Pil 2","Pil 3","Pil 4","Jawss"]},{"id":3,"soal":"Consol TKP","jawaban":"ini jawaban","pembahasan":"ini pembahasan","paket_id":2,"pilihan":["ini jawab","pillih ini","coba pilih","ini dong","ini jawaban"]}],"soal_tiu":[{"id":3,"soal":"APA ITU BURUNG?","jawaban":"UNGGAS","pembahasan":"Burung adalah unggas","paket_id":2,"pilihan":["MAMALIA","UNGGAS","REPTIL","IKAN","UNGGAS"]},{"id":4,"soal":"Apa itu TIU?","jawaban":"jawabannya ini","pembahasan":"pembahasan ini","paket_id":2,"pilihan":["pilih ini bro","pilihini coba","coba pilih","pilih 4 nih","jawabannya ini"]},{"id":5,"soal":"Coonsol TIU","jawaban":"Jawaban TIU","pembahasan":"Pmebahasn TIU","paket_id":2,"pilihan":["pilih TIU 1","Pilih TIU 2","pilih TIU3","pilih TIU 4","Jawaban TIU"]}],"soal_twk":[{"id":1,"soal":"APA ITU MANUSIA?","jawaban":"MAMALIA","pembahasan":"MANUSIA adalah amfibi","paket_id":2,"pilihan":["MAMALIA","UNGGAS","REPTIL","IKAN","MAMALIA"]},{"id":2,"soal":"CONTOH TWK","jawaban":"Jawaban 1 TWK","pembahasan":"Pemabahsan 1 TWK","paket_id":2,"pilihan":["pilihan 1 twk","pilihan 1 twksd","pilihan 1 twkfff","pilihan 1 twkggg","Jawaban 1 TWK"]},{"id":3,"soal":"APA ITU TWK?","jawaban":"TWK ADAH TWLW","pembahasan":"Pemabahasn itu ajsafksdjnfc","paket_id":2,"pilihan":["Tidak tahu","tauah","apasih","gajeals","TWK ADAH TWLW"]}]}}')
-
 
 
 function action(jenis_soal, noSoal, arrMarked, choiceVal) {  
@@ -88,8 +85,8 @@ function action(jenis_soal, noSoal, arrMarked, choiceVal) {
     // 4. Pilihan
     let arrPilihan = obj.paket[`${jenis_soal}`][parseInt(noSoal-1)].pilihan
     for (let i = 1; i <= 5; i++) {
-        $("input#pilihan-"+i).next().html(`${arrPilihan[i-1]}`)
-        $("input#pilihan-"+i).val(`${arrPilihan[i-1]}`)
+        $("input#pilihan-"+i).next().html(`${arrPilihan[i-1][0]}`)
+        $("input#pilihan-"+i).val(`${arrPilihan[i-1][0]}`)
     }
 
     // 5. Setup data kembali dan selanjutnya
@@ -145,12 +142,9 @@ $(document).ready(function () {
     let jenis_soal = $(".soal").data("jenis")
     let choiceVal = state[`${jenis_soal}`].answer[`${noSoal}`]
 
-    while(true){
-        if (obj != 0){
-            action(jenis_soal, noSoal, [], choiceVal)
-            break
-        }
-    }
+    $.when(dataSoal).done( ()=>{
+        action(jenis_soal, noSoal, [], choiceVal)
+    })
     
     
     // Tab Menu Click

@@ -15,9 +15,15 @@ class CreateSimulationsTable extends Migration
     {
         Schema::create('simulations', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('user_id');
-            $table->bigInteger('paket_id');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('paket_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('paket_id')->references('id')->on('paket_soals')->onDelete('cascade');
+            $table->integer('skor_tiu');
+            $table->integer('skor_twk');
+            $table->integer('skor_tkp');
             $table->integer('total_skor');
+            $table->string('status');
             $table->time('durasi_ujian',0);
             $table->timestamps();
         });

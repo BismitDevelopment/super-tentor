@@ -41,7 +41,11 @@ class User extends \TCG\Voyager\Models\User implements MustVerifyEmail
 
         return $this->belongsToMany('App\PaketSoal', 'simulations', 'user_id', 'paket_id')
                     ->withPivot([
+                        'skor_tiu',
+                        'skor_twk',
+                        'skor_tkp',
                         'total_skor',
+                        'status',
                         'durasi_ujian'
                         ])
                     ->withTimestamps();
