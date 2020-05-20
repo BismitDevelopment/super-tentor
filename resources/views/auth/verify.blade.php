@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="{{ asset('css/verify.css') }}">
-
 @extends('layouts.app')
 
 @section('navbar')
@@ -8,9 +6,13 @@
 
 <style>
     body {
-        background-image: url('{{ asset('img/bg-sun-tornado.svg') }}');
         background-size: cover;
         font-size: 12px;
+        overflow-x: hidden !important;
+    }
+    main {
+        background-image: url("{{ asset('img/bg-sun-tornado.svg') }}") !important;
+        min-height: 100vh;
     }
     .out {
         color: #fff;
@@ -32,7 +34,7 @@
 
 @section('content')
 <div class="out">
-    <div class="row justify-content-center">
+    <div class="d-flex justify-content-center">
         <div class="col-10 col-md-8">
             <div class="card py-3 px-2 mt-4">
                 <div class="card-body d-flex flex-column justify-content-center align-items-center">
