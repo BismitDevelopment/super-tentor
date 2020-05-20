@@ -30,7 +30,7 @@
             </div>
         </div>
         <div class="col-md-10">
-            <div class="d-flex justify-content-center mt-3 buttons">
+            <div class="d-flex justify-content-center mt-3 buttons mb-5 mb-md-3">
                 @if ($paket->jenis_tryout === 0)
                     <a class="mx-2" href="{{ route('home.tryouts.free.index') }}"><button type="button" class="btn btn-yellow px-3">Kembali</button></a>
                     <a class="mx-2" href="{{ route('home.tryouts.free.ujian', ['paket'=>$paket->id])}}"><button type="button" class="btn btn-green px-3">Mulai Quiz</button></a>

@@ -84,7 +84,7 @@
             <div class="border bg-white p-3 rounded nomor">
                 <h5>Navigasi Soal TIU</h5>
                 <div class="angka mt-4">
-                    @for ($i = 1; $i <= 30; $i++)
+                    @for ($i = 1; $i <= 35; $i++)
                     <div class="box-angka" data-nomor="{{ $i }}">{{ $i }}</div>
                     @endfor
                 </div>
