@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 Auth::routes(['verify'=>true]);
 
-Route::prefix('home')->name('home.')->group(function(){
+Route::middleware(['verified'])->prefix('home')->name('home.')->group(function(){
     Route::get('/{page?}', 'HomeController@index')->name('index');
     Route::get('tryouthome', 'HomeController@tryouthome')->name('tryouthome');
 
