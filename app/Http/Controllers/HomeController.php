@@ -37,9 +37,11 @@ class HomeController extends Controller
               'notif-content' => 'Tryout nasional akan diadakan secara serentak pada tanggal 17 April 2020. Password untuk memasuki tryout nasional terdapat pada notifikasi pengguba labla',
             ],
         ];
-
+        
         // $user = User::with('simulations')->find(2);
         $user_simulations = $user->simulations;
+        $user_simulations_per_page = $user_simulations->forPage($page, 5);
+        
         $user_pakets_free = $user_simulations->filter(function ($value, $key){
             return $value->jenis_tryout === 0;
         });
@@ -81,7 +83,8 @@ class HomeController extends Controller
     
             $data = array_merge($data, array('progress'=>$progress));
             
-            return view('home', compact('data', 'user', 'pages', 'page'));
+
+            return view('home', compact('data', 'user_simulations_per_page', 'pages', 'page'));
         }
     }
 }

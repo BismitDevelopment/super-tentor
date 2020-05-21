@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class SoalTwk extends Model
 {
     protected $hidden = [
-        'paket_id','pilihan_1','pilihan_2','pilihan_3','pilihan_4','jawaban','skor','updated_at', 'created_at'
+        'paket_id','pilihan_1','pilihan_2','pilihan_3','pilihan_4','skor','updated_at', 'created_at'
     ];
 
     protected $appends = ['pilihan'];
@@ -23,6 +23,10 @@ class SoalTwk extends Model
         );
         shuffle($pilihan);
         return $pilihan;
+    }
+
+    public function getJawabanAttribute(){
+        return [$this->jawaban => $this->skor];
     }
     
     public function paket(){

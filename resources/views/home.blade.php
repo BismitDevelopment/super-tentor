@@ -87,7 +87,7 @@
                 </thead>
                 <tbody>
                     {{-- Iterasi content tabel --}}
-                    @foreach($user->simulations as $user_sim)
+                    @foreach($user_simulations_per_page as $user_sim)
                         <tr class="table-border">
                             <td colspan="100%" class="py-2">
                                 <div class="d-flex justify-content-center">
@@ -146,7 +146,7 @@
                     <td colspan="100%">
                         <div class="d-flex justify-content-center">
                             @if ($page!==1)
-                                <a href="{{ route('home', ['page'=> $page-1]) }}">
+                                <a href="{{ route('home.index', ['page'=> $page-1]) }}">
                                     <img src="{{ asset('img/svg-dash-home/left.svg') }}" alt="">
                                 </a>
                             @endif
@@ -158,7 +158,7 @@
                             </div>
 
                             @if ($page < $pages)
-                                <a href="{{ route('home', ['page'=>$page+1]) }}">
+                                <a href="{{ route('home.index', ['page'=>$page+1]) }}">
                                     <img src="{{ asset('img/svg-dash-home/right.svg') }}" alt="">
                                 </a>
                             @endif
