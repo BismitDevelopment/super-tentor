@@ -301,20 +301,11 @@ function finish() {
     let arrScoreJawabanTIU = []
     let arrJawabanTKP = []
     let arrScoreJawabanTKP = []
-    for(let i = 1; i <= 30 ; i++) {
-        let jawabanTWK = state["soal_twk"]["answer"][`${i}`]
-        let scoreJawabanTWK = state["soal_twk"]["scoreAnswer"][`${i}`]
+    for(let i = 1; i <= 35 ; i++) {
         let jawabanTIU = state["soal_tiu"]["answer"][`${i}`]
         let scoreJawabanTIU = state["soal_tiu"]["scoreAnswer"][`${i}`]
         let jawabanTKP = state["soal_tkp"]["answer"][`${i}`]
         let scoreJawabanTKP = state["soal_tkp"]["scoreAnswer"][`${i}`]
-        if ( jawabanTWK != null) {
-            arrJawabanTWK.push(jawabanTWK)
-            arrScoreJawabanTWK.push(parseInt(scoreJawabanTWK)) 
-        } else {
-            arrJawabanTWK.push("")
-            arrScoreJawabanTWK.push(0)
-        }
         if ( jawabanTIU != null) {
             arrJawabanTIU.push(jawabanTIU)
             arrScoreJawabanTIU.push(parseInt(scoreJawabanTIU)) 
@@ -328,6 +319,17 @@ function finish() {
         } else {
             arrJawabanTKP.push("")
             arrScoreJawabanTKP.push(0)
+        }
+    }
+    for(let i = 1; i <= 30 ; i++) {
+        let jawabanTWK = state["soal_twk"]["answer"][`${i}`]
+        let scoreJawabanTWK = state["soal_twk"]["scoreAnswer"][`${i}`]
+        if ( jawabanTWK != null) {
+            arrJawabanTWK.push(jawabanTWK)
+            arrScoreJawabanTWK.push(parseInt(scoreJawabanTWK)) 
+        } else {
+            arrJawabanTWK.push("")
+            arrScoreJawabanTWK.push(0)
         }
     }
     let objJawaban = {
