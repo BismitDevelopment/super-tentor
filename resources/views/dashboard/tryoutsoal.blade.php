@@ -109,7 +109,7 @@
             <div class="scroll">
                 <div class="results d-flex justify-content-around">
                     <?php
-                        if ($_COOKIE['state'] !== 0.0) {
+                        if ($_COOKIE['state'] !== "0") {
                             # code...
                             $original_data_set = json_decode($_COOKIE['state'], true);
                             $cleaned_data_set = [
