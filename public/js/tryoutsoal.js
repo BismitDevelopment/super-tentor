@@ -281,9 +281,6 @@ $(document).ready(function () {
       $("final-submit-btn").click(function() {
         finish()
       })
-    //Temp
-    $(".wrapper").hide();
-    $(".finish-attempt-page").show()
 });
 
 
