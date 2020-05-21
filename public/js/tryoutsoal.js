@@ -58,6 +58,15 @@ let dataSoal = $.ajax({
 
 function action(jenis_soal, noSoal, arrMarked, choiceVal) {  
 
+
+    for (let i = 1 ; i <= 35 ; i++) {
+        if (state[`${jenis_soal}`]["answer"][`${i}`] != undefined) {
+            $(`.box-angka[data-nomor='${i}'`).addClass("answered")
+        } else {
+            $(`.box-angka[data-nomor='${i}'`).removeClass("answered")
+        }
+    }
+
     if (jenis_soal == "soal_twk") {
         for (let i = 30; i < 35 ; i++) {
             $(".box-angka").eq(i).hide()

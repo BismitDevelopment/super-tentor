@@ -97,6 +97,10 @@
   background-color: #828282;
 }
 
+.nomor .angka .answered {
+  background-color: #828282 !important;
+}
+
 .nomor .angka .angka-marked {
   box-shadow: 0 0 0 3px #EB5757;
 }
