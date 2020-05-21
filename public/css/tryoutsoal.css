@@ -37,6 +37,11 @@
   white-space: pre-wrap;
 }
 
+.soal .soal-gambar {
+  width: 100%;
+  height: auto;
+}
+
 .soal .box {
   padding: 3em;
   border-top: none !important;

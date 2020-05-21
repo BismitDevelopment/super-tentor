@@ -41,6 +41,9 @@
                 <div class="d-flex flex-column mt-3 text-justify">
                     <p class="mb-0 soal-isi text-larger">
                     </p>
+                    <div class="d-flex">
+                        <img src="" class="soal-gambar">
+                    </div>
                     <form action="" class="d-flex flex-column ml-4 mt-2">
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="choice" id="pilihan-1" value="a">
@@ -84,7 +87,7 @@
             <div class="border bg-white p-3 rounded nomor">
                 <h5>Navigasi Soal TIU</h5>
                 <div class="angka mt-4">
-                    @for ($i = 1; $i <= 30; $i++)
+                    @for ($i = 1; $i <= 35; $i++)
                     <div class="box-angka" data-nomor="{{ $i }}">{{ $i }}</div>
                     @endfor
                 </div>

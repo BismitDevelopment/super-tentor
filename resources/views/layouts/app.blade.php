@@ -69,8 +69,8 @@
                 {{-- <a class="ml-2" href="">Logout</a> --}}
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
-                    <button class="ml-2 logout" type="submit">Logout</>
-                    </form>
+                    <button class="ml-2 p-0 text-left logout" type="submit">Logout</>
+                </form>
                 </div>
             </div>  
             <main class="pt-4 hideMain">
