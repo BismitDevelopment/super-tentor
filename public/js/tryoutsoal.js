@@ -235,11 +235,47 @@ $(document).ready(function () {
         }
       }, 1000);
 
+      //Return to attempt
+      $(".return-to-attempt").click(function() {
+        returnToAttempt()
+      })
+
       // Finish Attempt
       $(".finish-attempt").click(function() {
+        finishAttempt()
+      })
+
+      //Submit dan selesai
+      $("final-submit-btn").click(function() {
         finish()
       })
 });
+
+
+
+//Return to attempt
+function returnToAttempt() {
+    clearCookie()
+    $(".wrapper").show()
+    $(".finish-attempt-page").hide()
+}
+
+//Go to finish attempt page
+function finishAttempt() {
+    setCookie()
+    $(".wrapper").hide();
+    $(".finish-attempt-page").show()
+}
+
+//Set cookie
+function setCookie() {
+    document.cookie = "state="+localStorage.getItem('state')
+    console.log(document.cookie)
+}
+
+function clearCookie() {
+    document.cookie = ""
+}
 
 // Shuffle array
 function shuffle(array) {
@@ -261,7 +297,7 @@ function shuffle(array) {
     return array;
   }
 
-// Finish Attempt
+// Submit dan selesai
 function finish() {    
     let arrJawabanTWK = []
     let arrScoreJawabanTWK = []
