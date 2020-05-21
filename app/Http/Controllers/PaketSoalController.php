@@ -211,11 +211,10 @@ class PaketSoalController extends Controller
     }   
 
     public function finish(Request $request, int $paket){
-
         if ($request->input('id_paket') === $paket) {
             # code...
             $durasiUjianSeconds = $request->input('waktu_dihabiskan');
-            $durasiUjianFormatted = date('H:i:s', $durasiUjianSeconds);
+            $durasiUjianFormatted = date('H:i:s', $durasiUjianSeconds - (7 * 60 * 60));
             
             # Store Array Jawaban to simualtion table
             $arrJawabanTiu = $request->input('jawaban_tiu');
