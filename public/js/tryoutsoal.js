@@ -100,8 +100,8 @@ function action(jenis_soal, noSoal, arrMarked, choiceVal) {
     }
 
     // 5. Setup data kembali dan selanjutnya
-    $(".btn-kembali").data("nomor", noSoal-1)
-    $(".btn-selanjutnya").data("nomor", noSoal+1)
+    $(".btn-kembali").data("nomor", noSoal-1) 
+    $(".btn-selanjutnya").data("nomor", parseInt(noSoal)+1)
 
     // 6. navigasi
     $(".box-angka").each(function() {
