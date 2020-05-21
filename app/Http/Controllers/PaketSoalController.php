@@ -91,7 +91,7 @@ class PaketSoalController extends Controller
 
         } else {
             
-            return view('dashboard.tryoutsoal', compact('paket'));
+            return view('dashboard.pembahasan', compact('paket'));
         }
     }
 
