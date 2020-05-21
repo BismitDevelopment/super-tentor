@@ -2,7 +2,7 @@ let obj = 0
 
 // Variables for saving state
 let state;
-if (localStorage.getItem("state") == null) {
+if (sessionStorage.getItem("state") == null) {
     state = {
         "soal_tkp" : {
             "lastNumber" : "1",
@@ -25,7 +25,7 @@ if (localStorage.getItem("state") == null) {
         "time_end" : parseInt(Date.now() + (90*60000))
     }
 } else {
-    state = JSON.parse(localStorage.getItem("state"))    
+    state = JSON.parse(sessionStorage.getItem("state"))    
 }
 
 
@@ -57,6 +57,15 @@ let dataSoal = $.ajax({
 
 
 function action(jenis_soal, noSoal, arrMarked, choiceVal) {  
+
+
+    for (let i = 1 ; i <= 35 ; i++) {
+        if (state[`${jenis_soal}`]["answer"][`${i}`] != undefined) {
+            $(`.box-angka[data-nomor='${i}'`).addClass("answered")
+        } else {
+            $(`.box-angka[data-nomor='${i}'`).removeClass("answered")
+        }
+    }
 
     if (jenis_soal == "soal_twk") {
         for (let i = 30; i < 35 ; i++) {
@@ -123,8 +132,8 @@ function action(jenis_soal, noSoal, arrMarked, choiceVal) {
     
     $(`input[value="${choiceVal}"]`).prop('checked', true)
 
-    // Save to localStorage
-    localStorage.setItem("state", JSON.stringify(state))
+    // Save to sessionStorage
+    sessionStorage.setItem("state", JSON.stringify(state))
 
 }
 
@@ -133,9 +142,10 @@ $(document).ready(function () {
     let noSoal = state["soal_twk"]["lastNumber"]
     let jenis_soal = $(".soal").data("jenis")
     let choiceVal = state[`${jenis_soal}`].answer[`${noSoal}`]
+    let arrMarked = state[`${jenis_soal}`].arrMarked
 
     $.when(dataSoal).done( ()=>{
-        action(jenis_soal, noSoal, [], choiceVal)
+        action(jenis_soal, noSoal, arrMarked, choiceVal)
     })
     
     
@@ -193,6 +203,59 @@ $(document).ready(function () {
         }
     })
 
+    // Finish Attempt Click
+    $(".finish-attempt").click(() => {
+        $(".wrapper").hide()
+        for (let i = 1 ; i <= 30 ; i++) {
+            if (state["soal_twk"]["answer"][`${i}`] == undefined) {
+                $(`.baris-twk .status[data-nomor='${i}'`).html("Belum dijawab")
+                $(`.baris-twk .status[data-nomor='${i}'`).css("color", "#EB5757")
+            } else {
+                $(`.baris-twk .status[data-nomor='${i}'`).html("Sudah terjawab")
+                $(`.baris-twk .status[data-nomor='${i}'`).css("color", "black")
+            }
+            if (state["soal_twk"]["arrMarked"].includes(i) || state["soal_twk"]["arrMarked"].includes(toString(i))) {
+                $(`.baris-twk img[data-nomor='${i}'`).show()
+            } else {
+                $(`.baris-twk img[data-nomor='${i}'`).hide()
+            }
+        }
+        for (let i = 1 ; i <= 35 ; i++) {
+            if (state["soal_tiu"]["answer"][`${i}`] == undefined) {
+                $(`.baris-tiu .status[data-nomor='${i}'`).html("Belum dijawab")
+                $(`.baris-tiu .status[data-nomor='${i}'`).css("color", "#EB5757")
+            } else {
+                $(`.baris-tiu .status[data-nomor='${i}'`).html("Sudah terjawab")
+                $(`.baris-tiu .status[data-nomor='${i}'`).css("color", "black")
+            }
+            if (state["soal_tiu"]["arrMarked"].includes(i) || state["soal_tiu"]["arrMarked"].includes(toString(i))) {
+                $(`.baris-tiu img[data-nomor='${i}'`).show()
+            } else {
+                $(`.baris-tiu img[data-nomor='${i}'`).hide()
+            }
+            if (state["soal_tkp"]["answer"][`${i}`] == undefined) {
+                $(`.baris-tkp .status[data-nomor='${i}'`).html("Belum dijawab")
+                $(`.baris-tkp .status[data-nomor='${i}'`).css("color", "#EB5757")
+            } else {
+                $(`.baris-tkp .status[data-nomor='${i}'`).html("Sudah terjawab")
+                $(`.baris-tkp .status[data-nomor='${i}'`).css("color", "black")
+            }
+            if (state["soal_tkp"]["arrMarked"].includes(i) || state["soal_tkp"]["arrMarked"].includes(toString(i))) {
+                $(`.baris-tkp img[data-nomor='${i}'`).show()
+            } else {
+                $(`.baris-tkp img[data-nomor='${i}'`).hide()
+            }
+        }
+
+        $(".finish-attempt-page").show()
+    })
+
+    $(".btn-return").click(() => {
+        $(".wrapper").show()
+        $(".finish-attempt-page").hide()
+    })
+
+
     // Saving answer
     $("input").click(function() {
         let valuePilihan = $(this).val()
@@ -205,7 +268,7 @@ $(document).ready(function () {
                 state[`${jenis}`]["scoreAnswer"][`${noSoal}`] = e[1]
             }
         })   
-        localStorage.setItem("state", JSON.stringify(state))
+        sessionStorage.setItem("state", JSON.stringify(state))
     })
 
     // CountDown
@@ -241,12 +304,7 @@ $(document).ready(function () {
       })
 
       // Finish Attempt
-      $(".finish-attempt").click(function() {
-        finishAttempt()
-      })
-
-      //Submit dan selesai
-      $(".final-submit-btn").click(function() {
+      $(".btn-finish").click(function() {
         finish()
       })
 });
@@ -346,7 +404,7 @@ function finish() {
         "score_jawaban_twk" : arrScoreJawabanTWK,
         "waktu_dihabiskan" : parseInt((Date.now() - (state["time_end"] - (90*60000)))/1000)
     }
-    localStorage.clear()
+    sessionStorage.clear()
     // Ini ajax postnya bang
 
     $.ajaxSetup({

@@ -100,94 +100,60 @@
     </div>
 </div>
 
-<div class="finish-attempt-page">
-    <div class="d-flex justify-content-center">
-        <div class="sub-container d-flex flex-column">
-            <div class="title flex-wrap mb-lg-1 mb-3">
-                <h3>Try Out Serentak 01 - SKD</h3>
-            </div>
-            <div class="scroll">
-                <div class="results d-flex justify-content-around">
-                    <?php
-                        if ($_COOKIE['state'] !== "0") {
-                            # code...
-                            $original_data_set = json_decode($_COOKIE['state'], true);
-                            $cleaned_data_set = [
-                                'TWK' => [
-                                    'data' => $original_data_set['soal_twk'],
-                                    'jumlah_soal' => 30,
-                                ],
-                                'TIU' => [
-                                    'data' => $original_data_set['soal_tiu'],
-                                    'jumlah_soal' => 35,
-                                ],
-                                'TKP' => [
-                                    'data' => $original_data_set['soal_tkp'],
-                                    'jumlah_soal' => 35,
-                                ],
-                            ];
-                            foreach($cleaned_data_set as $tipe_soal => $data_tipe_soal):      
-                        
-                    ?>
-                    <table class="results-table">
-                        <thead>
-                            <tr>
-                                {{-- Test title --}}
-                                <td class="table-title">
-                                    <h1><?php echo $tipe_soal;?></h1>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h5>No</h5>
-                                </td>
-                                <td>Status</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php 
-                                $tertanda = $data_tipe_soal['data']['arrMarked'];
-                                $terjawab = $data_tipe_soal['data']['answer'];
-                                $jumlah_soal = $data_tipe_soal['jumlah_soal'];
-                                for($i = 1; $i <= 35; $i++):     
-                            ?>
-                            <tr>
-                                <td colspan="100%">
-                                    <div class="d-flex justify-content-end">
-                                        <div class="underline"></div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="index d-flex">
-                                    <h5><?php echo $i;?></h5>
-                                    <?php if (in_array($i, $tertanda)):?>
-                                        <img src="{{ asset('img/mdi_flag.svg') }}" alt="">
-                                    <?php endif;?>
-                                </td>
-                                <td class="status-soal">
-                                    <?php if ($i > $jumlah_soal):?>
-                                        <h4>-</h4>
-                                    <?php elseif (array_key_exists($i, $terjawab)):?>
-                                        <h4>Sudah di jawab</h4>
-                                    <?php else:?>
-                                        <h4 class="belum-di-jawab">Belum di jawab</h4>
-                                    <?php endif;?>
-                                </td>
-                            </tr>
-                            <?php endfor; ?>
-                        </tbody>
-                    </table>
-                    <?php endforeach; 
-                        }
-                    ?>
+<div class="finish-attempt-page p-md-5 p-2">
+    <div class="card px-5 pt-3 py-3">
+        <div class="grid-wrapper">
+            <div class="kolom">
+                <h3>TWK</h3>
+                <div class="baris border-bottom">
+                    <h5 class="no my-2"><b>No</b></h5>   
+                    <h5 class="status my-2"><b>Status</b></h5>   
                 </div>
+                @for ($i = 1; $i <= 30; $i++)
+                <div class="baris border-bottom baris-twk">
+                    <p class="no my-2">{{ $i }}</p>   
+                    <img src="{{ asset('img/mdi_flag.svg') }}" alt="" class="my-2 mx-2" data-nomor="{{ $i }}">
+                    <p class="status my-2" data-nomor="{{ $i }}">Sudah Terjawab</p>
+                </div>
+                @endfor
+                @for ($i = 31; $i <= 35; $i++)
+                <div class="baris border-bottom">
+                    <p class="no my-2">{{ $i }}</p>   
+                </div>
+                @endfor
             </div>
-            
-            <div class="d-flex flex-column align-items-center buttons">
-                <button type="button" class="return-to-attempt" data-nomor="0">Return to attempt</button>
-                <button type="button" class="final-submit-btn" data-nomor="2">Submit dan selesai</button>
+            <div class="kolom">
+                <h3>TIU</h3>
+                <div class="baris border-bottom">
+                    <h5 class="no my-2"><b>No</b></h5>   
+                    <h5 class="status my-2"><b>Status</b></h5>   
+                </div>
+                @for ($i = 1; $i <= 35; $i++)
+                <div class="baris border-bottom baris-tiu">
+                    <p class="no my-2">{{ $i }}</p>   
+                    <img src="{{ asset('img/mdi_flag.svg') }}" alt="" class="my-2 mx-2" data-nomor="{{ $i }}">
+                    <p class="status my-2" data-nomor="{{ $i }}">Sudah Terjawab</p>
+                </div>
+                @endfor
             </div>
+            <div class="kolom">
+                <h3>TKP</h3>
+                <div class="baris border-bottom">
+                    <h5 class="no my-2"><b>No</b></h5>   
+                    <h5 class="status my-2"><b>Status</b></h5>   
+                </div>
+                @for ($i = 1; $i <= 35; $i++)
+                <div class="baris border-bottom baris-tkp">
+                    <p class="no my-2">{{ $i }}</p>   
+                    <img src="{{ asset('img/mdi_flag.svg') }}" alt="" class="my-2 mx-2" data-nomor="{{ $i }}">
+                    <p class="status my-2" data-nomor="{{ $i }}">Sudah Terjawab</p>
+                </div>
+                @endfor
+            </div>
+        </div>
+        <div class="d-flex flex-column justify-content-center align-items-center mt-4">
+            <button type="button" class="btn mx-2 btn-yellow px-3 mb-3 btn-return">Return to Attempt</button>
+            <button type="button" class="btn mx-2 btn-green px-3 mb-3 btn-finish">Submit dan Selesai</button>
         </div>
     </div>
 </div>
