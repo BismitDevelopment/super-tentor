@@ -12,7 +12,7 @@ class SoalTkp extends Model
         'skor_1','skor_2','skor_3','skor_4','skor_5', 'created_at'
     ];
 
-    protected $appends = ['pilihan', 'jawaban'];
+    protected $appends = ['pilihan', 'jawaban_skor'];
 
     public function getPilihanAttribute(){
         $pilihan = array(
@@ -26,22 +26,22 @@ class SoalTkp extends Model
         return $pilihan;
     }
     
-    public function getJawabanAttribute(){
+    public function getJawabanSkorAttribute(){
         if($this->skor_1 === 5){
 
-            return [$this->pilihan_1 => $this->skor_1];
+            return [$this->pilihan_1, $this->skor_1];
         } elseif ($this->skor_2 === 5) {
 
-            return [$this->pilihan_2 => $this->skor_2];
+            return [$this->pilihan_2, $this->skor_2];
         } elseif ($this->skor_3 === 5) {
 
-            return [$this->pilihan_3 => $this->skor_3];
+            return [$this->pilihan_3, $this->skor_3];
         } elseif ($this->skor_4 === 5) {
 
-            return [$this->pilihan_4 => $this->skor_4];
+            return [$this->pilihan_4, $this->skor_4];
         } else {
-            
-            return [$this->pilihan_5 => $this->skor_5];
+
+            return [$this->pilihan_5, $this->skor_5];
         }
     }
 

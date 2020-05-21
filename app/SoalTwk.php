@@ -11,7 +11,7 @@ class SoalTwk extends Model
         'paket_id','pilihan_1','pilihan_2','pilihan_3','pilihan_4','skor','updated_at', 'created_at'
     ];
 
-    protected $appends = ['pilihan'];
+    protected $appends = ['pilihan', 'jawaban_skor'];
 
     public function getPilihanAttribute(){
         $pilihan = array(
@@ -25,8 +25,8 @@ class SoalTwk extends Model
         return $pilihan;
     }
 
-    public function getJawabanAttribute($value){
-        return [$value => $this->skor];
+    public function getJawabanSkorAttribute(){
+        return [$this->jawaban, $this->skor];
     }
     
     public function paket(){
