@@ -174,7 +174,6 @@ class PaketSoalController extends Controller
                 return $this->getSoalJSON($paket);
 
             } else {
-                setcookie("state", 0.0);
                 return view('dashboard.tryoutsoal', compact('paket'));
             }
         } else {
