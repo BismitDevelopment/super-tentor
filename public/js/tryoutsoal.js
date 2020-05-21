@@ -36,11 +36,8 @@ $.ajaxSetup({
 });
 
 let dataSoal = $.ajax({
-    type: 'POST',
+    method: 'POST',
     url: window.location.href,
-    data: {
-        // paket: $('meta[name="paket_id"]').attr('content'),
-    },
     dataType: 'json',
     success: function(data) {
         obj = data
@@ -100,8 +97,8 @@ function action(jenis_soal, noSoal, arrMarked, choiceVal) {
     }
 
     // 5. Setup data kembali dan selanjutnya
-    $(".btn-kembali").data("nomor", noSoal-1)
-    $(".btn-selanjutnya").data("nomor", noSoal+1)
+    $(".btn-kembali").data("nomor", noSoal-1) 
+    $(".btn-selanjutnya").data("nomor", parseInt(noSoal)+1)
 
     // 6. navigasi
     $(".box-angka").each(function() {
@@ -130,35 +127,6 @@ function action(jenis_soal, noSoal, arrMarked, choiceVal) {
     localStorage.setItem("state", JSON.stringify(state))
 
 }
-
-function resolveAfter2Seconds() {
-  return new Promise(resolve => {
-    while(true){
-        if(obj != 0){
-            data = obj;
-            break
-        }
-    };
-    setTimeout(() => {
-      resolve(obj);
-    }, 2000);
-  });
-}
-
-function resolveAfter2Seconds() {
-  return new Promise(resolve => {
-    while(true){
-        if(obj != 0){
-            data = obj;
-            break
-        }
-    };
-    setTimeout(() => {
-      resolve(obj);
-    }, 2000);
-  });
-}
-
 
 // First load
 $(document).ready(function () {  
@@ -267,47 +235,12 @@ $(document).ready(function () {
         }
       }, 1000);
 
-      //Return to attempt
-      $(".return-to-attempt").click(function() {
-        returnToAttempt()
-      })
-
-      // Finish Attempt
-      $(".finish-attempt").click(function() {
-        finishAttempt()
-      })
 
       //Submit dan selesai
       $(".final-submit-btn").click(function() {
         finish()
       })
 });
-
-
-
-//Return to attempt
-function returnToAttempt() {
-    clearCookie()
-    $(".wrapper").show()
-    $(".finish-attempt-page").hide()
-}
-
-//Go to finish attempt page
-function finishAttempt() {
-    setCookie()
-    $(".wrapper").hide();
-    $(".finish-attempt-page").show()
-}
-
-//Set cookie
-function setCookie() {
-    document.cookie = "state="+localStorage.getItem('state')
-    console.log(document.cookie)
-}
-
-function clearCookie() {
-    document.cookie = ""
-}
 
 // Shuffle array
 function shuffle(array) {
@@ -329,7 +262,7 @@ function shuffle(array) {
     return array;
   }
 
-// Submit dan selesai
+// Finish Attempt
 function finish() {    
     let arrJawabanTWK = []
     let arrScoreJawabanTWK = []
@@ -346,14 +279,14 @@ function finish() {
             arrJawabanTIU.push(jawabanTIU)
             arrScoreJawabanTIU.push(parseInt(scoreJawabanTIU)) 
         } else {
-            arrJawabanTIU.push("")
+            arrJawabanTIU.push("-")
             arrScoreJawabanTIU.push(0)
         }
         if ( jawabanTKP != null) {
             arrJawabanTKP.push(jawabanTKP)
             arrScoreJawabanTKP.push(parseInt(scoreJawabanTKP)) 
         } else {
-            arrJawabanTKP.push("")
+            arrJawabanTKP.push("-")
             arrScoreJawabanTKP.push(0)
         }
     }
@@ -364,7 +297,7 @@ function finish() {
             arrJawabanTWK.push(jawabanTWK)
             arrScoreJawabanTWK.push(parseInt(scoreJawabanTWK)) 
         } else {
-            arrJawabanTWK.push("")
+            arrJawabanTWK.push("-")
             arrScoreJawabanTWK.push(0)
         }
     }
@@ -379,26 +312,26 @@ function finish() {
         "waktu_dihabiskan" : parseInt((Date.now() - (state["time_end"] - (90*60000)))/1000)
     }
     localStorage.clear()
-    console.log(JSON.stringify(objJawaban));
-    
     // Ini ajax postnya bang
 
-    // $.ajaxSetup({
-    //     headers: {
-    //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    //     }
-    // });
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
     
-    // $.ajax({
-    //     type: 'POST',
-    //     url: '',  // URL POST FINISH
-    //     data: objJawaban,
-    //     dataType: 'json',
-    //     success: function(data) {
-    //         window.location = "https://www.google.com/"  // Nanti ini ke url score page
-    //     },
-    //     error: function(data) {
-    //         console.log(data)
-    //     }
-    // });
+    $.ajax({
+        method: 'POST',
+        url: window.location.href +'/finish',  // URL POST FINISH
+        contentType: 'application/json; charset=UTF-8',
+        data: JSON.stringify(objJawaban),
+        success: function(data) {
+            if(!data.error){
+                window.location.href = data.redirect  // Nanti ini ke url score page
+            }
+        },
+        error: function(data) {
+            console.log(data)
+        }
+    });
 }

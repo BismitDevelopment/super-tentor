@@ -32,6 +32,7 @@ class PaketSoal extends Model
 
         return $this->belongsToMany('App\User', 'simulations', 'paket_id', 'user_id')
                     ->withPivot([
+                        'id',
                         'skor_tiu',
                         'skor_twk',
                         'skor_tkp',

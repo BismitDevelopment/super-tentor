@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('meta')
-    <meta name="paket_id" content="{{ $paket->id }}">
 @endsection
 
 
@@ -100,6 +99,7 @@
         </div>
     </div>
 </div>
+
 <div class="finish-attempt-page">
     <div class="d-flex justify-content-center">
         <div class="sub-container d-flex flex-column">

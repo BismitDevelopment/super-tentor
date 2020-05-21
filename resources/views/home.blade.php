@@ -87,7 +87,7 @@
                 </thead>
                 <tbody>
                     {{-- Iterasi content tabel --}}
-                    @foreach($user->simulations as $user_sim)
+                    @foreach($user_simulations_per_page as $user_sim)
                         <tr class="table-border">
                             <td colspan="100%" class="py-2">
                                 <div class="d-flex justify-content-center">
@@ -111,18 +111,23 @@
                             </td>
                             <td><h4>{{ $user_sim->simulation->durasi_ujian }}</h4></td>
                             <td>
-                                <div >
+                                <div>
                                     <h4>TWK: {{ $user_sim->simulation->skor_twk }}</h4>
                                     <h4>TIU: {{ $user_sim->simulation->skor_tiu }}</h4>
                                     <h4>TKP: {{ $user_sim->simulation->skor_tkp }}</h4>
                                     <h4>Total: {{ $user_sim->simulation->total_skor }}</h4>
                                 </div>
                             </td>
-                            <td><h4>{{ $user_sim->simulation->status }}</h4></td>
                             <td>
-                                <button class="table-button">
-                                    Pembahasan
-                                </button>
+                                <h4>{{ $user_sim->simulation->status }}</h4>
+                            </td>
+                            <td>
+                                <a href="{{ route('home.tryouts.nasional.pembahasan', 
+                                ['paket'=>$user_sim->simulation->paket_id, 'simulation'=>$user_sim->simulation->id]) }}">
+                                    <button class="table-button">
+                                        Pembahasan
+                                    </button>
+                                </a>
                             </td>
                         </tr>
                     @endforeach
@@ -141,7 +146,7 @@
                     <td colspan="100%">
                         <div class="d-flex justify-content-center">
                             @if ($page!==1)
-                                <a href="{{ route('home', ['page'=> $page-1]) }}">
+                                <a href="{{ route('home.index', ['page'=> $page-1]) }}">
                                     <img src="{{ asset('img/svg-dash-home/left.svg') }}" alt="">
                                 </a>
                             @endif
@@ -153,7 +158,7 @@
                             </div>
 
                             @if ($page < $pages)
-                                <a href="{{ route('home', ['page'=>$page+1]) }}">
+                                <a href="{{ route('home.index', ['page'=>$page+1]) }}">
                                     <img src="{{ asset('img/svg-dash-home/right.svg') }}" alt="">
                                 </a>
                             @endif
