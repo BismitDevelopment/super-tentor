@@ -10,11 +10,11 @@ use Illuminate\Http\Request;
 class SimulationController extends Controller
 {
     public function pembahasanNasional(Request $request, PaketSoal $paket, Simulation $simulation){
+        
         $user = Auth::user();
         if (($user->id === $simulation->user_id) && ($simulation->paket_id === $paket->id) && ($paket->jenis_tryout === 2)) {
             # code...
             if($request->isMethod('post')){
-
                 $paket->soalTiu;
                 $paket->soalTwk;
                 $paket->soalTkp;

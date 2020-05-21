@@ -26,8 +26,8 @@ class SoalTiu extends Model
         return $pilihan;
     }
 
-    public function getJawabanAttribute(){
-        return [$this->jawaban => $this->skor];
+    public function getJawabanAttribute($value){
+        return [$value => $this->skor];
     }
 
     public function paket(){
