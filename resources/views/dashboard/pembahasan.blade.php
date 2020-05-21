@@ -1,9 +1,5 @@
 @extends('layouts.app')
 
-@section('meta')
-    <meta name="paket_id" content="{{ $paket->id }}">
-@endsection
-
 
 @section('navbar')
     @include('navbarDashboard')
@@ -15,7 +11,6 @@
 <div class="wrapper">
     <div class="d-flex justify-content-between title flex-wrap mb-lg-1 mb-3">
         <h3 class="judul-paket">Try Out Serentak 01 - SKD</h3>
-        <h5 class="countdown"></h5>
     </div>
     <div class="d-flex menus col-12 p-0">
         <div class="menu px-3 px-lg-4 py-2 menu-twk" data-jenis="soal_twk">
@@ -30,13 +25,9 @@
     </div>
     <div class="d-flex soal flex-column flex-lg-row" data-jenis="soal_twk">
         <div class="d-flex flex-column flex-lg-fill">
-            <div class="border rounded-bottom bg-white box mr-2 box-kiri box-soal mb-3">
+            <div class="border-right bg-white box mr-2 box-kiri box-soal">
                 <div class="d-flex justify-content-between soal-atas">
                     <h4 class="nomor-soal">Soal 1</h4>
-                    <div class="tandai d-flex">
-                        <img src="{{ asset('img/mdi_flag.svg') }}" alt="">
-                        <h4>Tandai</h4>
-                    </div>
                 </div>
                 <div class="d-flex flex-column mt-3 text-justify">
                     <p class="mb-0 soal-isi text-larger">
@@ -46,31 +37,31 @@
                     </div>
                     <form action="" class="d-flex flex-column ml-4 mt-2">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="choice" id="pilihan-1" value="a">
+                            <input class="form-check-input" type="radio" name="choice" id="pilihan-1" value="a" disabled>
                             <label class="form-check-label text-larger" for="1">
                                 
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="choice" id="pilihan-2" value="b">
+                            <input class="form-check-input" type="radio" name="choice" id="pilihan-2" value="b" disabled>
                             <label class="form-check-label text-larger" for="2">
                                 
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="choice" id="pilihan-3" value="c">
+                            <input class="form-check-input" type="radio" name="choice" id="pilihan-3" value="c" disabled>
                             <label class="form-check-label text-larger" for="3">
                                 
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="choice" id="pilihan-4" value="d">
+                            <input class="form-check-input" type="radio" name="choice" id="pilihan-4" value="d" disabled>
                             <label class="form-check-label text-larger" for="4">
                                 
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="choice" id="pilihan-5" value="e">
+                            <input class="form-check-input" type="radio" name="choice" id="pilihan-5" value="e" disabled>
                             <label class="form-check-label text-larger" for="5">
                                 
                             </label>
@@ -78,6 +69,10 @@
                     </form>
                 </div>
             </div>    
+            <div class="pembahasan mb-3 rounded-bottom mr-2 border-right border-bottom">
+                <h4>Pembahasan</h4>
+                <p class="pembahasan-isi"></p>
+            </div>
             <div class="d-flex justify-content-center button-bawah">
                 <button type="button" class="btn mx-2 btn-yellow px-3 btn-kembali mb-3" data-nomor="0">Kembali</button>
                 <button type="button" class="btn mx-2 btn-green px-3 btn-selanjutnya mb-3" data-nomor="2">Selanjutnya</button>
