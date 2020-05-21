@@ -32,8 +32,8 @@ Route::prefix('home')->name('home.')->group(function(){
             
             Route::get('/{paket}/ujian', 'PaketSoalController@ujianFree')->name('ujian');
             Route::post('/{paket}/ujian', 'PaketSoalController@ujianFree')->name('ujianData');
+            Route::post('/{paket}/ujian/finish', 'PaketSoalController@finish')->name('finish');
             Route::get('/{paket}/ranking/{page?}', 'PaketSoalController@rankingFree')->name('ranking');
-
         });
 
         Route::middleware(['can:isPremium'])->prefix('premium')->name('premium.')->group(function() {
@@ -43,6 +43,7 @@ Route::prefix('home')->name('home.')->group(function(){
 
             Route::get('/{paket}/ujian', 'PaketSoalController@ujianPremium')->name('ujian');
             Route::post('/{paket}/ujian', 'PaketSoalController@ujianPremium')->name('ujianData');
+            Route::post('/{paket}/ujian/finish', 'PaketSoalController@finish')->name('finish');
             Route::get('/{paket}/ranking/{page?}', 'PaketSoalController@rankingPremium')->name('ranking');
         });
 
@@ -53,7 +54,11 @@ Route::prefix('home')->name('home.')->group(function(){
 
             Route::get('/{paket}/ujian', 'PaketSoalController@ujianNasional')->name('ujian');
             Route::post('/{paket}/ujian', 'PaketSoalController@ujianNasional')->name('ujianData');
+            Route::post('/{paket}/ujian/finish', 'PaketSoalController@finish')->name('finish');
             Route::get('/{paket}/ranking/{page?}', 'PaketSoalController@rankingNasional')->name('ranking');
+
+            Route::get('/{paket}/pembahasan/{simulation}', 'SimulationController@pembahasanNasional')->name('pembahasan');
+            Route::post('/{paket}/pembahasan/{simulation}', 'SimulationController@pembahasanNasional')->name('pembahasanData');
         });
     });
 });

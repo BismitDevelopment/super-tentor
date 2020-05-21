@@ -10,21 +10,17 @@ use Illuminate\Support\Facades\Auth;
 
 class PaketSoalController extends Controller
 {
-    private function getSoalJSON(PaketSoal $paket, int $jenis_tryout_need){
-        if ($paket->jenis_tryout === $jenis_tryout_need) {
+    private function getSoalJSON(PaketSoal $paket){
             # code...
-            $paket = $paket->with('soalTkp', 'soalTiu', 'soalTwk')->get()->first();
+            $paket->soalTkp;
+            $paket->soalTiu;
+            $paket->soalTwk;
             
             return response()->json([
                 'error'=>false,
                 'paket'=>$paket
             ], 200);
-        } else {
-            
-            return response()->json([
-                'error'=>true
-            ], 422);
-        }
+        
     }
 
     private function getUsersRankSorted(PaketSoal $paket){
@@ -64,15 +60,21 @@ class PaketSoalController extends Controller
         
         if($paket->jenis_tryout === 0){
             if ($request->isMethod('post')) {
-                return $this->getSoalJSON($paket, 0);
+                return $this->getSoalJSON($paket);
     
             } else {
                 
                 return view('dashboard.tryoutsoal', compact('paket'));
             }
         } else {
+            if($request->isMethod('post')){
+                return response()->json([
+                    'error'=>true
+                ], 422);
+            } else {
 
-            return redirect('home.tryouts.free');
+                return redirect('home.tryouts.free');
+            }
         }
     }
 
@@ -113,7 +115,7 @@ class PaketSoalController extends Controller
         if($paket->jenis_tryout === 1){
             if ($request->isMethod('post')) {
                 # code...
-                return $this->getSoalJSON($paket, 1);
+                return $this->getSoalJSON($paket);
 
             } else {
                 
@@ -121,7 +123,14 @@ class PaketSoalController extends Controller
             }
         } else {
 
-            return redirect('home.tryouts.free');
+            if($request->isMethod('post')){
+                return response()->json([
+                    'error'=>true
+                ], 422);
+            } else {
+
+                return redirect('home.tryouts.free');
+            }
         }
     }
 
@@ -162,7 +171,7 @@ class PaketSoalController extends Controller
         if($paket->jenis_tryout === 2){
             if ($request->isMethod('post')) {
                 # code...
-                return $this->getSoalJSON($paket, 2);
+                return $this->getSoalJSON($paket);
 
             } else {
                 
@@ -170,7 +179,13 @@ class PaketSoalController extends Controller
             }
         } else {
 
-            return redirect('home.tryouts.nasional');
+            if($request->isMethod('post')){
+                return response()->json([
+                    'error'=>true
+                ], 422);
+            } else {
+                return redirect('home.tryouts.nasional');
+            }
         }
     }
 
@@ -195,10 +210,87 @@ class PaketSoalController extends Controller
         }
     }   
 
-    public function finishAttempt(Request $request){
-        //TO-DO calculate score redirect to
-        $jawaban_tius = $request->input('soal_tius');
-        $jawaban_tkps = $request->input('soal_tkps');
-        $jawaban_twks = $request->input('soal_twks');
+    public function finish(Request $request, int $paket){
+
+        if ($request->input('id_paket') === $paket) {
+            # code...
+            $durasiUjianSeconds = $request->input('waktu_dihabiskan');
+            $durasiUjianFormatted = date('H:i:s', $durasiUjianSeconds);
+            
+            # Store Array Jawaban to simualtion table
+            $arrJawabanTiu = $request->input('jawaban_tiu');
+            $arrjawabanTkp = $request->input('jawaban_tkp');
+            $arrJawabanTwk = $request->input('jawaban_twk');
+            
+            #Calculate and store score to simulation table
+            $arrScoreTkp = $request->input('score_jawaban_tkp');
+            $arrScoreTwk = $request->input('score_jawaban_twk');
+            $arrScoreTiu = $request->input('score_jawaban_tiu');
+            $arrScores = array(
+                'score_tiu'=>$arrScoreTiu, 
+                'score_tkp'=>$arrScoreTkp,
+                'score_twk'=>$arrScoreTwk
+            );
+            
+            $totalScoreTkp = 0;
+            $totalScoreTwk = 0;
+            $totalScoreTiu = 0;
+            $totalScoreUjian = 0;
+            
+            foreach ($arrScores as $key1 => $arrScoreType) {
+                # code...
+                $tempScore = 0;
+                
+                foreach ($arrScoreType as $key2 => $score) {
+                    # code...
+                    $tempScore += $score;
+                    unset($score);
+                    unset($key2);
+                }
+                
+                if (strcmp($key1, 'score_tiu') === 0) {
+                    # code...
+                    $totalScoreTiu = $tempScore;
+                    $totalScoreUjian += $totalScoreTiu;
+                } elseif (strcmp($key1, 'score_twk') === 0) {
+                    # code...
+                    $totalScoreTwk = $tempScore;
+                    $totalScoreUjian += $totalScoreTwk;
+                } else {
+                    $totalScoreTkp = $tempScore;
+                    $totalScoreUjian += $totalScoreTkp;
+                }
+            }
+
+            $status = 'Tidak Lulus';
+            if ($totalScoreTkp >= 126 && $totalScoreTiu >= 80 && $totalScoreTwk >= 65) {
+                # code...
+                $status = 'Lulus';
+            }
+
+            $user = Auth::user();
+            $user->simulations()->attach($paket, [
+                'skor_tiu' => $totalScoreTiu,
+                'skor_twk' => $totalScoreTwk,
+                'skor_tkp' => $totalScoreTkp,
+                'status' => $status,
+                'durasi_ujian' => $durasiUjianFormatted,
+                'total_skor' => $totalScoreUjian,
+                'array_jawaban_twk' => json_encode($arrJawabanTwk),
+                'array_jawaban_tiu' => json_encode($arrJawabanTiu),
+                'array_jawaban_tkp' => json_encode($arrjawabanTkp)
+                ]);
+
+            return response()->json([
+                'error'=>false,
+                'redirect'=>route('home.index')
+            ], 200);
+
+        } else {
+            return response()->json([
+                'error'=>true
+            ], 422);
+        }
+
     }
 }
