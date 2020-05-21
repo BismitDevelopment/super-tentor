@@ -140,6 +140,11 @@
   color: white;
 }
 
+.pembahasan {
+  background-color: #E9D038;
+  padding: 1em 3em;
+}
+
 .finish-attempt div {
   font-weight: 600 !important;
   color: #EB5757;
