@@ -99,6 +99,63 @@
         </div>
     </div>
 </div>
+<div class="finish-attempt-page p-md-5 p-2">
+    <div class="card px-5 pt-3 py-3">
+        <div class="grid-wrapper">
+            <div class="kolom">
+                <h3>TWK</h3>
+                <div class="baris border-bottom">
+                    <h5 class="no my-2"><b>No</b></h5>   
+                    <h5 class="status my-2"><b>Status</b></h5>   
+                </div>
+                @for ($i = 1; $i <= 30; $i++)
+                <div class="baris border-bottom baris-twk">
+                    <p class="no my-2">{{ $i }}</p>   
+                    <img src="{{ asset('img/mdi_flag.svg') }}" alt="" class="my-2 mx-2" data-nomor="{{ $i }}">
+                    <p class="status my-2" data-nomor="{{ $i }}">Sudah Terjawab</p>
+                </div>
+                @endfor
+                @for ($i = 31; $i <= 35; $i++)
+                <div class="baris border-bottom">
+                    <p class="no my-2">{{ $i }}</p>   
+                </div>
+                @endfor
+            </div>
+            <div class="kolom">
+                <h3>TIU</h3>
+                <div class="baris border-bottom">
+                    <h5 class="no my-2"><b>No</b></h5>   
+                    <h5 class="status my-2"><b>Status</b></h5>   
+                </div>
+                @for ($i = 1; $i <= 35; $i++)
+                <div class="baris border-bottom baris-tiu">
+                    <p class="no my-2">{{ $i }}</p>   
+                    <img src="{{ asset('img/mdi_flag.svg') }}" alt="" class="my-2 mx-2" data-nomor="{{ $i }}">
+                    <p class="status my-2" data-nomor="{{ $i }}">Sudah Terjawab</p>
+                </div>
+                @endfor
+            </div>
+            <div class="kolom">
+                <h3>TKP</h3>
+                <div class="baris border-bottom">
+                    <h5 class="no my-2"><b>No</b></h5>   
+                    <h5 class="status my-2"><b>Status</b></h5>   
+                </div>
+                @for ($i = 1; $i <= 35; $i++)
+                <div class="baris border-bottom baris-tkp">
+                    <p class="no my-2">{{ $i }}</p>   
+                    <img src="{{ asset('img/mdi_flag.svg') }}" alt="" class="my-2 mx-2" data-nomor="{{ $i }}">
+                    <p class="status my-2" data-nomor="{{ $i }}">Sudah Terjawab</p>
+                </div>
+                @endfor
+            </div>
+        </div>
+        <div class="d-flex flex-column justify-content-center align-items-center mt-4">
+            <button type="button" class="btn mx-2 btn-yellow px-3 mb-3 btn-return">Return to Attempt</button>
+            <button type="button" class="btn mx-2 btn-green px-3 mb-3 btn-finish">Submit dan Selesai</button>
+        </div>
+    </div>
+</div>
 @endsection
 
 @section('scripts')
