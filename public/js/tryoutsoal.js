@@ -235,8 +235,9 @@ $(document).ready(function () {
         }
       }, 1000);
 
-      // Finish Attempt
-      $(".finish-attempt").click(function() {
+
+      //Submit dan selesai
+      $(".final-submit-btn").click(function() {
         finish()
       })
 });
