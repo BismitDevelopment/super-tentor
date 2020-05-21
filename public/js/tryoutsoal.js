@@ -311,7 +311,6 @@ function finish() {
         "waktu_dihabiskan" : parseInt((Date.now() - (state["time_end"] - (90*60000)))/1000)
     }
     localStorage.clear()
-    console.log(JSON.stringify(objJawaban));
     // Ini ajax postnya bang
 
     $.ajaxSetup({
@@ -326,7 +325,6 @@ function finish() {
         contentType: 'application/json; charset=UTF-8',
         data: JSON.stringify(objJawaban),
         success: function(data) {
-            console.log(data)
             if(!data.error){
                 window.location.href = data.redirect  // Nanti ini ke url score page
             }

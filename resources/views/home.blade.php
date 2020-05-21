@@ -111,17 +111,19 @@
                             </td>
                             <td><h4>{{ $user_sim->simulation->durasi_ujian }}</h4></td>
                             <td>
-                                <div >
+                                <div>
                                     <h4>TWK: {{ $user_sim->simulation->skor_twk }}</h4>
                                     <h4>TIU: {{ $user_sim->simulation->skor_tiu }}</h4>
                                     <h4>TKP: {{ $user_sim->simulation->skor_tkp }}</h4>
                                     <h4>Total: {{ $user_sim->simulation->total_skor }}</h4>
                                 </div>
                             </td>
-                            <td><h4>{{ $user_sim->simulation->status }}</h4></td>
                             <td>
-                            {{-- Add route for pembahasan --}}
-                            <a href="{{ route('home.tryouts.nasional.pembahasan', ['paket'=>$user_sim->simulation->paket_id, 'simulation'=>$user_sim->simulation->id]) }}">
+                                <h4>{{ $user_sim->simulation->status }}</h4>
+                            </td>
+                            <td>
+                                <a href="{{ route('home.tryouts.nasional.pembahasan', 
+                                ['paket'=>$user_sim->simulation->paket_id, 'simulation'=>$user_sim->simulation->id]) }}">
                                     <button class="table-button">
                                         Pembahasan
                                     </button>
