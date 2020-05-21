@@ -169,7 +169,7 @@
 
 .finish-attempt-page .card .grid-wrapper {
   display: grid;
-  grid-template-columns: repeat(3, 1fr) !important;
+  grid-template-columns: repeat(3, 1fr);
   -webkit-column-gap: 15px;
      -moz-column-gap: 15px;
           column-gap: 15px;
@@ -207,17 +207,34 @@
 
   .soal .box-kiri {
     margin-right: 0 !important;
-    margin-bottom: 0.5rem !important;
   }
 }
 
 @media (max-width: 576px) {
   .wrapper {
-    padding: 1rem 1rem 0 1rem !important;
+    padding: 1rem 0.5rem 1rem 0.5rem !important;
   }
 
   .text-larger {
     font-size: 1.3em !important;
+  }
+
+  .finish-attempt div {
+    font-size: 1.5em;
+  }
+
+  .grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 190px) !important;
+  }
+
+  .kolom h3 {
+    grid-row: 1/2 !important;
+  }
+
+  .judul-paket {
+    font-size: 20px;
+    margin-left: 10px;
   }
 }
 

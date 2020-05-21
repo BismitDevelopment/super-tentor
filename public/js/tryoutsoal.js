@@ -298,7 +298,6 @@ $(document).ready(function () {
         }
       }, 1000);
 
-
       // Finish Attempt
       $(".btn-finish").click(function() {
         finish()
