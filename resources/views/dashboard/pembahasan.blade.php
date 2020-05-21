@@ -69,7 +69,7 @@
                     </form>
                 </div>
             </div>    
-            <div class="pembahasan rounded-bottom mr-2 border-right border-bottom">
+            <div class="pembahasan rounded-bottom mr-md-2 border-right border-bottom">
                 <h4>Pembahasan</h4>
                 <p class="pembahasan-isi"></p>
             </div>

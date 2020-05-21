@@ -99,7 +99,6 @@
         </div>
     </div>
 </div>
-
 <div class="finish-attempt-page p-md-5 p-2">
     <div class="card px-5 pt-3 py-3">
         <div class="grid-wrapper">
