@@ -30,7 +30,6 @@ body {
        background-color: #fff !important;
    }
 }
-
 .soal {
     .tandai {
         cursor: pointer;
@@ -155,7 +154,7 @@ body {
     .card {
         .grid-wrapper {
             display: grid;
-            grid-template-columns: repeat(3, 1fr) !important;
+            grid-template-columns: repeat(3, 1fr);
             column-gap: 15px;
             overflow-x: auto;    
         }
@@ -194,7 +193,6 @@ $breakpoint-lg: 992px;
     .soal {
         .box-kiri {
             margin-right: 0 !important;
-            margin-bottom: .5rem !important;
         }
     }
 }
@@ -204,9 +202,21 @@ $breakpoint-lg: 992px;
 
 @media (max-width: $breakpoint-sm) {
     .wrapper {
-        padding: 1rem 1rem 0 1rem !important;
+        padding: 1rem .5rem 1rem .5rem !important;
     }    
     .text-larger {
         font-size: 1.3em !important;
+    }
+    .finish-attempt div {
+        font-size: 1.5em;
+    }
+    .grid-wrapper {
+        display: grid;
+        grid-template-columns: repeat(3, 190px) !important;
+    }
+    .kolom {
+        h3 {
+            grid-row: 1/2 !important;
+        }
     }
 }

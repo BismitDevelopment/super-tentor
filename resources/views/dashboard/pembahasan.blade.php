@@ -69,13 +69,13 @@
                     </form>
                 </div>
             </div>    
-            <div class="pembahasan mb-3 rounded-bottom mr-2 border-right border-bottom">
+            <div class="pembahasan rounded-bottom mr-2 border-right border-bottom">
                 <h4>Pembahasan</h4>
                 <p class="pembahasan-isi"></p>
             </div>
             <div class="d-flex justify-content-center button-bawah">
-                <button type="button" class="btn mx-2 btn-yellow px-3 btn-kembali mb-3" data-nomor="0">Kembali</button>
-                <button type="button" class="btn mx-2 btn-green px-3 btn-selanjutnya mb-3" data-nomor="2">Selanjutnya</button>
+                <button type="button" class="btn mx-2 btn-yellow px-3 btn-kembali my-3" data-nomor="0">Kembali</button>
+                <button type="button" class="btn mx-2 btn-green px-3 btn-selanjutnya my-3" data-nomor="2">Selanjutnya</button>
             </div>    
         </div>
         <div class="d-flex justify-content-center box-kanan">
