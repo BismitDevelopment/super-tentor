@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="{{ asset('css/footer.css') }}">
 <div class="page-6 d-flex flex-column align-items-center">
   <div class="footer-container">
       <div class="register-bar">

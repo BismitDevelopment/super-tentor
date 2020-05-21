@@ -1,16 +1,21 @@
 @extends('layouts.app')
+
 @section('navbar')
     @include('navbarDashboard')
 @endsection
-@section('content')
-<link rel="stylesheet" href="css/dashboardRanking.css">
+
+@section('css')    
+<link rel="stylesheet" href="{{asset('css/dashboardRanking.css')}}">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+@endsection
+
+@section('content')
 <div class="dash-main d-flex flex-column align-items-center">
     <div class="main-container">
         {{-- Page 1 --}}
         <div class="page-1">
             <div class="header">
-                <h1>Ranking Try Out Serentak 01 - SKD</h1>
+                <h1>Ranking {{ $paket->nama }}</h1>
                 <div class="underline"></div>
             </div>
             <div class="notif">
@@ -20,7 +25,7 @@
                     </div>
                 </div>
                 <div class="notif-header">
-                    <h1>Anda berada di peringkat 6 dari 100 pengguna</h1>
+                    <h1>Anda berada di peringkat {{ $currentUserRank }} dari {{ count($userRankList) }} pengguna</h1>
                     <div class="underline"></div>
                 </div>
                 <div class="notif-body">
@@ -53,7 +58,7 @@
                 </thead>
                 <tbody>
                     {{-- Iterasi content tabel --}}
-                    @for($i = 0; $i < 11; $i++)
+                    @for($i=0; $i < count($userRankList); $i++)
                         <tr class="table-border">
                             <td colspan="100%" class="py-2">
                                 <div class="d-flex justify-content-center">
@@ -62,19 +67,21 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><h4>{{$i}}</h4></td>
+                            <td><h4>{{(($page-1) * 10) + $i + 1}}</h4></td>
                             <td>
-                                <h4>Pengguna 008</h4>
+                                <h4>{{ $userRankList[$i]->name }}</h4>
                             </td>
                             <td>
-                                <h4>1:00:00</h4>
+                                <h4>{{ $userRankList[$i]->user_simulation->durasi_ujian }}</h4>
                             </td>
                             <td>
-                                <h4>Total: 0</h4>
+                                <h4>Total: {{ $userRankList[$i]->user_simulation->total_skor }}</h4>
                             </td>
-                            <td><h4>Lulus</h4></td>
                             <td>
-                                <h4>4/15/2020</h4>
+                                <h4>{{ $userRankList[$i]->user_simulation->status }}</h4>
+                            </td>
+                            <td>
+                                <h4>{{ date('d/m/Y', strtotime($userRankList[$i]->user_simulation->created_at)) }}</h4>
                             </td>
                         </tr>
                     @endfor
@@ -92,15 +99,35 @@
                 <tr class="table-footer">
                     <td colspan="100%">
                         <div class="d-flex justify-content-center">
-                            <a href="">
-                                <img src="img/svg-dash-home/left.svg" alt="">
-                            </a>
+                            @if ($page!==1)
+                                @if ($paket->jenis_tryout === 0)
+                                    <a href="{{ route('home.tryouts.free.ranking', ['page'=> $page-1]) }}">
+                                @elseif($paket->jenis_tryout === 1 )
+                                    <a href="{{ route('home.tryouts.premium.ranking', ['page'=> $page-1]) }}">
+                                @else
+                                    <a href="{{ route('home.tryouts.nasional.ranking', ['page'=> $page-1]) }}">
+                                @endif
+                                    <img src="{{ asset('img/svg-dash-home/left.svg') }}" alt="">
+                                </a>
+                            @endif
+
                             <div class="pagination-bar">
-                                1-5
+                                @if ($pages !== 0.0)
+                                    1-{{ $pages }}
+                                @endif
                             </div>
-                            <a href="">
-                                <img src="img/svg-dash-home/right.svg" alt="">
-                            </a>
+
+                            @if ($page < $pages)
+                                @if ($paket->jenis_tryout === 0)
+                                    <a href="{{ route('home.tryouts.free.ranking', ['page'=> $page+1]) }}">
+                                @elseif($paket->jenis_tryout === 1 )
+                                    <a href="{{ route('home.tryouts.premium.ranking', ['page'=> $page+1]) }}">
+                                @else
+                                    <a href="{{ route('home.tryouts.nasional.ranking', ['page'=> $page+1]) }}">
+                                @endif
+                                    <img src="{{ asset('img/svg-dash-home/right.svg') }}" alt="">
+                                </a>
+                            @endif
                         </div>
                     </td>
                 </tr>

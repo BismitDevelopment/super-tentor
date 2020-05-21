@@ -138,12 +138,14 @@
         <div class="left d-flex align-items-center justify-content-between">
           <h2 class="tryout-name">{{$paket->nama}}</h2>
           <div class="buttons">
-            <a class="button" href="/ranking">Ranking</a>
             @if ($paket->jenis_tryout === 0)
+              <a class="button" href="{{ route('home.tryouts.free.ranking', ['paket'=>$paket->id]) }}">Ranking</a>
               <a class="button" href="{{ route('home.tryouts.free.show', ['paket'=>$paket->id]) }}">Uji Tryout</a>
             @elseif ($paket->jenis_tryout === 1)
+              <a class="button" href="{{ route('home.tryouts.premium.ranking', ['paket'=>$paket->id]) }}">Ranking</a>
               <a class="button" href="{{ route('home.tryouts.premium.show', ['paket'=>$paket->id]) }}">Uji Tryout</a>
             @else
+              <a class="button" href="{{ route('home.tryouts.nasional.ranking', ['paket'=>$paket->id]) }}">Ranking</a>
               <a class="button" href="{{ route('home.tryouts.nasional.show', ['paket'=>$paket->id]) }}">Uji Tryout</a>
             @endif
           </div>

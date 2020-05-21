@@ -25,6 +25,8 @@
 
 <!-- Styles -->
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+<link rel="stylesheet" href="{{ asset('css/navbarDashboard.css') }}">
+@yield('css')
 <style>
         body {
             background-color: #f5f5f5 !important;
@@ -38,10 +40,10 @@
             <div class="profile-picture">
                 <img src="{{ asset('img/Profile.jpg') }}" alt="" srcset="">
             </div>
-            <h5 class="username mt-3 pb-3 pt-2 w-100 mb-3 text-center border-bottom">Pengguna 008</h5>
+            <h5 class="username mt-3 pb-3 pt-2 w-100 mb-3 text-center border-bottom">{{ auth()->user()->name }}</h5>
             <div class="menu align-self-start mb-2 ml-5 d-flex align-items-center">
                 <img src="{{ asset('img/mdi_home.svg') }}" alt="" srcset="" height="30" width="30">
-                <a class="ml-2" href="{{ route('home') }}">Home</a>
+                <a class="ml-2" href="{{ route('home.index') }}">Home</a>
             </div>
             <div class="menu align-self-start pl-5 mt-4 pb-2 border-bottom w-100 d-flex align-items-center">
                 <a>Simulasi Tryout</a>

@@ -25,6 +25,9 @@ class CreateSimulationsTable extends Migration
             $table->integer('total_skor');
             $table->string('status');
             $table->time('durasi_ujian',0);
+            $table->text('array_jawaban_twk');
+            $table->text('array_jawaban_tiu');
+            $table->text('array_jawaban_tkp');
             $table->timestamps();
         });
     }

@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="{{ asset('css/navbarDashboard.css') }}">
 <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white shadow px-md-5 px-3">
     <div class="container-fluid">
         <a class="navbar-brand py-1 mx-0" onclick="openNav()">
@@ -10,7 +9,7 @@
         <a href="" class="notif_">
             <img src="{{ asset('img/mdi_notifications.svg') }}" alt="">
         </a>
-        <a class="my-auto mx-3 username">Pengguna 008</a>
+        <a class="my-auto mx-3 username">{{ auth()->user()->name }}</a>
         <a class="py-0 my-0 profile-picture">
             <img class="" src="{{ asset('img/Profile.jpg') }}" alt="">
         </a>
