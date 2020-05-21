@@ -47,16 +47,17 @@ let dataSoal = $.ajax({
         // Looping jawaban dan kunci
         for (let i = 1; i <= 30 ; i++) {
             state["soal_twk"].answer[`${i}`] = obj.data_user.jawaban_twk[i-1]
-            state["soal_twk"].kunci[`${i}`] = obj.data_soal.soal_twk[i-1].jawaban
+            state["soal_twk"].kunci[`${i}`] = Object.keys(obj.data_soal.soal_twk[i-1].jawaban)[0]
             state["soal_twk"].pembahasan[`${i}`] = obj.data_soal.soal_twk[i-1].pembahasan
         }
         for (let i = 1; i <= 35 ; i++) {
             state["soal_tiu"].answer[`${i}`] = obj.data_user.jawaban_tiu[i-1]
             state["soal_tiu"].pembahasan[`${i}`] = obj.data_soal.soal_tiu[i-1].pembahasan
+            state["soal_tiu"].kunci[`${i}`] = Object.keys(obj.data_soal.soal_tiu[i-1].jawaban)[0]
             state["soal_tkp"].answer[`${i}`] = obj.data_user.jawaban_tkp[i-1]
             state["soal_tkp"].pembahasan[`${i}`] = obj.data_soal.soal_tkp[i-1].pembahasan
+            state["soal_tkp"].kunci[`${i}`] = Object.keys(obj.data_soal.soal_tiu[i-1].jawaban)[0]
         }
-
     },
     error: function(data) {
         console.log(data)
@@ -67,7 +68,6 @@ let dataSoal = $.ajax({
 function action(jenis_soal, noSoal, jawaban, kunci, pembahasan) {     
     
     console.log(pembahasan);
-    
 
     if (jenis_soal == "soal_twk") {
         for (let i = 30; i < 35 ; i++) {
@@ -182,7 +182,7 @@ $(document).ready(function () {
         $(".nomor-soal").html("Soal " + noSoal)
         let choiceVal = state[`${jenis}`].answer[`${noSoal}`]
         let kunci = state[`${jenis}`].kunci[`${noSoal}`]
-        let pembahasan = state[`${jenis_soal}`].pembahasan[`${noSoal}`]
+        let pembahasan = state[`${jenis}`].pembahasan[`${noSoal}`]
         action(jenis, noSoal, choiceVal, kunci, pembahasan)
     })
     
@@ -193,7 +193,7 @@ $(document).ready(function () {
         state[`${jenis}`].lastNumber = noSoal
         let choiceVal = state[`${jenis}`].answer[`${noSoal}`]
         let kunci = state[`${jenis}`].kunci[`${noSoal}`]
-        let pembahasan = state[`${jenis_soal}`].pembahasan[`${noSoal}`]
+        let pembahasan = state[`${jenis}`].pembahasan[`${noSoal}`]
         action(jenis, noSoal, choiceVal, kunci, pembahasan)
     })
     
@@ -205,7 +205,7 @@ $(document).ready(function () {
             state[`${jenis}`].lastNumber = noSoal
             let choiceVal = state[`${jenis}`].answer[`${noSoal}`]
             let kunci = state[`${jenis}`].kunci[`${noSoal}`]
-            let pembahasan = state[`${jenis_soal}`].pembahasan[`${noSoal}`]
+            let pembahasan = state[`${jenis}`].pembahasan[`${noSoal}`]
             action(jenis, noSoal, choiceVal, kunci, pembahasan)
             }
     })
