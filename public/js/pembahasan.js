@@ -40,23 +40,24 @@ let dataSoal = $.ajax({
     dataType: 'json',
     success: function(data) {
         obj = data
-        console.log(obj);        
+        console.log(obj);
+        
         // Judul paket
         const namaPaket = obj.data_soal.nama
         $(".judul-paket").html(namaPaket)
         // Looping jawaban dan kunci
         for (let i = 1; i <= 30 ; i++) {
             state["soal_twk"].answer[`${i}`] = obj.data_user.jawaban_twk[i-1]
-            state["soal_twk"].kunci[`${i}`] = Object.keys(obj.data_soal.soal_twk[i-1].jawaban)[0]
+            state["soal_twk"].kunci[`${i}`] = obj.data_soal.soal_twk[i-1].jawaban
             state["soal_twk"].pembahasan[`${i}`] = obj.data_soal.soal_twk[i-1].pembahasan
         }
         for (let i = 1; i <= 35 ; i++) {
             state["soal_tiu"].answer[`${i}`] = obj.data_user.jawaban_tiu[i-1]
             state["soal_tiu"].pembahasan[`${i}`] = obj.data_soal.soal_tiu[i-1].pembahasan
-            state["soal_tiu"].kunci[`${i}`] = Object.keys(obj.data_soal.soal_tiu[i-1].jawaban)[0]
+            state["soal_tiu"].kunci[`${i}`] = obj.data_soal.soal_tiu[i-1].jawaban
             state["soal_tkp"].answer[`${i}`] = obj.data_user.jawaban_tkp[i-1]
             state["soal_tkp"].pembahasan[`${i}`] = obj.data_soal.soal_tkp[i-1].pembahasan
-            state["soal_tkp"].kunci[`${i}`] = Object.keys(obj.data_soal.soal_tiu[i-1].jawaban)[0]
+            state["soal_tkp"].kunci[`${i}`] = obj.data_soal.soal_tkp[i-1].jawaban_skor[0]
         }
     },
     error: function(data) {
@@ -67,8 +68,6 @@ let dataSoal = $.ajax({
 
 function action(jenis_soal, noSoal, jawaban, kunci, pembahasan) {     
     
-    console.log(pembahasan);
-
     if (jenis_soal == "soal_twk") {
         for (let i = 30; i < 35 ; i++) {
             $(".box-angka").eq(i).hide()
@@ -120,11 +119,13 @@ function action(jenis_soal, noSoal, jawaban, kunci, pembahasan) {
     // Show last choice
     $("input").each(function() {
         $(this).prop('checked', false)
+        $(this).next().css('color', 'black')
+        $(`input[value="${kunci}"]`).next().css('font-weight', '500')
     }) 
     
     $(`input[value="${jawaban}"]`).prop('checked', true)
     $(`input[value="${kunci}"]`).next().css('color', '#E9D038')
-
+    $(`input[value="${kunci}"]`).next().css('font-weight', '600')
     // Pembahasan
     $('.pembahasan-isi').html(pembahasan)
 }
@@ -164,9 +165,7 @@ $(document).ready(function () {
     let jenis_soal = $(".soal").data("jenis")
     let choiceVal = state[`${jenis_soal}`].answer[`${noSoal}`]
     let kunci = state[`${jenis_soal}`].kunci[`${noSoal}`]
-    let pembahasan = state[`${jenis_soal}`].pembahasan[`${noSoal}`]
-    console.log(state);
-    
+    let pembahasan = state[`${jenis_soal}`].pembahasan[`${noSoal}`]    
     
 
     $.when(dataSoal).done( ()=>{
