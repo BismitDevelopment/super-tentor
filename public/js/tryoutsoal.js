@@ -278,7 +278,7 @@ $(document).ready(function () {
       })
 
       //Submit dan selesai
-      $("final-submit-btn").click(function() {
+      $(".final-submit-btn").click(function() {
         finish()
       })
 });

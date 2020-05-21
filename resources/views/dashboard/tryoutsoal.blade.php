@@ -109,22 +109,25 @@
             <div class="scroll">
                 <div class="results d-flex justify-content-around">
                     <?php
-                        $original_data_set = json_decode($_COOKIE['state'], true);
-                        $cleaned_data_set = [
-                            'TWK' => [
-                                'data' => $original_data_set['soal_twk'],
-                                'jumlah_soal' => 30,
-                            ],
-                            'TIU' => [
-                                'data' => $original_data_set['soal_tiu'],
-                                'jumlah_soal' => 35,
-                            ],
-                            'TKP' => [
-                                'data' => $original_data_set['soal_tkp'],
-                                'jumlah_soal' => 35,
-                            ],
-                        ];
-                        foreach($cleaned_data_set as $tipe_soal => $data_tipe_soal):      
+                        if ($_COOKIE['state'] !== 0.0) {
+                            # code...
+                            $original_data_set = json_decode($_COOKIE['state'], true);
+                            $cleaned_data_set = [
+                                'TWK' => [
+                                    'data' => $original_data_set['soal_twk'],
+                                    'jumlah_soal' => 30,
+                                ],
+                                'TIU' => [
+                                    'data' => $original_data_set['soal_tiu'],
+                                    'jumlah_soal' => 35,
+                                ],
+                                'TKP' => [
+                                    'data' => $original_data_set['soal_tkp'],
+                                    'jumlah_soal' => 35,
+                                ],
+                            ];
+                            foreach($cleaned_data_set as $tipe_soal => $data_tipe_soal):      
+                        
                     ?>
                     <table class="results-table">
                         <thead>
@@ -175,7 +178,9 @@
                             <?php endfor; ?>
                         </tbody>
                     </table>
-                    <?php endforeach; ?>
+                    <?php endforeach; 
+                        }
+                    ?>
                 </div>
             </div>
             
