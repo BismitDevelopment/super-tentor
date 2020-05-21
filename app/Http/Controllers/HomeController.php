@@ -43,7 +43,7 @@ class HomeController extends Controller
         $user_pakets_free = $user_simulations->filter(function ($value, $key){
             return $value->jenis_tryout === 0;
         });
-
+        // dd($user);
         $user_pakets_premium = $user_simulations->filter(function ($value, $key){
             return $value->jenis_tryout === 1;
         });

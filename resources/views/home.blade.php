@@ -120,9 +120,12 @@
                             </td>
                             <td><h4>{{ $user_sim->simulation->status }}</h4></td>
                             <td>
-                                <button class="table-button">
-                                    Pembahasan
-                                </button>
+                            {{-- Add route for pembahasan --}}
+                            <a href="{{ route('home.tryouts.nasional.pembahasan', ['paket'=>$user_sim->simulation->paket_id, 'simulation'=>$user_sim->simulation->id]) }}">
+                                    <button class="table-button">
+                                        Pembahasan
+                                    </button>
+                                </a>
                             </td>
                         </tr>
                     @endforeach
