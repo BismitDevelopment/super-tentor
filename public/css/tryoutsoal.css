@@ -144,6 +144,11 @@
   color: white;
 }
 
+.pembahasan {
+  background-color: #E9D038;
+  padding: 1em 3em;
+}
+
 .finish-attempt div {
   font-weight: 600 !important;
   color: #EB5757;
@@ -158,9 +163,132 @@
   opacity: 1 !important;
 }
 
-.pembahasan {
+/* Finish attempt page */
+.finish-attempt-page {
+  display: none;
+  padding: 0 3em;
+  padding-bottom: 2em;
+  font-size: 2em;
+}
+
+.results {
+  width: 50em;
+}
+
+.title h3 {
+  font-size: 1.3em !important;
+  font-weight: bold;
+}
+
+.finish-attempt-page button {
+  margin: 1em 0;
+}
+
+.finish-attempt-page .buttons {
+  font-size: 1em;
+}
+
+.final-submit-btn {
+  background-color: #67A69D;
+  color: white;
+  font-weight: 500 !important;
+  opacity: 0.8;
+  border-radius: 0.7em;
+  padding: .5em 1em;
+  width: max-content;
+  border: none;
+}
+
+.return-to-attempt {
   background-color: #E9D038;
-  padding: 1em 3em;
+  color: white;
+  font-weight: 500 !important;
+  opacity: 0.8;
+  border-radius: 0.7em;
+  outline: none;
+  border: none;
+  padding: .5em 1.5em;
+  width: max-content;
+}
+
+.return-to-attempt:hover {
+  opacity: 1;
+}
+
+.results {
+  background: white;
+  padding: 1em 2em;
+  border-radius: 0.7em;
+  margin: 1em 0;
+  border: 1px solid #C4C4C4;
+}
+
+.results-table {
+  margin: 0 1em;
+}
+
+.underline {
+  width: 100%;
+  border: .7px solid #E0E0E0;
+}
+
+.results tbody * {
+  font-size: 1em;
+  margin: .1em 0;
+}
+
+.results thead * {
+  font-weight: bold;
+  font-size: 1em;
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+.table-title h1 {
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-bottom: 1em;
+}
+
+.index {
+  padding-right: 2em;
+}
+
+.index h5 {
+  margin-left: .5em;
+}
+
+.index img {
+  margin-left: 1em;
+  width: 1em;
+}
+
+.status-soal {
+  font-weight: normal;
+  text-align: center;
+}
+
+.belum-di-jawab {
+  color: #EB5757;
+}
+
+@media (max-width: 1785px) {
+  .finish-attempt-page {
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 1420px) {
+  .finish-attempt-page {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 1045px) {
+  .scroll {
+    overflow-x: scroll;
+    width: 55vw;
+  }  
 }
 
 .finish-attempt-page {
@@ -197,6 +325,14 @@
 }
 
 @media (max-width: 768px) {
+  .finish-attempt-page {
+    font-size: .8em;
+  }
+
+  .scroll {
+    width: 50vw;
+  }  
+
   .angka {
     grid-template-columns: repeat(8, 1fr) !important;
   }
@@ -211,6 +347,14 @@
 }
 
 @media (max-width: 576px) {
+  .finish-attempt-page {
+    font-size: 1em;
+  }
+
+  .scroll {
+    width: 80vw;
+  } 
+
   .wrapper {
     padding: 1rem 0.5rem 1rem 0.5rem !important;
   }
