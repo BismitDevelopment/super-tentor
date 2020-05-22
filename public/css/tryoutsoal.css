@@ -39,6 +39,7 @@
 
 .soal .soal-gambar {
   width: 100%;
+  max-width: 600px;
   height: auto;
 }
 
@@ -165,6 +166,7 @@
 
 .pembahasan-gambar {
   width: 100%;
+  max-width: 600px;
   height: auto;
 }
 
@@ -175,8 +177,9 @@
 .finish-attempt-page .card .grid-wrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  -moz-column-gap: 15px;
-       column-gap: 15px;
+  -webkit-column-gap: 15px;
+     -moz-column-gap: 15px;
+          column-gap: 15px;
   overflow-x: auto;
 }
 
@@ -239,6 +242,10 @@
   .judul-paket {
     font-size: 20px;
     margin-left: 10px;
+  }
+
+  .box {
+    padding: 0.8em;
   }
 }
 

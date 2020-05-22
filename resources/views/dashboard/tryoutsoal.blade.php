@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('meta')
+    <meta name="assetPath" content="{{ asset('') }}">
 @endsection
 
 

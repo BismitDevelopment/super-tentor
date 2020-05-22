@@ -39,6 +39,7 @@ body {
     }
     .soal-gambar {
         width: 100%;
+        max-width: 600px;
         height: auto;
     }
     .box {
@@ -151,6 +152,7 @@ body {
 
 .pembahasan-gambar {
         width: 100%;
+        max-width: 600px;
         height: auto;
 }
 
@@ -227,5 +229,8 @@ $breakpoint-lg: 992px;
     .judul-paket {
         font-size: 20px;
         margin-left: 10px;
+    }
+    .box {
+        padding: .8em;
     }
 }
