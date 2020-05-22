@@ -163,6 +163,11 @@
   padding: 1em 3em;
 }
 
+.pembahasan-gambar {
+  width: 100%;
+  height: auto;
+}
+
 .finish-attempt-page {
   display: none;
 }

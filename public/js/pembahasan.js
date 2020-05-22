@@ -126,8 +126,14 @@ function action(jenis_soal, noSoal, jawaban, kunci, pembahasan) {
     $(`input[value="${jawaban}"]`).prop('checked', true)
     $(`input[value="${kunci}"]`).next().css('color', '#E9D038')
     $(`input[value="${kunci}"]`).next().css('font-weight', '600')
+    
     // Pembahasan
-    $('.pembahasan-isi').html(pembahasan)
+    if (pembahasan.includes(".jpg") || pembahasan.includes(".png")) {
+        $(".pembahasan-gambar").attr("src", pembahasan)
+    } else {
+        $(".pembahasan-isi").html(pembahasan)
+    }
+
 }
 
 function resolveAfter2Seconds() {
