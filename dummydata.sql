@@ -41,8 +41,8 @@ Keuntungan = 150.000/1.000.000  x 100%=15%',5),
     (18,1,'Jika 5 ekor kambing dapat melahap 5 lapangan rumput dalam waktu 5 hari, maka 500 ekor kambing dapat melahap 500 lapangan rumput dalam waktu … hari.','Tidak dapat ditentukan','50','500','5000','5','Cukup jelas, menggunakan perbandingan terbalik.',5),
     (19,1,'Sebuah tangki yang berisi air mengalami kebocoran pada bagian dasarnya. Apabila debit air keluar adalah 200mL/detik dan kondisi tangki saat itu hanya terisi ¼ bagian sehingga air dalam tangki tersebut dapat habis dalam waktu 6 menit. Berapakah volume tangki itu?','120 L','72 L','215 L','200 L','288 L','1/4 V=200mL x 360=72000mL=72 L
 V=72 x 4=288L',5),
-    (20,1,'Tiga bilangan membentuk suatu deret geometri. Jika hasil kali ketiganya adalah 216 dan hasil jumlah ketiganya adalah 26 maka rasio deret tersebut adalah….','NAS005','NAS 002','NAS003','NAS004','NAS001','NAS006',5),
-    (21,1,'Seorang murid diminta mengerjakan 8 dari 10 soal. Soal dengan no 1 s.d. 5 harus dikerjakan. Banyaknya pilihan soal yang dikerjakan adalah…','3','5','6','8','10','NAS007',5),
+    (20,1,'Tiga bilangan membentuk suatu deret geometri. Jika hasil kali ketiganya adalah 216 dan hasil jumlah ketiganya adalah 26 maka rasio deret tersebut adalah….','2 atau 1/2','3 atau -1/3','3 atau 2','3 atau 1/2','3 atau 1/3', 'img/pembahasan/NAS006.png',5),
+    (21,1,'Seorang murid diminta mengerjakan 8 dari 10 soal. Soal dengan no 1 s.d. 5 harus dikerjakan. Banyaknya pilihan soal yang dikerjakan adalah…','3','5','6','8','10','img/pembahasan/NAS007.png',5),
     (22,1,'Jay memiliki 100 ekor ayam yang terdiri dari 70 ekor ayam jantan yang 58 di antaranya sudah siap potong. Jika jumlah ayam yang siap potong ada 72 ekor, banyak ayam betina yang belum siap potong adalah…ekor.','18','17','14','15','16','v  Dari 100 ekor ayam, 70 ekor adalah ayam jantan. Maka jumlah ayam betina adalah 100-70=30 ekor
 v  Dari 72 ayam siap potong, 58 ekor adalah ayam jantan.
 v  Maka jumlah ayam betina siap potong adalah 72-58= 14 ekor.
@@ -58,7 +58,7 @@ A+(A-15)+(A+25)=100
 A=30
 Jadi, jumlah apel yg dimiliki Charlie adalah
 C=30+25= 55 buah',5),
-    (24,1,'Chris dan teman-temannya bermain catur. Setiap anak akan bermain satu kali dengan temannya. Jika jumlah anak yang bermain sebanyak 17 orang. Berapa kali mereka bermain?','34','382','342','361','136','NAS008',5),
+    (24,1,'Chris dan teman-temannya bermain catur. Setiap anak akan bermain satu kali dengan temannya. Jika jumlah anak yang bermain sebanyak 17 orang. Berapa kali mereka bermain?','34','382','342','361','136','img/pembahasan/NAS008.png',5),
     (25,1,'KETERANGAN UNTUK PERTANYAAN NO 55 S.D. 57
 
 Suatu proyek terdiri dari beberapa jenis proyek kecil, yakni proyek A, B, C, D, E dan F. Proyek kecil ini berkaitan satu sama lain sehingga tiap jenis pekerjaan diatur sebagai berikut:
@@ -78,10 +78,10 @@ v  Proyek E dikerjakan jika dan hanya jika proyek F dikerjakan
     (29,1,'22, 66, 33, 34, 30, 90, 45, 46, 42, … , …','66, 128','23, 76','98, 346','280, 249','126, 63','Bilangn dikali 3, bagi 2, tambah 1 kurang 4. Diulangi.',5),
     (30,1,'81, 9, 12, 36, 33, 66, 64, 8, 11, … , …','14, 28','12, 28','12, 22','13, 28','33, 30','Mulai dari 81 s.d. 66 polanya adalah akar, tambah 3, kali 3, kurang 3 kali 2. Diulang lagi mulai dari 64.',5),
     (31,1,'F, H, J, L, N, …','O, P','P, Q','T, U','Q, S','P, R','Mulai dari F, polanya lompat 2 huruf setelahnya.',5),
-    (32,1,'NAS009','NAS010','NAS011','NAS014','NAS013','NAS012','Apabila dirangkai menjadi kubus, hanya gambar C yang sesuai dengan kerangka kubusnya.',5),
-    (33,1,'NAS015','NAS016','NAS017','NAS018','NAS020','NAS019','Setiap lingkaran memiliki pasangan identik, meskipun diputar.',5),
-    (34,1,'NAS021','NAS022','NAS023','NAS026','NAS025','NAS024','Kiri atas, samping kanan atas, sebelah kiri bawah, dan kiri bawah ditransfer ke bangun akhir.',5),
-    (35,1,'NAS027','NAS028','NAS029','NAS030','NAS032','NAS031','Apabila dirotasi gambar yang identik dengan gambar tersebut adalah gambar D.',5);
+    (32,1,'img/soal/NAS009.png','A','B','E','D','C','Apabila dirangkai menjadi kubus, hanya gambar C yang sesuai dengan kerangka kubusnya.',5),
+    (33,1,'img/soal/NAS015.png','A','B','C','E','D','Setiap lingkaran memiliki pasangan identik, meskipun diputar.',5),
+    (34,1,'img/soal/NAS021.png','A','B','E','D','C','Kiri atas, samping kanan atas, sebelah kiri bawah, dan kiri bawah ditransfer ke bangun akhir.',5),
+    (35,1,'img/soal/NAS027.png','A','B','C','E','D','Apabila dirotasi gambar yang identik dengan gambar tersebut adalah gambar D.',5);
 
     
     
