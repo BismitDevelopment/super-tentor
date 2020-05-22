@@ -93,9 +93,11 @@ function action(jenis_soal, noSoal, arrMarked, choiceVal) {
     $(".box-soal").data("nomor", noSoal)
     let soal = obj.paket[`${jenis_soal}`][parseInt(noSoal-1)].soal
     if (soal.includes(".jpg") || soal.includes(".png")) {
-        $(".soal-gambar").attr("src", soal)
+        $(".soal-isi").html("")
+        $(".soal-gambar").attr("src", $('meta[name="assetPath"]').attr('content')+soal)
     } else {
         $(".soal-isi").html(soal)
+        $(".soal-gambar").attr("src", "")
     }
 
     // 4. Pilihan
