@@ -58,7 +58,7 @@
             </div>
             <div class="menu align-self-start pl-5 w-100 pb-3 border-bottom mt-3 d-flex align-items-center">
                 <img src="{{ asset('img/mdi_lock.svg') }}" alt="" srcset="" height="30" width="30">
-                <a class="ml-2" href="{{ route('home.tryouts.nasional.index') }}">Tryout Nasional</a>
+                <a class="ml-2" href="{{ route('home.tryouts.nasional.index') }}" id="nasional">Tryout Nasional</a>
             </div>
             <div class="menu align-self-start pl-5 w-100 mt-3 mb-md-3 mb-2 d-flex align-items-center">
                 <img src="{{ asset('img/mdi_setting.svg') }}" alt="" srcset="" height="30" width="30">
@@ -76,7 +76,7 @@
             <main class="pt-4 hideMain">
                 @yield('content')
             </main>
-        </div>
+    </div>
         
         <script>
             if (screen.width <= 576) {
@@ -92,6 +92,11 @@
             document.getElementById("app").classList.toggle('slideMain');
             document.querySelector("main").classList.toggle('hideMain');
         }
-    </script>    
+
+        $("#nasional").click(() => {
+            console.log("clicked")
+        });
+        </script>    
 </body>
 </html>
+

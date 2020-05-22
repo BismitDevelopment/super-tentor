@@ -74,8 +74,8 @@
                                 </ul>
                                 @if ($i == 0)
                                     <div class="card-bottom">
-                                        <a href="" class="rounded-btn">Daftar Sekarang</a>
-                                        <small>atau <a href="">Coba gratis</a></small>
+                                        <a href="{{ route('register') }}" class="rounded-btn">Daftar Sekarang</a>
+                                        <small>atau <a href="{{ route('register') }}">Coba gratis</a></small>
                                     </div>
                                 @else
                                     <div class="card-bottom">
