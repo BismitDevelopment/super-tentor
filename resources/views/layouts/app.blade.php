@@ -119,7 +119,7 @@
             document.querySelector("main").classList.toggle('hideMain');
         }
 
-        const password = "NAS123"
+        // const password = "NAS123"
 
         $("#submit").click(function(e){
             e.preventDefault()
