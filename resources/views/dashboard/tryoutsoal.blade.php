@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="{{ asset('css/tryoutsoal.css') }}">
 <div class="wrapper">
     <div class="d-flex justify-content-between title flex-wrap mb-lg-1 mb-3">
-        <h3 class="judul-paket">Try Out Serentak 01 - SKD</h3>
+        <h3 class="judul-paket"></h3>
         <h5 class="countdown"></h5>
     </div>
     <div class="d-flex menus col-12 p-0">

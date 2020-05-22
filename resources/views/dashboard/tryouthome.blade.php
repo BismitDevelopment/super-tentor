@@ -22,10 +22,10 @@
                     {{-- <h5 class="mt-3 text-center">Sistem Penilaian SKD CPNS oleh BKN <br> Benar = (+5) <br> Salah = (0) <br> Kosong = (0)</h5> --}}
                     <div class="d-flex justify-content-center align-items-center mt-3 flex-lg-row flex-column">
                         <div class="card border-0 card-inside d-flex flex-column justify-content-center align-items-center text-center py-3 px-4 m-lg-3 m-2">
-                            <b>Soal TIU</b> Total Soal: 35 <br> Alokasi Waktu: <br> 30 Menit <br> Passing Grade: 65
+                            <b>Soal TIU</b> Total Soal: 35 <br> Alokasi Waktu: <br> 30 Menit <br> Passing Grade: 80
                         </div>
                         <div class="card border-0 card-inside d-flex flex-column justify-content-center align-items-center text-center py-3 px-4 m-lg-3 m-2">
-                            <b>Soal TKP</b> Total Soal: 35 <br> Alokasi Waktu: <br> 30 Menit <br> Passing Grade: 65
+                            <b>Soal TKP</b> Total Soal: 35 <br> Alokasi Waktu: <br> 30 Menit <br> Passing Grade: 126
                         </div>
                         <div class="card border-0 card-inside d-flex flex-column justify-content-center align-items-center text-center py-3 px-4 m-lg-3 m-2">
                             <b>Soal TWK</b> Total Soal: 30 <br> Alokasi Waktu: <br> 30 Menit <br> Passing Grade: 65

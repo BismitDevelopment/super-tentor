@@ -67,6 +67,10 @@ let dataSoal = $.ajax({
 
 
 function action(jenis_soal, noSoal, jawaban, kunci, pembahasan) {
+    
+    // Judul paket
+    const namaPaket = obj.data_soal.nama
+    $(".judul-paket").html(namaPaket)    
 
     if (jenis_soal == "soal_twk") {
         for (let i = 30; i < 35; i++) {
