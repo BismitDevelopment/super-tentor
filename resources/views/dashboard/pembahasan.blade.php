@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
-
+@section('meta')
+    <meta name="assetPath" content="{{ asset('') }}">
+@endsection
 @section('navbar')
     @include('navbarDashboard')
 @endsection

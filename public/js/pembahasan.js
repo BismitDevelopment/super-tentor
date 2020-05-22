@@ -94,9 +94,11 @@ function action(jenis_soal, noSoal, jawaban, kunci, pembahasan) {
     $(".box-soal").data("nomor", noSoal)
     let soal = obj.data_soal[`${jenis_soal}`][parseInt(noSoal - 1)].soal
     if (soal.includes(".jpg") || soal.includes(".png")) {
-        $(".soal-gambar").attr("src", soal)
+        $(".soal-isi").html("")
+        $(".soal-gambar").attr("src", $('meta[name="assetPath"]').attr('content')+soal)
     } else {
         $(".soal-isi").html(soal)
+        $(".soal-gambar").attr("src", "")
     }
 
     // 4. Pilihan
@@ -120,7 +122,7 @@ function action(jenis_soal, noSoal, jawaban, kunci, pembahasan) {
     $("input").each(function () {
         $(this).prop('checked', false)
         $(this).next().css('color', 'black')
-        $(`input[value="${kunci}"]`).next().css('font-weight', '500')
+        $(this).next().css('font-weight', '500')
     })
 
     $(`input[value="${jawaban}"]`).prop('checked', true)
@@ -129,41 +131,14 @@ function action(jenis_soal, noSoal, jawaban, kunci, pembahasan) {
 
     // Pembahasan
     if (pembahasan.includes(".jpg") || pembahasan.includes(".png")) {
-        $(".pembahasan-gambar").attr("src", pembahasan)
+        $(".pembahasan-isi").html("")
+        $(".pembahasan-gambar").attr("src", $('meta[name="assetPath"]').attr('content') + pembahasan)
     } else {
         $(".pembahasan-isi").html(pembahasan)
+        $(".pembahasan-gambar").attr("src", "")
     }
 
 }
-
-function resolveAfter2Seconds() {
-    return new Promise(resolve => {
-        while (true) {
-            if (obj != 0) {
-                data = obj;
-                break
-            }
-        };
-        setTimeout(() => {
-            resolve(obj);
-        }, 2000);
-    });
-}
-
-function resolveAfter2Seconds() {
-    return new Promise(resolve => {
-        while (true) {
-            if (obj != 0) {
-                data = obj;
-                break
-            }
-        };
-        setTimeout(() => {
-            resolve(obj);
-        }, 2000);
-    });
-}
-
 
 // First load
 $(document).ready(function () {
