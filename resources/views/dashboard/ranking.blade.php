@@ -113,7 +113,7 @@
 
                             <div class="pagination-bar">
                                 @if ($pages !== 0.0)
-                                    1-{{ $pages }}
+                                    {{ $page }}-{{ $pages }}
                                 @endif
                             </div>
 
