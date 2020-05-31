@@ -63,21 +63,21 @@ $welcome_page_data = [
           'age' => 20,
           'message' => '“SuperTentor adalah program bimbingan untuk CPNS. Gue sekarang suka makan indomie rebus bungkus”',
           'kantor' => 'KEMENKES',
-          'img_link' => '/img/profile.jpg'
+          'img_link' => '/img/user.svg'
       ],
       [
           'name' => 'Huda',
           'age' => 20,
           'message' => '“SuperTentor adalah program bimbingan untuk CPNS. Gue sekarang suka makan indomie rebus bungkus”',
           'kantor' => 'KEMENKES',
-          'img_link' => '/img/profile.jpg'
+          'img_link' => '/img/user.svg'
       ],
       [
           'name' => 'Huda',
           'age' => 20,
           'message' => '“SuperTentor adalah program bimbingan untuk CPNS. Gue sekarang suka makan indomie rebus bungkus”',
           'kantor' => 'KEMENKES',
-          'img_link' => '/img/profile.jpg'
+          'img_link' => '/img/user.svg'
       ],
   ],
   'faq_data' => [

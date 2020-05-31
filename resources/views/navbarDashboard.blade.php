@@ -11,7 +11,7 @@
         </a>
         <a class="my-auto mx-3 username">{{ auth()->user()->name }}</a>
         <a class="py-0 my-0 profile-picture">
-            <img class="" src="{{ asset('img/Profile.jpg') }}" alt="">
+            <img class="" src="{{ asset('img/user.svg') }}" alt="">
         </a>
     </div>
 </nav>

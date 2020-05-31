@@ -41,7 +41,7 @@
     <div id="app" class="main slideMain hideContent">
         <div id="mySidenav" class="navShow sidenav d-flex flex-column align-items-center py-4">
             <div class="profile-picture">
-                <img src="{{ asset('img/Profile.jpg') }}" alt="" srcset="">
+                <img src="{{ asset('img/user.svg') }}" alt="" srcset="">
             </div>
             <h5 class="username mt-3 pb-3 pt-2 w-100 mb-3 text-center border-bottom">{{ auth()->user()->name }}</h5>
             <div class="menu align-self-start mb-2 ml-5 d-flex align-items-center">

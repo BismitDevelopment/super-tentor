@@ -58,6 +58,10 @@ let dataSoal = $.ajax({
 
 function action(jenis_soal, noSoal, arrMarked, choiceVal) {  
 
+    // Judul paket
+    const namaPaket = obj.data_soal.nama
+    $(".judul-paket").html(namaPaket)        
+
 
     for (let i = 1 ; i <= 35 ; i++) {
         if (state[`${jenis_soal}`]["answer"][`${i}`] != undefined) {

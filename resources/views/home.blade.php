@@ -169,5 +169,5 @@
         </div>
     </div>
 </div>
-@include('inc.footer')
+{{-- @include('inc.footer') --}}
 @endsection
