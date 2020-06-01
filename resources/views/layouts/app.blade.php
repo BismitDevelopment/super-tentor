@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @yield('meta')
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Super Tentor</title>
 
     <!-- Scripts -->
     {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}

@@ -59,47 +59,42 @@ $welcome_page_data = [
   ],
   'carousel_data' => [
       [
-          'name' => 'Huda',
-          'age' => 20,
-          'message' => '“SuperTentor adalah program bimbingan untuk CPNS. Gue sekarang suka makan indomie rebus bungkus”',
-          'kantor' => 'KEMENKES',
+          'name' => 'Yenny Anna',
+          'message' => '“Awalnya aku gak yakin untuk bisa lulus tes CPNS tapi setelah ikut Supertentor ini aku merasa lebih percaya diri. Sangat membantu karena banyak tips & trik khususnya untuk TIU”',
+          'kantor' => 'Kemenristekdikti',
           'img_link' => '/img/user.svg'
       ],
       [
-          'name' => 'Huda',
-          'age' => 20,
-          'message' => '“SuperTentor adalah program bimbingan untuk CPNS. Gue sekarang suka makan indomie rebus bungkus”',
-          'kantor' => 'KEMENKES',
-          'img_link' => '/img/user.svg'
-      ],
-      [
-          'name' => 'Huda',
-          'age' => 20,
-          'message' => '“SuperTentor adalah program bimbingan untuk CPNS. Gue sekarang suka makan indomie rebus bungkus”',
-          'kantor' => 'KEMENKES',
+          'name' => 'Oshi P. Gusma ',
+          'message' => '“Materi lengkap dan jelas, dan terpenting ngasih trik-trik buat ngejawab soal CPNS dan gampang dipelajari”',
+          'kantor' => 'Kemenkeu',
           'img_link' => '/img/user.svg'
       ],
   ],
   'faq_data' => [
       [
-          'title' => 'Siapa yang cocok Ikut Bimbingan SuperTentor?',
-          'description' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+          'title' => 'Apa itu Supertentor?',
+          'description' => "Website eLearning atau Mentoring Online untuk Lulus CPNS, Sekolah Kedinasan dan UTBK, yang akan membantu kamu untuk bisa lulus tes dengan produk digitalnya. Soal dan Modul Eksklusif Supertentor dapat diakses dimanapun dan kapanpun untuk menemani belajar kamu"
       ],
       [
-          'title' => 'Siapa yang cocok Ikut Bimbingan SuperTentor?',
-          'description' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+          'title' => 'Apakah Soal di Supertentor Sudah sesuai Kisi-Kisi Terbaru?',
+          'description' => "Seluruh Soal dan Modul Modul Eksklusif Supertentor disusun oleh pengajar yang kompeten dan selalu diupgrade sesuai dengan kisi-kisi terbaru di tahun berjalan. Seluruh soal juga sudah disesuaikan kadar kesulitannya sehingga manfaatnya akan optimal"
       ],
       [
-          'title' => 'Siapa yang cocok Ikut Bimbingan SuperTentor?',
-          'description' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+          'title' => 'Harga Supertenor Serius Semurah itu?',
+          'description' => "Iya, kami mentor-mentor di Supertentor memberikan produk-produk digital secara maksimal dengan harga yang ekonomis, karena kami ingin semakin banyak siswa siswa yang dapat mengkases produk kami"
       ],
       [
-          'title' => 'Siapa yang cocok Ikut Bimbingan SuperTentor?',
-          'description' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+          'title' => 'Bagaimana Cara Mendaftar?',
+          'description' => "Langkah pertama buka halaman pendaftaran kemudian lengkapi informasi yang terdapat pada form yang telah disediakan. Pada saat selesai mendaftar, akun kamu otomatis terdaftar sebagai paket GRATIS, namun kamu bisa melakukan upgrade ke paket premium kapanpun"
       ],
       [
-          'title' => 'Siapa yang cocok Ikut Bimbingan SuperTentor?',
-          'description' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+          'title' => 'Bagaimana Cara Upgrade ke Premium?',
+          'description' => "Pastikan dulu kamu sudah terdaftar dan memiliki akun Supertentor. Kemudian silakan lakukan pembayaran sesuai dengan nominal harga paket melalui Transfer Bank, Gopay dan OVO sesuai petunjuk. Untuk panduan pembayaran dapat langsung hubungi admin kami via WA di 0851-5633-2836 (Kak Devi)"
+      ],
+      [
+          'title' => 'Apakah ada Promo Khusus?',
+          'description' => "Saat ini sedang ada Promo potongan Hingga 70% hingga harga produk kami hanya Rp99.000. Untuk Info diskon atau promo lain silakan ikuti halaman IG kami @supertentor_"
       ],
   ]
 ];
