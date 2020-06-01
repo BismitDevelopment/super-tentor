@@ -59,7 +59,7 @@ let dataSoal = $.ajax({
 function action(jenis_soal, noSoal, arrMarked, choiceVal) {  
 
     // Judul paket
-    const namaPaket = obj.data_soal.nama
+    const namaPaket = obj.paket.nama
     $(".judul-paket").html(namaPaket)        
 
 
