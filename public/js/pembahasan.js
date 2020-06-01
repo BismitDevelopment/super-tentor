@@ -134,11 +134,16 @@ function action(jenis_soal, noSoal, jawaban, kunci, pembahasan) {
         $(this).prop('checked', false)
         $(this).next().css('color', 'black')
         $(this).next().css('font-weight', '500')
+        $(this).next().next().attr('style', '')
     })
 
     $(`input[value="${jawaban}"]`).prop('checked', true)
     $(`input[value="${kunci}"]`).next().css('color', '#E9D038')
     $(`input[value="${kunci}"]`).next().css('font-weight', '600')
+    if (`${kunci}`.includes('.png') || `${kunci}`.includes('.jpg')) {
+        $(`input[value="${kunci}"]`).next().next().css({'border': '1px solid #E9D038', 'border-radius': '4px', 'padding': '2px'})
+    } 
+    // console.log($(`input[value="${kunci}"]` + ' img'))
 
     // Pembahasan
     if (pembahasan.includes(".jpg") || pembahasan.includes(".png")) {
@@ -204,13 +209,17 @@ $(document).ready(function () {
     // Selanjutnya Click
     $(".btn-selanjutnya").click(function () {
         let noSoal = parseInt($(this).data("nomor"))
-        if (noSoal < 31) {
-            let jenis = $(".menu-active").data("jenis")
-            state[`${jenis}`].lastNumber = noSoal
-            let choiceVal = state[`${jenis}`].answer[`${noSoal}`]
-            let kunci = state[`${jenis}`].kunci[`${noSoal}`]
-            let pembahasan = state[`${jenis_soal}`].pembahasan[`${noSoal}`]
+        
+        let jenis = $(".menu-active").data("jenis")
+        state[`${jenis}`].lastNumber = noSoal
+        let choiceVal = state[`${jenis}`].answer[`${noSoal}`]
+        let kunci = state[`${jenis}`].kunci[`${noSoal}`]
+        let pembahasan = state[`${jenis_soal}`].pembahasan[`${noSoal}`]
+        if (noSoal < 31 & jenis === 'twk') {
+            action(jenis, noSoal, choiceVal, kunci, pembahasan)
+        } else if (noSoal < 36 & jenis !== 'twk') {
             action(jenis, noSoal, choiceVal, kunci, pembahasan)
         }
+
     })
 });
