@@ -176,7 +176,7 @@
             </div>
 
             <!-- Footer -->
-            {{-- @include('inc.footer') --}}
+            @include('inc.footer')
         </div>
     </body>
     <script defer>
