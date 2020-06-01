@@ -194,12 +194,15 @@ $(document).ready(function () {
     // Selanjutnya Click
     $(".btn-selanjutnya").click(function () {  
         let noSoal = parseInt($(this).data("nomor"))
-        if (noSoal < 31) {
-            let jenis = $(".menu-active").data("jenis")
-            state[`${jenis}`].lastNumber = noSoal
-            let choiceVal = state[`${jenis}`].answer[`${noSoal}`]
+        let jenis = $(".menu-active").data("jenis")
+        state[`${jenis}`].lastNumber = noSoal
+        let choiceVal = state[`${jenis}`].answer[`${noSoal}`]
+
+        if (noSoal < 31 & jenis === 'twk') {
             action(jenis, noSoal, state[`${jenis}`].arrMarked, choiceVal)
-            }
+        } else if (noSoal < 36 & jenis !== 'twk') {
+            action(jenis, noSoal, state[`${jenis}`].arrMarked, choiceVal)
+        }
     })
     
     // Tandai Click
