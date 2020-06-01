@@ -140,13 +140,13 @@
           <div class="buttons">
             @if ($paket->jenis_tryout === 0)
               <a class="button" href="{{ route('home.tryouts.free.ranking', ['paket'=>$paket->id]) }}">Ranking</a>
-              <a class="button" href="{{ route('home.tryouts.free.show', ['paket'=>$paket->id]) }}">Uji Tryout</a>
+              <a class="button btn-uji" href="{{ route('home.tryouts.free.show', ['paket'=>$paket->id]) }}"  data-toggle="modal" data-target="#exampleModalCenter">Uji Tryout</a>
             @elseif ($paket->jenis_tryout === 1)
               <a class="button" href="{{ route('home.tryouts.premium.ranking', ['paket'=>$paket->id]) }}">Ranking</a>
-              <a class="button" href="{{ route('home.tryouts.premium.show', ['paket'=>$paket->id]) }}">Uji Tryout</a>
+              <a class="button btn-uji" href="{{ route('home.tryouts.premium.show', ['paket'=>$paket->id]) }}"  data-toggle="modal" data-target="#exampleModalCenter">Uji Tryout</a>
             @else
               <a class="button" href="{{ route('home.tryouts.nasional.ranking', ['paket'=>$paket->id]) }}">Ranking</a>
-              <a class="button" href="{{ route('home.tryouts.nasional.show', ['paket'=>$paket->id]) }}">Uji Tryout</a>
+              <a class="button btn-uji" href="{{ route('home.tryouts.nasional.show', ['paket'=>$paket->id]) }}"  data-toggle="modal" data-target="#exampleModalCenter">Uji Tryout</a>
             @endif
           </div>
         </div>
@@ -154,11 +154,50 @@
     </div>
     @endforeach
   </div>
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-center" id="exampleModalLongTitle"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="passwordNasional">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="inputPassword" placeholder="Masukkan Password">
+                        <small id="errorPassword" class="form-text text-danger"></small>
+                    </div>    
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-warning" id="submitButton">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+ </div>
+</div>
+
 @endsection
 
 @section('scripts')
 <script>
   $(document).ready(function () {
+    
+    let linkTO
+
+    $(".btn-uji").click(function(e){
+      e.preventDefault()
+      linkTO = $(this).attr("href")
+    })
+
+    $("#passwordNasional").submit((e) => {
+      e.preventDefault()
+      window.location.href = linkTO + "/" + $("#inputPassword").val()
+      $("#inputPassword").val("")
+      })
+
     $.event.special.widthChanged = {
           remove: function() {
               $(this).children('iframe.width-changed').remove();
