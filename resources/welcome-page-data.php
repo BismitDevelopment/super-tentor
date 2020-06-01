@@ -93,7 +93,7 @@ $welcome_page_data = [
           'description' => "Pastikan dulu kamu sudah terdaftar dan memiliki akun Supertentor. Kemudian silakan lakukan pembayaran sesuai dengan nominal harga paket melalui Transfer Bank, Gopay dan OVO sesuai petunjuk. Untuk panduan pembayaran dapat langsung hubungi admin kami via WA di 0851-5633-2836 (Kak Devi)"
       ],
       [
-          'title' => 'Apakah ada ada Promo Khusus?',
+          'title' => 'Apakah ada Promo Khusus?',
           'description' => "Saat ini sedang ada Promo potongan Hingga 70% hingga harga produk kami hanya Rp99.000. Untuk Info diskon atau promo lain silakan ikuti halaman IG kami @supertentor_"
       ],
   ]
