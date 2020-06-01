@@ -140,13 +140,13 @@
           <div class="buttons">
             @if ($paket->jenis_tryout === 0)
               <a class="button" href="{{ route('home.tryouts.free.ranking', ['paket'=>$paket->id]) }}">Ranking</a>
-              <a class="button btn-uji" href="{{ route('home.tryouts.free.show', ['paket'=>$paket->id]) }}"  data-toggle="modal" data-target="#exampleModalCenter">Uji Tryout</a>
+              <a class="button" href="{{ route('home.tryouts.free.show', ['paket'=>$paket->id]) }}"  data-toggle="modal" data-target="#exampleModalCenter">Uji Tryout</a>
             @elseif ($paket->jenis_tryout === 1)
               <a class="button" href="{{ route('home.tryouts.premium.ranking', ['paket'=>$paket->id]) }}">Ranking</a>
-              <a class="button btn-uji" href="{{ route('home.tryouts.premium.show', ['paket'=>$paket->id]) }}"  data-toggle="modal" data-target="#exampleModalCenter">Uji Tryout</a>
+              <a class="button" href="{{ route('home.tryouts.premium.show', ['paket'=>$paket->id]) }}"  data-toggle="modal" data-target="#exampleModalCenter">Uji Tryout</a>
             @else
               <a class="button" href="{{ route('home.tryouts.nasional.ranking', ['paket'=>$paket->id]) }}">Ranking</a>
-              <a class="button btn-uji" href="{{ route('home.tryouts.nasional.show', ['paket'=>$paket->id]) }}"  data-toggle="modal" data-target="#exampleModalCenter">Uji Tryout</a>
+              <a class="button btn-nasional" href="{{ route('home.tryouts.nasional.show', ['paket'=>$paket->id]) }}"  data-toggle="modal" data-target="#exampleModalCenter">Uji Tryout</a>
             @endif
           </div>
         </div>
@@ -187,7 +187,7 @@
     
     let linkTO
 
-    $(".btn-uji").click(function(e){
+    $(".btn-nasional").click(function(e){
       e.preventDefault()
       linkTO = $(this).attr("href")
     })
