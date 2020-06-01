@@ -60,7 +60,7 @@
                 <a class="ml-2" href="{{ route('home.tryouts.premium.index') }}">Tryout Premium</a>
             </div>
             <div class="menu align-self-start pl-5 w-100 pb-3 border-bottom mt-3 d-flex align-items-center">
-                <img src="{{ asset('img/mdi_lock.svg') }}" alt="" srcset="" height="30" width="30">
+                <img src="{{ asset('img/mdi_assignment.svg') }}" alt="" srcset="" height="30" width="30">
                 <a class="ml-2" data-toggle="modal" href="#exampleModalCenter" id="nasional">Tryout Nasional</a>
             </div>
             <div class="menu align-self-start pl-5 w-100 mt-3 mb-md-3 mb-2 d-flex align-items-center">
@@ -83,22 +83,23 @@
             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title text-center" id="exampleModalLongTitle"></h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <input type="password" class="form-control" id="inputPassword" placeholder="Masukkan Password">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-center" id="exampleModalLongTitle"></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <form id="passwordNasional">
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <input type="password" class="form-control" id="inputPassword" placeholder="Masukkan Password">
+                                    <small id="errorPassword" class="form-text text-danger"></small>
+                                </div>    
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-warning" id="submitButton">Submit</button>
                             </div>
                         </form>
-                    </div>
-                    <div class="modal-footer">
-                        <a type="button" href="{{ route('home.tryouts.nasional.index') }}" class="btn btn-warning" id="submitButton">Submit</a>
-                    </div>
                     </div>
                 </div>
              </div>
@@ -121,9 +122,20 @@
 
         // const password = "NAS123"
 
-        $("#submit").click(function(e){
+        $("a#nasional").click(() => {
+            $("#errorPassword").html("")
+        })
+
+        $("#passwordNasional").submit(function(e){            
             e.preventDefault()
-            console.log("Hehe")
+            $("#errorPassword").html("")
+            if ($("#inputPassword").val() == "NAS123") {
+                window.location.href = "{{ route('home.tryouts.nasional.index') }}"
+            } else {
+                $("#errorPassword").html("Password yang anda masukkan salah")
+                console.log('hehe');
+            }
+            $("#inputPassword").val("")
         });
         
         </script>    

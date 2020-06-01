@@ -158,7 +158,6 @@
 
 @section('scripts')
 <script>
-  console.log("connected!")
   $(document).ready(function () {
     $.event.special.widthChanged = {
           remove: function() {
