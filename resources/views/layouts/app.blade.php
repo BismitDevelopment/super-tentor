@@ -17,7 +17,6 @@
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
     crossorigin="anonymous">
     </script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     @yield('scripts')
@@ -61,7 +60,7 @@
             </div>
             <div class="menu align-self-start pl-5 w-100 pb-3 border-bottom mt-3 d-flex align-items-center">
                 <img src="{{ asset('img/mdi_assignment.svg') }}" alt="" srcset="" height="30" width="30">
-                <a class="ml-2" data-toggle="modal" href="#exampleModalCenter" id="nasional">Tryout Nasional</a>
+                <a class="ml-2" id="nasional">Tryout Nasional</a>
             </div>
             <div class="menu align-self-start pl-5 w-100 mt-3 mb-md-3 mb-2 d-flex align-items-center">
                 <img src="{{ asset('img/mdi_setting.svg') }}" alt="" srcset="" height="30" width="30">
@@ -80,31 +79,6 @@
                 @yield('content')
             </main>
 
-            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title text-center" id="exampleModalLongTitle"></h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <form id="passwordNasional">
-                            <div class="modal-body">
-                                <div class="form-group">
-                                    <input type="password" class="form-control" id="inputPassword" placeholder="Masukkan Password">
-                                    <small id="errorPassword" class="form-text text-danger"></small>
-                                </div>    
-                            </div>
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-warning" id="submitButton">Submit</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-             </div>
-        </div>
-        
         <script>
             if (screen.width <= 576) {
                 $(document).ready(function() {
@@ -120,24 +94,6 @@
             document.querySelector("main").classList.toggle('hideMain');
         }
 
-        // const password = "NAS123"
-
-        $("a#nasional").click(() => {
-            $("#errorPassword").html("")
-        })
-
-        $("#passwordNasional").submit(function(e){            
-            e.preventDefault()
-            $("#errorPassword").html("")
-            if ($("#inputPassword").val() == "NAS123") {
-                window.location.href = "{{ route('home.tryouts.nasional.index') }}"
-            } else {
-                $("#errorPassword").html("Password yang anda masukkan salah")
-                console.log('hehe');
-            }
-            $("#inputPassword").val("")
-        });
-        
         </script>    
 </body>
 </html>
