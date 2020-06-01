@@ -308,6 +308,7 @@ a:hover {
 
 .carousel-card p {
   font-weight: 700;
+  margin: 0;
 }
 
 .carousel-card h4 {
