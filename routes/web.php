@@ -34,6 +34,9 @@ Route::middleware(['verified'])->prefix('home')->name('home.')->group(function()
             Route::post('/{paket}/ujian', 'PaketSoalController@ujianFree')->name('ujianData');
             Route::post('/{paket}/ujian/finish', 'PaketSoalController@finish')->name('finish');
             Route::get('/{paket}/ranking/{page?}', 'PaketSoalController@rankingFree')->name('ranking');
+
+            Route::get('/{paket}/pembahasan/{simulation}', 'SimulationController@pembahasanFree')->name('pembahasan');
+            Route::post('/{paket}/pembahasan/{simulation}', 'SimulationController@pembahasanFree')->name('pembahasanData');
         });
 
         Route::middleware(['can:isPremium'])->prefix('premium')->name('premium.')->group(function() {
@@ -45,6 +48,9 @@ Route::middleware(['verified'])->prefix('home')->name('home.')->group(function()
             Route::post('/{paket}/ujian', 'PaketSoalController@ujianPremium')->name('ujianData');
             Route::post('/{paket}/ujian/finish', 'PaketSoalController@finish')->name('finish');
             Route::get('/{paket}/ranking/{page?}', 'PaketSoalController@rankingPremium')->name('ranking');
+
+            Route::get('/{paket}/pembahasan/{simulation}', 'SimulationController@pembahasanPremium')->name('pembahasan');
+            Route::post('/{paket}/pembahasan/{simulation}', 'SimulationController@pembahasanPremium')->name('pembahasanData');
         });
 
         Route::prefix('nasional')->name('nasional.')->group(function() {
@@ -63,10 +69,6 @@ Route::middleware(['verified'])->prefix('home')->name('home.')->group(function()
     });
 });
 
-
-// Route::get('/tryout-free', 'HomeController@tryout_free')->name('tryout-free');
-// Route::get('/tryouthome', 'HomeController@tryouthome')->name('tryouthome');
-// Route::get('/tryoutsoal', 'HomeController@tryoutsoal')->name('tryoutsoal');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

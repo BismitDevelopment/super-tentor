@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Auth\Access\Response;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -33,7 +34,11 @@ class AuthServiceProvider extends ServiceProvider
         });
         
         Gate::define('isPremium', function ($user){
-            return $user->role_id === 3 || $user->role_id === 1;
+            if($user->role_id === 3 || $user->role_id === 1){
+                return Response::allow();
+            } else {
+                return Response::deny('You are not a Premium User');
+            }
         });
     }
 }
