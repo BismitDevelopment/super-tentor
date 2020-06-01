@@ -41,33 +41,28 @@
                     <form action="" class="d-flex flex-column ml-4 mt-2">
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="choice" id="pilihan-1" value="a" disabled>
-                            <label class="form-check-label text-larger" for="1">
-                                
-                            </label>
+                            <label class="form-check-label text-larger" for="1"> </label>
+                            <img src="" id="gambar-pilihan-1">
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="choice" id="pilihan-2" value="b" disabled>
-                            <label class="form-check-label text-larger" for="2">
-                                
-                            </label>
+                            <label class="form-check-label text-larger" for="2"> </label>
+                            <img src="" id="gambar-pilihan-2">
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="choice" id="pilihan-3" value="c" disabled>
-                            <label class="form-check-label text-larger" for="3">
-                                
-                            </label>
+                            <label class="form-check-label text-larger" for="3"> </label>
+                            <img src="" id="gambar-pilihan-3">
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="choice" id="pilihan-4" value="d" disabled>
-                            <label class="form-check-label text-larger" for="4">
-                                
-                            </label>
+                            <label class="form-check-label text-larger" for="4"> </label>
+                            <img src="" id="gambar-pilihan-4">
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="choice" id="pilihan-5" value="e" disabled>
-                            <label class="form-check-label text-larger" for="5">
-                                
-                            </label>
+                            <label class="form-check-label text-larger" for="5"> </label>
+                            <img src="" id="gambar-pilihan-5">
                         </div>                    
                     </form>
                 </div>
@@ -86,7 +81,7 @@
         </div>
         <div class="d-flex justify-content-center box-kanan">
             <div class="border bg-white p-3 rounded nomor">
-                <h5>Navigasi Soal TIU</h5>
+                <h5 id="navigasi-title">Navigasi Soal TIU</h5>
                 <div class="angka mt-4 mb-4">
                     @for ($i = 1; $i <= 35; $i++)
                     <div class="box-angka" data-nomor="{{ $i }}">{{ $i }}</div>

@@ -108,8 +108,14 @@ function action(jenis_soal, noSoal, jawaban, kunci, pembahasan) {
     // 4. Pilihan
     let arrPilihan = obj.data_soal[`${jenis_soal}`][parseInt(noSoal - 1)].pilihan
     for (let i = 1; i <= 5; i++) {
-        $("input#pilihan-" + i).next().html(`${arrPilihan[i - 1][0]}`)
         $("input#pilihan-" + i).val(`${arrPilihan[i - 1][0]}`)
+        if(arrPilihan[i - 1][0].includes(".jpg") || arrPilihan[i - 1][0].includes(".png")){
+            $("input#pilihan-" + i).next().html("")
+            $("img#gambar-pilihan-" + i).attr("src", $('meta[name="assetPath"]').attr('content') + 'img/pilihan/' + arrPilihan[i - 1][0])
+        } else {
+            $("img#gambar-pilihan-" + i).attr("src", "")
+            $("input#pilihan-" + i).next().html(`${arrPilihan[i - 1][0]}`)
+        }
     }
 
     // 5. Setup data kembali dan selanjutnya
@@ -117,6 +123,7 @@ function action(jenis_soal, noSoal, jawaban, kunci, pembahasan) {
     $(".btn-selanjutnya").data("nomor", parseInt(noSoal) + 1)
 
     // 6. navigasi
+    $("#navigasi-title").html("Navigasi Soal " + jenis_soal.split("_")[1].toUpperCase())
     $(".box-angka").each(function () {
         $(this).removeClass("angka-active")
     })

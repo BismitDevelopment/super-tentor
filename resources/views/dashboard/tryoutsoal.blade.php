@@ -8,9 +8,11 @@
     @include('navbarDashboard')
 @endsection
 
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/tryoutsoal.css') }}">
+@endsection
 
 @section('content')
-<link rel="stylesheet" href="{{ asset('css/tryoutsoal.css') }}">
 <div class="wrapper">
     <div class="d-flex justify-content-between title flex-wrap mb-lg-1 mb-3">
         <h3 class="judul-paket"></h3>
@@ -43,36 +45,31 @@
                     <div class="d-flex">
                         <img src="" class="soal-gambar">
                     </div>
-                    <form action="" class="d-flex flex-column ml-4 mt-2">
+                    <form action="" class="pilihans d-flex flex-column ml-4 mt-2">
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="choice" id="pilihan-1" value="a">
-                            <label class="form-check-label text-larger" for="1">
-                                
-                            </label>
+                            <label class="form-check-label text-larger" for="1"> </label>
+                            <img src="" id="gambar-pilihan-1">
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="choice" id="pilihan-2" value="b">
-                            <label class="form-check-label text-larger" for="2">
-                                
-                            </label>
+                            <label class="form-check-label text-larger" for="2"> </label>
+                            <img src="" id="gambar-pilihan-2">
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="choice" id="pilihan-3" value="c">
-                            <label class="form-check-label text-larger" for="3">
-                                
-                            </label>
+                            <label class="form-check-label text-larger" for="3"> </label>
+                            <img src="" id="gambar-pilihan-3">
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="choice" id="pilihan-4" value="d">
-                            <label class="form-check-label text-larger" for="4">
-                                
-                            </label>
+                            <label class="form-check-label text-larger" for="4"> </label>
+                            <img src="" id="gambar-pilihan-4">
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="choice" id="pilihan-5" value="e">
-                            <label class="form-check-label text-larger" for="5">
-                                
-                            </label>
+                            <label class="form-check-label text-larger" for="5"> </label>
+                            <img src="" id="gambar-pilihan-5">
                         </div>                    
                     </form>
                 </div>
@@ -84,7 +81,7 @@
         </div>
         <div class="d-flex justify-content-center box-kanan">
             <div class="border bg-white p-3 rounded nomor">
-                <h5>Navigasi Soal TIU</h5>
+                <h5 id="navigasi-title">Navigasi Soal</h5>
                 <div class="angka mt-4">
                     @for ($i = 1; $i <= 35; $i++)
                     <div class="box-angka" data-nomor="{{ $i }}">{{ $i }}</div>
