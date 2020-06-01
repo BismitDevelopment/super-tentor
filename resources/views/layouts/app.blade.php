@@ -122,6 +122,10 @@
 
         // const password = "NAS123"
 
+        $("a#nasional").click(() => {
+            $("#errorPassword").html("")
+        })
+
         $("#passwordNasional").submit(function(e){            
             e.preventDefault()
             $("#errorPassword").html("")
