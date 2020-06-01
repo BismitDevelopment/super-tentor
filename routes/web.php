@@ -12,10 +12,7 @@
 */
 
 
-Route::get('/', function () {
-    include("../resources/welcome-page-data.php"); //This is located in the public folder
-    return view('welcome', $welcome_page_data);
-})->name('welcome');
+Route::get('/', 'DashboardController@index')->name('welcome');
 
 Auth::routes(['verify'=>true]);
 
