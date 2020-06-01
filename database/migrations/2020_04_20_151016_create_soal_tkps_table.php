@@ -23,7 +23,7 @@ class CreateSoalTkpsTable extends Migration
             $table->text('pilihan_3');
             $table->text('pilihan_4');
             $table->text('pilihan_5');
-            $table->text('pembahasan');
+            $table->text('pembahasan')->nullable();
             $table->integer('skor_1');
             $table->integer('skor_2');
             $table->integer('skor_3');

@@ -56,11 +56,11 @@ Route::middleware(['verified'])->prefix('home')->name('home.')->group(function()
         Route::prefix('nasional')->name('nasional.')->group(function() {
 
             Route::get('/', 'TryoutController@indexNasional')->name('index');
-            Route::get('/{paket}', 'PaketSoalController@showNasional')->name('show');
+            Route::get('/{paket}/{password?}', 'PaketSoalController@showNasional')->name('show');
 
-            Route::get('/{paket}/ujian', 'PaketSoalController@ujianNasional')->name('ujian');
-            Route::post('/{paket}/ujian', 'PaketSoalController@ujianNasional')->name('ujianData');
-            Route::post('/{paket}/ujian/finish', 'PaketSoalController@finish')->name('finish');
+            Route::get('/{paket}/ujian/{password?}', 'PaketSoalController@ujianNasional')->name('ujian');
+            Route::post('/{paket}/ujian/{password?}', 'PaketSoalController@ujianNasional')->name('ujianData');
+            Route::post('/{paket}/ujian/{password}/finish', 'PaketSoalController@finish')->name('finish');
             Route::get('/{paket}/ranking/{page?}', 'PaketSoalController@rankingNasional')->name('ranking');
 
             Route::get('/{paket}/pembahasan/{simulation}', 'SimulationController@pembahasanNasional')->name('pembahasan');

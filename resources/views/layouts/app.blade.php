@@ -58,13 +58,14 @@
                     <img src="{{ asset('img/mdi_lock.svg') }}" alt="" srcset="" height="30" width="30">
                 @if (Auth::user()->role_id === 1 or Auth::user()->role_id === 3)
                     <a class="ml-2" href="{{ route('home.tryouts.premium.index') }}">Tryout Premium</a>
-                @endif
+                @else
                     <a class="ml-2" href="#">Tryout Premium</a>
+                @endif
                 </div>
 
             <div class="menu align-self-start pl-5 w-100 pb-3 border-bottom mt-3 d-flex align-items-center">
                 <img src="{{ asset('img/mdi_assignment.svg') }}" alt="" srcset="" height="30" width="30">
-                <a class="ml-2" id="nasional">Tryout Nasional</a>
+                <a href="{{ route('home.tryouts.nasional.index') }}" class="ml-2" id="nasional">Tryout Nasional</a>
             </div>
             <div class="menu align-self-start pl-5 w-100 mt-3 mb-md-3 mb-2 d-flex align-items-center">
                 <img src="{{ asset('img/mdi_setting.svg') }}" alt="" srcset="" height="30" width="30">

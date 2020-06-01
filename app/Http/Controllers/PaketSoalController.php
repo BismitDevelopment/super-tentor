@@ -50,7 +50,7 @@ class PaketSoalController extends Controller
             # code...
             return view('dashboard.tryouthome', compact('paket'));
         } else {
-            return redirect('home.tryouts.free');
+            return redirect(route('home.tryouts.free.index'));
         }
     }
 
@@ -73,7 +73,7 @@ class PaketSoalController extends Controller
                 ], 422);
             } else {
 
-                return redirect('home.tryouts.free');
+                return redirect(route('home.tryouts.free.index'));
             }
         }
     }
@@ -94,7 +94,7 @@ class PaketSoalController extends Controller
                 return view('dashboard.ranking', compact('paket','userRankList', 'page', 'pages', 'currentUserRank'));
             }
         } else {
-            return redirect('home.tryout.nasional');
+            return redirect(route('home.tryouts.free.index'));
         }
     }   
 
@@ -104,7 +104,7 @@ class PaketSoalController extends Controller
             # code...
             return view('dashboard.tryouthome', compact('paket'));
         } else {
-            return redirect('home.tryouts.premium');
+            return redirect(route('home.tryouts.premium.index'));
         }
     }
 
@@ -128,8 +128,7 @@ class PaketSoalController extends Controller
                     'error'=>true
                 ], 422);
             } else {
-
-                return redirect('home.tryouts.free');
+                return redirect(route('home.tryouts.premium.index'));
             }
         }
     }
@@ -150,17 +149,17 @@ class PaketSoalController extends Controller
                 return view('dashboard.ranking', compact('paket','userRankList', 'page', 'pages', 'currentUserRank'));
             }
         } else {
-            return redirect('home.tryout.nasional');
+            return redirect(route('home.tryouts.premium.index'));
         }
     }   
 
-    public function showNasional(PaketSoal $paket){
+    public function showNasional(PaketSoal $paket, String $password = null){
 
-        if ($paket->jenis_tryout === 2) {
+        if ($paket->jenis_tryout === 2 & $paket->password === $password) {
             # code...
             return view('dashboard.tryouthome', compact('paket'));
         } else {
-            return redirect('home.tryouts.nasional');
+            return redirect(route('home.tryouts.nasional.index'));
         }
     }
 
@@ -168,7 +167,7 @@ class PaketSoalController extends Controller
         //
         $paket = PaketSoal::find($request->paket);
         
-        if($paket->jenis_tryout === 2){
+        if($paket->jenis_tryout === 2 & $request->password === $paket->password){
             if ($request->isMethod('post')) {
                 # code...
                 return $this->getSoalJSON($paket);
@@ -183,7 +182,7 @@ class PaketSoalController extends Controller
                     'error'=>true
                 ], 422);
             } else {
-                return redirect('home.tryouts.nasional');
+                return redirect(route('home.tryouts.nasional.index'));
             }
         }
     }
@@ -205,12 +204,13 @@ class PaketSoalController extends Controller
             }
 
         } else {
-            return redirect('home.tryout.nasional');
+            return redirect(route('home.tryout.nasional'));
         }
     }   
 
-    public function finish(Request $request, int $paket){
-        if ($request->input('id_paket') === $paket) {
+    public function finish(Request $request, int $paket, String $password){
+        $paket_soal = PaketSoal::find($paket);
+        if ($request->input('id_paket') === $paket & $paket_soal->password === $password ) {
             # code...
             $durasiUjianSeconds = $request->input('waktu_dihabiskan');
             $durasiUjianFormatted = date('H:i:s', $durasiUjianSeconds - (7 * 60 * 60));

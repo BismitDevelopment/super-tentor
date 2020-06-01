@@ -99,7 +99,7 @@ function action(jenis_soal, noSoal, jawaban, kunci, pembahasan) {
     let soal = obj.data_soal[`${jenis_soal}`][parseInt(noSoal - 1)].soal
     if (soal.includes(".jpg") || soal.includes(".png")) {
         $(".soal-isi").html("")
-        $(".soal-gambar").attr("src", $('meta[name="assetPath"]').attr('content')+soal)
+        $(".soal-gambar").attr("src", $('meta[name="assetPath"]').attr('content') + 'img/soal/' + soal)
     } else {
         $(".soal-isi").html(soal)
         $(".soal-gambar").attr("src", "")
@@ -136,7 +136,7 @@ function action(jenis_soal, noSoal, jawaban, kunci, pembahasan) {
     // Pembahasan
     if (pembahasan.includes(".jpg") || pembahasan.includes(".png")) {
         $(".pembahasan-isi").html("")
-        $(".pembahasan-gambar").attr("src", $('meta[name="assetPath"]').attr('content') + pembahasan)
+        $(".pembahasan-gambar").attr("src", $('meta[name="assetPath"]').attr('content') + 'img/pembahasan/' + pembahasan)
     } else {
         $(".pembahasan-isi").html(pembahasan)
         $(".pembahasan-gambar").attr("src", "")

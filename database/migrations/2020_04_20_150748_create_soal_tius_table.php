@@ -23,7 +23,7 @@ class CreateSoalTiusTable extends Migration
             $table->text('pilihan_3');
             $table->text('pilihan_4');
             $table->text('jawaban');
-            $table->text('pembahasan');
+            $table->text('pembahasan')->nullable();
             $table->integer('skor');
             $table->timestamp('created_at')->useCurrent();
         });

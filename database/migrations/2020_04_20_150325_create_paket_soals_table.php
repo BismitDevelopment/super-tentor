@@ -17,6 +17,7 @@ class CreatePaketSoalsTable extends Migration
             $table->bigIncrements('id');
             $table->string('nama', 255);
             $table->integer('jenis_tryout');
+            $table->string('password', 255)->nullable();
             $table->timestamp('created_at')->useCurrent();
         });
     }
