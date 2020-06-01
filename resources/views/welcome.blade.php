@@ -112,7 +112,7 @@
                                         <img class="" src={{$carousel_data[0]['img_link']}} alt="">
                                     </div>
                                     <p>{{$carousel_data[0]['message']}}</p>
-                                    <h4 class="name">{{$carousel_data[0]['name'] .', '. $carousel_data[0]['age']}}</h4>
+                                    <h4 class="name">{{$carousel_data[0]['name']}}</h4>
                                     <h5>{{$carousel_data[0]['kantor']}}</h5>
                                 </div>
                             </div>
@@ -123,7 +123,7 @@
                                             <img class="" src="{{$data['img_link']}}" alt="">
                                         </div>
                                         <p>{{$data['message']}}</p>
-                                        <h4 class="name">{{$data['name'] .', '. $data['age']}}</h4>
+                                        <h4 class="name">{{$data['name']}}</h4>
                                         <h5>{{$carousel_data[0]['kantor']}}</h5>
                                     </div>
                                 </div>
