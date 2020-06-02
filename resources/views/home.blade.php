@@ -28,7 +28,7 @@
                         <h1 class="notif-timer">{{$data['notif']['notif-timer']}} Hari Lagi</h1>
                     </div>
                     <div class="notif-content d-flex flex-column justify-content-between">
-                        <p>Tryout nasional akan diadakan secara serentak pada tanggal 17 April 2020. Password untuk memasuki tryout nasional terdapat pada notifikasi pengguba labla</p>
+                        <p>Tryout nasional akan diadakan secara serentak pada tanggal 17 April 2020. Password untuk memasuki tryout nasional terdapat pada notifikasi</p>
                         <div class="notif-bottom d-flex justify-content-end">
                             <a href="">Lihat Notifikasi Lainnya</a>
                         </div>

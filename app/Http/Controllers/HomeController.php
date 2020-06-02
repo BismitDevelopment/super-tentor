@@ -45,10 +45,14 @@ class HomeController extends Controller
         $user_pakets_free = $user_simulations->filter(function ($value, $key){
             return $value->jenis_tryout === 0;
         });
-        // dd($user);
+
+        $user_pakets_free_per_type = $user_pakets_free->unique('paket_id');
+
         $user_pakets_premium = $user_simulations->filter(function ($value, $key){
             return $value->jenis_tryout === 1;
         });
+
+        $user_pakets_premium_per_type = $user_pakets_premium->unique('paket_id');
 
         $pages = ceil(count($user_simulations) / 5);
         if(($page > $pages || $page < 1) && $pages !== 0.0){
@@ -66,14 +70,14 @@ class HomeController extends Controller
                     [
                         'title' => 'Tryout Free',
                         'total' => count($paket_free),
-                        'progress' => count($user_pakets_free),
-                        'bar-width' => (count($user_pakets_free)===0) ? 0 : count($user_pakets_free)/count($paket_free)*100,
+                        'progress' => count($user_pakets_free_per_type),
+                        'bar-width' => (count($user_pakets_free_per_type)===0) ? 0 : count($user_pakets_free_per_type)/count($paket_free)*100,
                     ],
                     [
                         'title' => 'Tryout Premium',
                         'total' => count($paket_premium),
                         'progress' => count($user_pakets_premium),
-                        'bar-width' => (count($user_pakets_premium)===0) ? 0 : count($user_pakets_premium)/count($paket_free)*100,
+                        'bar-width' => (count($user_pakets_premium_per_type)===0) ? 0 : count($user_pakets_premium_per_type)/count($paket_premium)*100,
                     ],
                     [
                         'title' => 'Tryout Nasional',
