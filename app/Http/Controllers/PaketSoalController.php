@@ -208,7 +208,7 @@ class PaketSoalController extends Controller
         }
     }   
 
-    public function finish(Request $request, int $paket, String $password){
+    public function finish(Request $request, int $paket, String $password=null){
         $paket_soal = PaketSoal::find($paket);
         if ($request->input('id_paket') === $paket & $paket_soal->password === $password ) {
             # code...
