@@ -122,12 +122,26 @@
                                 <h4>{{ $user_sim->simulation->status }}</h4>
                             </td>
                             <td>
-                                <a href="{{ route('home.tryouts.nasional.pembahasan', 
-                                ['paket'=>$user_sim->simulation->paket_id, 'simulation'=>$user_sim->simulation->id]) }}">
-                                    <button class="table-button">
-                                        Pembahasan
-                                    </button>
-                                </a>
+                                @if ($user_sim->jenis_tryout === 0)
+                                    <a href="{{ route('home.tryouts.free.pembahasan', ['paket'=>$user_sim->simulation->paket_id, 'simulation'=>$user_sim->simulation->id]) }}">
+                                        <button class="table-button">
+                                            Pembahasan
+                                        </button>
+                                    </a>
+                                @elseif($user_sim->jenis_tryout ===1)
+                                    <a href="{{ route('home.tryouts.premium.pembahasan', ['paket'=>$user_sim->simulation->paket_id, 'simulation'=>$user_sim->simulation->id]) }}">
+                                        <button class="table-button">
+                                            Pembahasan
+                                        </button>
+                                    </a>
+                                @else
+                                    <a href="{{ route('home.tryouts.nasional.pembahasan', 
+                                        ['paket'=>$user_sim->simulation->paket_id, 'simulation'=>$user_sim->simulation->id]) }}">
+                                        <button class="table-button">
+                                            Pembahasan
+                                        </button>
+                                    </a>
+                                @endif
                             </td>
                         </tr>
                     @endforeach
