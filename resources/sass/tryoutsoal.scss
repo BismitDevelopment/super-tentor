@@ -58,11 +58,13 @@ body {
     }
     
 }
-
-.pilihans img {
-    min-width: 20%;
-    max-width: 60%;
+.pilihans {
+    img {
+        min-width: 20%;
+        max-width: 60%;
+    }
 }
+
 
 .nomor {
     align-self: flex-start;

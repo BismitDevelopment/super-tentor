@@ -182,8 +182,9 @@
 .finish-attempt-page .card .grid-wrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  -moz-column-gap: 15px;
-       column-gap: 15px;
+  -webkit-column-gap: 15px;
+     -moz-column-gap: 15px;
+          column-gap: 15px;
   overflow-x: auto;
 }
 
