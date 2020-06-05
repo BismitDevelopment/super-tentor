@@ -27,14 +27,16 @@ class HomeController extends Controller
     public function index(int $page=1)
     {
         $user = Auth::user();
+
+        $tanggal_to_nasional = mktime(23,59,59,6,6,2020);
         
         $data = [
             'notif' => [
               'header' => 'Dashboard',
               'name' => $user->name,
               'notif-title' => 'Tryout Nasional',
-              'notif-timer' => 5,
-              'notif-content' => 'Tryout nasional akan diadakan secara serentak pada tanggal 17 April 2020. Password untuk memasuki tryout nasional terdapat pada notifikasi pengguba labla',
+              'notif-timer' => ($tanggal_to_nasional-time())>86400 ? floor(($tanggal_to_nasional-time())/86400) : 0,
+              'notif-content' => 'Try Out Nasional akan diadakan secara serentak pada tanggal 06 Juni 2020. Harap mengikuti alur pendaftaran pada instagram kami di @supertentor_ dan mengisi <span><a href="https://www.bit.ly/toskdsupertentor">bit.ly/toskdsupertentor</a></span> untuk mendapatkan password.',
             ],
         ];
         

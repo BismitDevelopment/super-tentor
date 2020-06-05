@@ -28,7 +28,7 @@
                         <h1 class="notif-timer">{{$data['notif']['notif-timer']}} Hari Lagi</h1>
                     </div>
                     <div class="notif-content d-flex flex-column justify-content-between">
-                        <p>Try Out Nasional akan diadakan secara serentak pada tanggal 06 Juni 2020. Harap mengikuti alur pendaftaran pada instagram kami di @supertentor_ dan mengisi <span><a href="https://www.bit.ly/toskdsupertentor">bit.ly/toskdsupertentor</a></span> untuk mendapatkan password.</p>
+                        <p>{!! $data['notif']['notif-content'] !!}</p>
                         <div class="notif-bottom d-flex justify-content-end">
                             <a href="">Lihat Notifikasi Lainnya</a>
                         </div>
