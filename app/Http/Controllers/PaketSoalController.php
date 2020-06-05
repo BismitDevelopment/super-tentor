@@ -79,7 +79,6 @@ class PaketSoalController extends Controller
     }
 
     public function rankingFree(PaketSoal $paket, int $page=1){
-
         if($paket->jenis_tryout === 0){
             $user = Auth::user();
             $usersRankSorted = $this->getUsersRankSorted($paket);
@@ -153,7 +152,7 @@ class PaketSoalController extends Controller
         }
     }   
 
-    public function showNasional(PaketSoal $paket, String $password = null){
+    public function showNasional(PaketSoal $paket, String $password){
 
         if ($paket->jenis_tryout === 2 & $paket->password === $password) {
             # code...
@@ -188,7 +187,6 @@ class PaketSoalController extends Controller
     }
 
     public function rankingNasional(PaketSoal $paket, int $page=1){
-
         if($paket->jenis_tryout === 2){
             $user = Auth::user();
             $usersRankSorted = $this->getUsersRankSorted($paket);
@@ -204,7 +202,7 @@ class PaketSoalController extends Controller
             }
 
         } else {
-            return redirect(route('home.tryout.nasional'));
+            return redirect(route('home.tryouts.nasional.index'));
         }
     }   
 
