@@ -46,27 +46,27 @@
                         <img src="" class="soal-gambar">
                     </div>
                     <form action="" class="pilihans d-flex flex-column ml-4 mt-2">
-                        <div class="form-check">
+                        <div class="form-check d-flex">
                             <input class="form-check-input" type="radio" name="choice" id="pilihan-1" value="a">
                             <label class="form-check-label text-larger" for="1"> </label>
                             <img src="" id="gambar-pilihan-1">
                         </div>
-                        <div class="form-check">
+                        <div class="form-check d-flex">
                             <input class="form-check-input" type="radio" name="choice" id="pilihan-2" value="b">
                             <label class="form-check-label text-larger" for="2"> </label>
                             <img src="" id="gambar-pilihan-2">
                         </div>
-                        <div class="form-check">
+                        <div class="form-check d-flex">
                             <input class="form-check-input" type="radio" name="choice" id="pilihan-3" value="c">
                             <label class="form-check-label text-larger" for="3"> </label>
                             <img src="" id="gambar-pilihan-3">
                         </div>
-                        <div class="form-check">
+                        <div class="form-check d-flex">
                             <input class="form-check-input" type="radio" name="choice" id="pilihan-4" value="d">
                             <label class="form-check-label text-larger" for="4"> </label>
                             <img src="" id="gambar-pilihan-4">
                         </div>
-                        <div class="form-check">
+                        <div class="form-check d-flex">
                             <input class="form-check-input" type="radio" name="choice" id="pilihan-5" value="e">
                             <label class="form-check-label text-larger" for="5"> </label>
                             <img src="" id="gambar-pilihan-5">
