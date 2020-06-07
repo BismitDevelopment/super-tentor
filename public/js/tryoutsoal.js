@@ -41,8 +41,6 @@ let dataSoal = $.ajax({
     dataType: 'json',
     success: function(data) {
         obj = data
-
-        let arrJenis = ["soal_tkp", "soal_tiu", "soal_twk"]
         
         // Judul paket
         const namaPaket = obj.paket.nama
@@ -151,12 +149,12 @@ function action(jenis_soal, noSoal, arrMarked, choiceVal) {
 
 // First load
 $(document).ready(function () {  
-    let noSoal = state["soal_twk"]["lastNumber"]
-    let jenis_soal = $(".soal").data("jenis")
-    let choiceVal = state[`${jenis_soal}`].answer[`${noSoal}`]
-    let arrMarked = state[`${jenis_soal}`].arrMarked
 
     $.when(dataSoal).done( ()=>{
+        let noSoal = state["soal_twk"]["lastNumber"]
+        let jenis_soal = $(".soal").data("jenis")
+        let choiceVal = state[`${jenis_soal}`].answer[`${noSoal}`]
+        let arrMarked = state[`${jenis_soal}`].arrMarked
         action(jenis_soal, noSoal, arrMarked, choiceVal)
     })
     

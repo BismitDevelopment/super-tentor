@@ -119,11 +119,11 @@
 
                             @if ($page < $pages)
                                 @if ($paket->jenis_tryout === 0)
-                                    <a href="{{ route('home.tryouts.free.ranking', ['page'=> $page+1]) }}">
+                                    <a href="{{ route('home.tryouts.free.ranking', ['paket'=>$paket->id,'page'=> $page+1]) }}">
                                 @elseif($paket->jenis_tryout === 1 )
-                                    <a href="{{ route('home.tryouts.premium.ranking', ['page'=> $page+1]) }}">
+                                    <a href="{{ route('home.tryouts.premium.ranking', ['paket'=>$paket->id,'page'=> $page+1]) }}">
                                 @else
-                                    <a href="{{ route('home.tryouts.nasional.ranking', ['page'=> $page+1]) }}">
+                                    <a href="{{ route('home.tryouts.nasional.ranking', ['paket'=>$paket->id,'page'=> $page+1]) }}">
                                 @endif
                                     <img src="{{ asset('img/svg-dash-home/right.svg') }}" alt="">
                                 </a>

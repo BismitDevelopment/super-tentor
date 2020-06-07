@@ -158,14 +158,14 @@ function action(jenis_soal, noSoal, jawaban, kunci, pembahasan) {
 
 // First load
 $(document).ready(function () {
-    let noSoal = state["soal_twk"]["lastNumber"]
-    let jenis_soal = $(".soal").data("jenis")
-    let choiceVal = state[`${jenis_soal}`].answer[`${noSoal}`]
-    let kunci = state[`${jenis_soal}`].kunci[`${noSoal}`]
-    let pembahasan = state[`${jenis_soal}`].pembahasan[`${noSoal}`]
-
 
     $.when(dataSoal).done(() => {
+        let noSoal = state["soal_twk"]["lastNumber"]
+        let jenis_soal = $(".soal").data("jenis")
+        let choiceVal = state[`${jenis_soal}`].answer[`${noSoal}`]
+        let kunci = state[`${jenis_soal}`].kunci[`${noSoal}`]
+        let pembahasan = state[`${jenis_soal}`].pembahasan[`${noSoal}`]
+        console.log(noSoal, jenis_soal, choiceVal, kunci, pembahasan)
         action(jenis_soal, noSoal, choiceVal, kunci, pembahasan)
     })
 
