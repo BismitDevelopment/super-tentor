@@ -84,7 +84,7 @@ class PaketSoalController extends Controller
             $usersRankSorted = $this->getUsersRankSorted($paket);
             $currentUserRank = $this->getCurrentUserRank($user, $usersRankSorted);
 
-            $userRankList = $usersRankSorted->forPage($page, 10);
+            $userRankList = $usersRankSorted->forPage($page, 10)->values();
             $pages = ceil(count($usersRankSorted) / 10);
 
             if(($page > $pages || $page < 1)&& $pages !== 0.0){
@@ -139,7 +139,7 @@ class PaketSoalController extends Controller
             $usersRankSorted = $this->getUsersRankSorted($paket);
             $currentUserRank = $this->getCurrentUserRank($user, $usersRankSorted);
 
-            $userRankList = $usersRankSorted->forPage($page, 10);
+            $userRankList = $usersRankSorted->forPage($page, 10)->values();
             $pages = ceil(count($usersRankSorted) / 10);
 
             if(($page > $pages || $page < 1) && $pages !== 0.0){
@@ -192,13 +192,13 @@ class PaketSoalController extends Controller
             $usersRankSorted = $this->getUsersRankSorted($paket);
             $currentUserRank = $this->getCurrentUserRank($user, $usersRankSorted);
 
-            $userRankList = $usersRankSorted->forPage($page, 10);
+            $userRankList = $usersRankSorted->forPage($page, 10)->values();
             $pages = ceil(count($usersRankSorted) / 10);
 
             if(($page > $pages || $page < 1) && $pages !== 0.0){
                 return redirect(route('home.tryouts.nasional.ranking', ['paket' => $paket->id]));
             } else {
-                return view('dashboard.ranking', compact('paket','userRankList', 'page', 'pages', 'currentUserRank'));
+                return view('dashboard.ranking', compact('paket','userRankList', 'page', 'pages', 'currentUserRank', 'usersRankSorted'));
             }
 
         } else {

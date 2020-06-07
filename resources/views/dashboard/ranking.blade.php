@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <div class="notif-header">
-                    <h1>Anda berada di peringkat {{ $currentUserRank }} dari {{ count($userRankList) }} pengguna</h1>
+                    <h1>Anda berada di peringkat {{ $currentUserRank }} dari {{ count($usersRankSorted) }} pengguna</h1>
                     <div class="underline"></div>
                 </div>
                 <div class="notif-body">
@@ -67,7 +67,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><h4>{{(($page-1) * 10) + $i + 1}}</h4></td>
+                            <td><h4>{{(($page-1) * 2) + $i + 1}}</h4></td>
                             <td>
                                 <h4>{{ $userRankList[$i]->name }}</h4>
                             </td>
