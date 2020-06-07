@@ -90,7 +90,9 @@ class PaketSoalController extends Controller
             if(($page > $pages || $page < 1)&& $pages !== 0.0){
                 return redirect(route('home.tryouts.free.ranking', ['paket' => $paket->id]));
             } else {
-                return view('dashboard.ranking', compact('paket','userRankList', 'page', 'pages', 'currentUserRank'));
+                return view('dashboard.ranking', 
+                    compact('paket','userRankList', 'page', 'pages', 
+                        'currentUserRank', 'usersRankSorted'));
             }
         } else {
             return redirect(route('home.tryouts.free.index'));
@@ -145,7 +147,9 @@ class PaketSoalController extends Controller
             if(($page > $pages || $page < 1) && $pages !== 0.0){
                 return redirect(route('home.tryouts.premium.ranking', ['paket' => $paket->id]));
             } else {
-                return view('dashboard.ranking', compact('paket','userRankList', 'page', 'pages', 'currentUserRank'));
+                return view('dashboard.ranking', 
+                    compact('paket','userRankList', 'page', 'pages', 
+                        'currentUserRank', 'usersRankSorted'));
             }
         } else {
             return redirect(route('home.tryouts.premium.index'));
@@ -198,7 +202,9 @@ class PaketSoalController extends Controller
             if(($page > $pages || $page < 1) && $pages !== 0.0){
                 return redirect(route('home.tryouts.nasional.ranking', ['paket' => $paket->id]));
             } else {
-                return view('dashboard.ranking', compact('paket','userRankList', 'page', 'pages', 'currentUserRank', 'usersRankSorted'));
+                return view('dashboard.ranking', 
+                    compact('paket','userRankList', 'page', 'pages', 
+                        'currentUserRank', 'usersRankSorted'));
             }
 
         } else {
