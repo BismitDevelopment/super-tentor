@@ -67,7 +67,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><h4>{{(($page-1) * 2) + $i + 1}}</h4></td>
+                            <td><h4>{{(($page-1) * 10) + $i + 1}}</h4></td>
                             <td>
                                 <h4>{{ $userRankList[$i]->name }}</h4>
                             </td>
