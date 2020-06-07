@@ -40,7 +40,6 @@ let dataSoal = $.ajax({
     dataType: 'json',
     success: function (data) {
         obj = data
-        console.log(obj);
 
         // Judul paket
         const namaPaket = obj.data_soal.nama
@@ -67,10 +66,10 @@ let dataSoal = $.ajax({
 
 
 function action(jenis_soal, noSoal, jawaban, kunci, pembahasan) {
-    
+
     // Judul paket
     const namaPaket = obj.data_soal.nama
-    $(".judul-paket").html(namaPaket)    
+    $(".judul-paket").html(namaPaket)
 
     if (jenis_soal == "soal_twk") {
         for (let i = 30; i < 35; i++) {
@@ -109,7 +108,7 @@ function action(jenis_soal, noSoal, jawaban, kunci, pembahasan) {
     let arrPilihan = obj.data_soal[`${jenis_soal}`][parseInt(noSoal - 1)].pilihan
     for (let i = 1; i <= 5; i++) {
         $("input#pilihan-" + i).val(`${arrPilihan[i - 1][0]}`)
-        if(arrPilihan[i - 1][0].includes(".jpg") || arrPilihan[i - 1][0].includes(".png")){
+        if (arrPilihan[i - 1][0].includes(".jpg") || arrPilihan[i - 1][0].includes(".png")) {
             $("input#pilihan-" + i).next().html("")
             $("img#gambar-pilihan-" + i).attr("src", $('meta[name="assetPath"]').attr('content') + 'img/pilihan/' + arrPilihan[i - 1][0])
         } else {
@@ -141,8 +140,8 @@ function action(jenis_soal, noSoal, jawaban, kunci, pembahasan) {
     $(`input[value="${kunci}"]`).next().css('color', '#E9D038')
     $(`input[value="${kunci}"]`).next().css('font-weight', '600')
     if (`${kunci}`.includes('.png') || `${kunci}`.includes('.jpg')) {
-        $(`input[value="${kunci}"]`).next().next().css({'border': '1px solid #E9D038', 'border-radius': '4px', 'padding': '2px'})
-    } 
+        $(`input[value="${kunci}"]`).next().next().css({ 'border': '1px solid #E9D038', 'border-radius': '4px', 'padding': '2px' })
+    }
     // console.log($(`input[value="${kunci}"]` + ' img'))
 
     // Pembahasan
@@ -157,69 +156,71 @@ function action(jenis_soal, noSoal, jawaban, kunci, pembahasan) {
 }
 
 // First load
-$(document).ready(function () {
-    let noSoal = state["soal_twk"]["lastNumber"]
-    let jenis_soal = $(".soal").data("jenis")
-    let choiceVal = state[`${jenis_soal}`].answer[`${noSoal}`]
-    let kunci = state[`${jenis_soal}`].kunci[`${noSoal}`]
-    let pembahasan = state[`${jenis_soal}`].pembahasan[`${noSoal}`]
+$.when(dataSoal).done(() => {
+
+    $(document).ready(function () {
+        let noSoal = state["soal_twk"]["lastNumber"]
+        let jenis_soal = $(".soal").data("jenis")
+        let choiceVal = state[`${jenis_soal}`].answer[`${noSoal}`]
+        let kunci = state[`${jenis_soal}`].kunci[`${noSoal}`]
+        let pembahasan = state[`${jenis_soal}`].pembahasan[`${noSoal}`]
 
 
-    $.when(dataSoal).done(() => {
         action(jenis_soal, noSoal, choiceVal, kunci, pembahasan)
-    })
 
 
-    // Tab Menu Click
-    $('.menu').click(function () {
-        let jenis = $(this).data("jenis")
-        let noSoal = state[`${jenis}`].lastNumber
-        // reset noSoal (masih dipikirkan)
-        $(".nomor-soal").html("Soal " + noSoal)
-        let choiceVal = state[`${jenis}`].answer[`${noSoal}`]
-        let kunci = state[`${jenis}`].kunci[`${noSoal}`]
-        let pembahasan = state[`${jenis}`].pembahasan[`${noSoal}`]
-        action(jenis, noSoal, choiceVal, kunci, pembahasan)
-    })
+        // Tab Menu Click
+        $('.menu').click(function () {
+            let jenis = $(this).data("jenis")
+            let noSoal = state[`${jenis}`].lastNumber
+            // reset noSoal (masih dipikirkan)
+            $(".nomor-soal").html("Soal " + noSoal)
+            let choiceVal = state[`${jenis}`].answer[`${noSoal}`]
+            let kunci = state[`${jenis}`].kunci[`${noSoal}`]
+            let pembahasan = state[`${jenis}`].pembahasan[`${noSoal}`]
+            action(jenis, noSoal, choiceVal, kunci, pembahasan)
+        })
 
-    // Navigation Click
-    $(".box-angka").click(function () {
-        let noSoal = $(this).data("nomor")
-        let jenis = $(".menu-active").data("jenis")
-        state[`${jenis}`].lastNumber = noSoal
-        let choiceVal = state[`${jenis}`].answer[`${noSoal}`]
-        let kunci = state[`${jenis}`].kunci[`${noSoal}`]
-        let pembahasan = state[`${jenis}`].pembahasan[`${noSoal}`]
-        action(jenis, noSoal, choiceVal, kunci, pembahasan)
-    })
-
-    // Kembali Click
-    $(".btn-kembali").click(function () {
-        let noSoal = parseInt($(this).data("nomor"))
-        if (noSoal > 0) {
+        // Navigation Click
+        $(".box-angka").click(function () {
+            let noSoal = $(this).data("nomor")
             let jenis = $(".menu-active").data("jenis")
             state[`${jenis}`].lastNumber = noSoal
             let choiceVal = state[`${jenis}`].answer[`${noSoal}`]
             let kunci = state[`${jenis}`].kunci[`${noSoal}`]
             let pembahasan = state[`${jenis}`].pembahasan[`${noSoal}`]
             action(jenis, noSoal, choiceVal, kunci, pembahasan)
-        }
-    })
+        })
 
-    // Selanjutnya Click
-    $(".btn-selanjutnya").click(function () {
-        let noSoal = parseInt($(this).data("nomor"))
-        
-        let jenis = $(".menu-active").data("jenis")
-        state[`${jenis}`].lastNumber = noSoal
-        let choiceVal = state[`${jenis}`].answer[`${noSoal}`]
-        let kunci = state[`${jenis}`].kunci[`${noSoal}`]
-        let pembahasan = state[`${jenis_soal}`].pembahasan[`${noSoal}`]
-        if (noSoal < 31 & jenis === 'twk') {
-            action(jenis, noSoal, choiceVal, kunci, pembahasan)
-        } else if (noSoal < 36 & jenis !== 'twk') {
-            action(jenis, noSoal, choiceVal, kunci, pembahasan)
-        }
+        // Kembali Click
+        $(".btn-kembali").click(function () {
+            let noSoal = parseInt($(this).data("nomor"))
+            if (noSoal > 0) {
+                let jenis = $(".menu-active").data("jenis")
+                state[`${jenis}`].lastNumber = noSoal
+                let choiceVal = state[`${jenis}`].answer[`${noSoal}`]
+                let kunci = state[`${jenis}`].kunci[`${noSoal}`]
+                let pembahasan = state[`${jenis}`].pembahasan[`${noSoal}`]
+                action(jenis, noSoal, choiceVal, kunci, pembahasan)
+            }
+        })
 
+        // Selanjutnya Click
+        $(".btn-selanjutnya").click(function () {
+            let noSoal = parseInt($(this).data("nomor"))
+
+            let jenis = $(".menu-active").data("jenis")
+            state[`${jenis}`].lastNumber = noSoal
+            let choiceVal = state[`${jenis}`].answer[`${noSoal}`]
+            let kunci = state[`${jenis}`].kunci[`${noSoal}`]
+            let pembahasan = state[`${jenis_soal}`].pembahasan[`${noSoal}`]
+            if (noSoal < 31 & jenis === 'twk') {
+                action(jenis, noSoal, choiceVal, kunci, pembahasan)
+            } else if (noSoal < 36 & jenis !== 'twk') {
+                action(jenis, noSoal, choiceVal, kunci, pembahasan)
+            }
+
+        })
     })
-});
+})
+
