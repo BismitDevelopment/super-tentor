@@ -14,9 +14,9 @@
 
 Route::get('/', 'DashboardController@index')->name('welcome');
 
-Auth::routes(['verify'=>true]);
+Auth::routes(['verify'=>false]);
 
-Route::middleware(['verified'])->prefix('home')->name('home.')->group(function(){
+Route::middleware(['auth'])->prefix('home')->name('home.')->group(function(){
     Route::get('/{page?}', 'HomeController@index')->name('index');
     Route::get('tryouthome', 'HomeController@tryouthome')->name('tryouthome');
 
